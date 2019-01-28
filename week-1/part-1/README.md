@@ -22,11 +22,11 @@ From now on, we're going to start the project `stylish`.
 Every time before you start a new assignment, please create a new **assignment branch** from the **develop** branch with the following rules and complete the assignment on that branch.
 
 ```
-Branch naming rules:
+Assignment branch naming rules:
 
   week_(week number)_part_(part number)
 
-Ex: For Week 1 Part 3
+Ex: For week 1 part 3
 
   => week_1_part_3
 ```
