@@ -34,7 +34,7 @@ Ex: For week 1 part 3
 1. Create a subfolder named **stylish** under the **students/[your_name]** folder.
 2. Modify **README.md** file, write down **your website URL** in this file.
 3. Make your first commit for the changes using git.
-4. Push the current assignment branch to `your forked repository`.
+4. Push **current assignment branch** to `your forked repository`.
 
 ## How to hand-in?
 
