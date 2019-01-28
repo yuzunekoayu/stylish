@@ -12,7 +12,7 @@ From now on, we're going to start the project `stylish`.
 
 1. Fork this repository in AppWorks School account to your GitHub account.
 2. You will get a `forked repository` in your GitHub account.
-3. We call repository in AppWorks School `upstream repository`.
+3. We call this repository in AppWorks School `upstream repository`.
 4. Clone your `forked repository` from GitHub to your local machine.
 5. Create a `develop` branch from `master` branch in your local machine.
 6. Change your current branch from `master` to `develop` in your local machine.
