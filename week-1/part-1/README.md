@@ -38,7 +38,7 @@ Ex: For week 1 part 3
 
 ## How to hand-in?
 
-Please find the **assignment branch** on your `forked repository` and make a pull request from this branch to `[your_name]_develop` of the upstream repository. (Please never make a pull request to the master of the upstream repository)
+Please find the **assignment branch** on your `forked repository` and make a pull request from this branch to `[your_name]_develop` of the `upstream repository`. (Please never make a pull request to the master branch of the `upstream repository`)
 
 You should check your email for tracking the status of pull request. If your pull request is not accepted by repository host, it means that the assignment have issues should be fix. I will mention the issues in the comment.
 
