@@ -19,7 +19,7 @@ From now on, we're going to start the project `stylish`.
 
 ## Assignment
 
-Every time before you start a new assignment, please create a new branch from the **develop** branch with the following rules and complete the assignment on that branch.
+Every time before you start a new assignment, please create a new **assignment branch** from the **develop** branch with the following rules and complete the assignment on that branch.
 
 ```
 Branch naming rules:
@@ -38,7 +38,7 @@ Ex: For Week 1 Part 3
 
 ## How to hand-in?
 
-Please find the assignment branch on your `forked repository` and make a pull request from this branch to `[your_name]_develop` of the upstream repository. (Please never make a pull request to the master of the upstream repository)
+Please find the **assignment branch** on your `forked repository` and make a pull request from this branch to `[your_name]_develop` of the upstream repository. (Please never make a pull request to the master of the upstream repository)
 
 You should check your email for tracking the status of pull request. If your pull request is not accepted by repository host, it means that the assignment have issues should be fix. I will mention the issues in the comment.
 
