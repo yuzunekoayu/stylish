@@ -20,7 +20,7 @@ We are going to build an e-commerce website called `Stylish`. Here is the summar
 Refer to: https://app.zeplin.io/project/5b5007688474a1a77c003931
 
 2. There are logo and icons ready.  
-Download from: http://appworks-school-stylish.firebaseapp.com/images.zip
+Download from: https://s3.amazonaws.com/appworks-school-stylish/images.zip
 
 3. There is a backend service ready.  
 Refer to: https://github.com/AppWorks-School/Front-End-Class-2018-Summer/blob/master/RESTful.md
