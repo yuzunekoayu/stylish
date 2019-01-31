@@ -23,7 +23,7 @@ Refer to: https://app.zeplin.io/project/5b5007688474a1a77c003931
 Download from: https://s3.amazonaws.com/appworks-school-stylish/images.zip
 
 3. There is a backend service ready.  
-Refer to: https://github.com/AppWorks-School/Front-End-Class-2018-Summer/blob/master/RESTful.md
+Refer to: https://github.com/AppWorks-School/API-Doc/tree/master/Stylish/RESTful.md
 
 #### What should we do?
 
