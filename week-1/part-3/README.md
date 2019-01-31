@@ -6,8 +6,8 @@
 
 We have just completed home page layout. Now, let's get product list from server dynamically.
 
-Connect to `Hots API` by AJAX, right after HTML DOM ready.  
-Refer to: https://github.com/AppWorks-School/API-Doc/blob/master/Stylish/README.md#hots-api
+Connect to `Product List API` by AJAX for data of all products, right after HTML DOM ready.  
+Refer to: https://github.com/AppWorks-School/API-Doc/blob/master/Stylish/README.md#product-list-api
 
 ---
 
