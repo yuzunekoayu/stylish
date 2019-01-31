@@ -6,8 +6,8 @@
 
 We have just completed home page layout. Now, let's get product list from server dynamically.
 
-Connect to `List Products API` by AJAX, right after static page have been loaded.  
-Refer to: https://github.com/AppWorks-School/Front-End-Class-2018-Summer/blob/master/RESTful.md#list-products
+Connect to `Hots API` by AJAX, right after HTML DOM ready.  
+Refer to: https://github.com/AppWorks-School/API-Doc/blob/master/Stylish/README.md#hots-api
 
 ---
 
