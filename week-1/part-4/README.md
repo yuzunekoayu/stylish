@@ -4,7 +4,7 @@
 
 ### Step 1: Complete Category and Search Feature
 
-Focus on our `List Product API` which supports `tag` parameter.
+Focus on our (Product List API)[https://github.com/AppWorks-School/API-Doc/blob/master/Stylish/README.md#product-list-api] and `Product Search API`.
 
 1. Set tag to `women`, `men`, or `accessories` for the product lists of each categories, and show them in the homepage.
 2. Set tag to the keyword entered by user, and show the search results in the homepage.
