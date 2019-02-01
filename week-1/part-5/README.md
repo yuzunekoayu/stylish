@@ -2,14 +2,13 @@
 
 ## Assignment
 
-### Step 1: Get Key Visuals
+### Step 1: Get Marketing Campaigns
 
-Key visuals are located in the top of the homepage. There will be many key visuals for marketing activities, but we just show one at a time.
+Key visual section is for marketing activities, located in the top of the homepage. There will be many marketing campaigns at the same time, but we just show one at a time.
 
-Connect to `List Key Visuals API` by AJAX for the links, stories and image paths.  
-Refer to: https://github.com/AppWorks-School/Front-End-Class-2018-Summer/blob/master/RESTful.md#list-key-visuals
+Connect to [Marketing Campaign API](https://github.com/AppWorks-School/API-Doc/blob/master/Stylish/README.md#marketing-campaign-api) by AJAX for the links, stories and image paths.  
 
-Build key visuals layout dynamically.  
+Build key visual section dynamically.  
 If user click on one of them, send user to the corresponding link.
 
 ### Step 2: Slide Effect
