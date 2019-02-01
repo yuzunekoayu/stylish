@@ -18,4 +18,4 @@ Now, when user click on `add to cart` button, add an item to our shopping cart s
 
 #### Special Reminder
 
-Not now, but at the final, we will send our shopping cart data to `Check Out API` for checking out. So, it's important to give a look at `Check Out API` first: https://github.com/AppWorks-School/Front-End-Class-2018-Summer/blob/master/RESTful.md#check-out
+Not now, but at the final, we will send our shopping cart data to [Check Out API](https://github.com/AppWorks-School/API-Doc/blob/master/Stylish/README.md#check-out-api) for checking out. So, it's important to give a look at [Check Out API](https://github.com/AppWorks-School/API-Doc/blob/master/Stylish/README.md#check-out-api) first.
