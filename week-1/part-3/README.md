@@ -15,7 +15,7 @@ Connect to [Product List API](https://github.com/AppWorks-School/API-Doc/blob/ma
 Data is ready!  
 
 Now, we should create product list by JavaScript dynamically.  
-At first, it's empty in our container of product list, let's create HTML elements based on data from server.
+At first, it's empty in our container of product list, let's create HTML elements based on received data.
 
 ### Step 3: Create Pages for Product Categories
 
