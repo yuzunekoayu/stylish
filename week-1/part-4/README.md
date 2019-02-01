@@ -2,19 +2,16 @@
 
 ## Assignment
 
-### Step 1: Complete Category and Search Feature
+### Step 1: Complete Search Feature
 
-Focus on our [Product List API](https://github.com/AppWorks-School/API-Doc/blob/master/Stylish/README.md#product-list-api) and [Product Search API](https://github.com/AppWorks-School/API-Doc/blob/master/Stylish/README.md#product-search-api).
-
-1. Set tag to `women`, `men`, or `accessories` for the product lists of each categories, and show them in the homepage.
-2. Set tag to the keyword entered by user, and show the search results in the homepage.
+Apply [Product Search API](https://github.com/AppWorks-School/API-Doc/blob/master/Stylish/README.md#product-search-api) to build search feature for our customers.
 
 ---
 
 ### Step 2: Complete Paging Feature
 
-At the same time, we notice there is a `page` parameter supported by `List Product API`.  
-Set page to `0 for first page`, `1 for second page`, and so on ...  
+At the same time, we notice there is a `paging` feature supported by `Product List API`.  
+We can get `paging` data from `Product List API` and set it as parameter of request for next page.
 
 #### Infinite Scroll
 
