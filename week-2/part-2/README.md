@@ -25,6 +25,6 @@ Refer to: https://github.com/AppWorks-School/Front-End-Class-2018-Summer/blob/ma
 
 ---
 
-### Step 3: Show Product Details Dynamically
+### Step 3: Render Product Details in the Product Page
 
 Fill out product details in the product page based on the data from server.
