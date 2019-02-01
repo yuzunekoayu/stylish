@@ -13,7 +13,7 @@ Refer to [Zeplin](https://github.com/AppWorks-School/Front-End-Class-2018-Summer
 
 ### Step 2: Handle Stock of Product Variants
 
-Every variant has its' own `stock record` which we have taken from `Get Product Details API`.
+Every variant has its' own `stock record` which we have taken from `Product Details API`.
 We should handle stock record carefully:
 
 1. Stock record makes the limit of quantity user can buy at one time.
