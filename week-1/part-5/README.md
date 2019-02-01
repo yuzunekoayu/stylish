@@ -13,5 +13,5 @@ If user click on one of them, send user to the corresponding link.
 
 ### Step 2: Slide Effect
 
-Complete slide effect on the key visuals.  
+Complete slide effect to show different campaigns for customers in the key visual section.  
 We should change to next slide every 10 seconds automatically.
