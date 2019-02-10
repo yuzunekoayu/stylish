@@ -13,7 +13,7 @@ We use [TapPay](https://www.tappaysdk.com/en/) as primary payment service for ou
 5. Send `prime` and other order information to `Check Out API` to complete payment.
 
 Refer to [TapPay Document for Web](https://docs.tappaysdk.com/tutorial/zh/web/front.html#front).  
-Refer to [Check Out API](https://github.com/AppWorks-School/API-Doc/blob/master/Stylish/README.md#check-out-api).
+Refer to [Check Out API](https://github.com/AppWorks-School/API-Doc/tree/master/Stylish#order-check-out-api).
 
 #### Required Fields for TapPay Integration
 
