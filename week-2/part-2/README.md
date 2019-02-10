@@ -20,7 +20,7 @@ JavaScript code in `product.html` should take `id` parameter, and then, make an 
 
 ### Step 2: Connect to Product Details API
 
-We have taken id from URL. Now, connect to [Product Detail API](https://github.com/AppWorks-School/API-Doc/blob/master/Stylish/README.md#product-detail-api) for the data of product details.  
+We have taken id from URL. Now, connect to [Product Details API](https://github.com/AppWorks-School/API-Doc/tree/master/Stylish#product-details-api) for the data of product details.  
 
 ---
 
