@@ -5,7 +5,7 @@
 ### Step 1: Complete Cart Page Layout
 
 Complete cart page layout with RWD.  
-Refer to [Zeplin](https://github.com/AppWorks-School/Front-End-Class-2018-Summer/blob/master/week-1/part-2/README.md#what-we-have) for page design.
+Refer to [Zeplin](https://app.zeplin.io/project/5b5007688474a1a77c003931) for page design.
 
 ### Step 2: Complete Cart Page
 
