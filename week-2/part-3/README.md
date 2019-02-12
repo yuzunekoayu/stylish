@@ -9,7 +9,7 @@ We should build an UI for user to choose their favorite color and size in the pr
 
 #### Complete it!
 
-Refer to [Zeplin](https://github.com/AppWorks-School/Front-End-Class-2018-Summer/blob/master/week-1/part-2/README.md#what-we-have) for design of details.
+Refer to [Zeplin](https://app.zeplin.io/project/5b5007688474a1a77c003931) for design of details.
 
 ### Step 2: Handle Stock of Product Variants
 
