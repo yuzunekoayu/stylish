@@ -5,4 +5,4 @@
 ### Step 1: Complete Product Page Layout
 
 Complete product page layout with RWD.  
-Refer to [Zeplin](https://github.com/AppWorks-School/API-Doc/tree/master/Stylish) for page design.
+Refer to [Zeplin](https://app.zeplin.io/project/5b5007688474a1a77c003931) for page design.
