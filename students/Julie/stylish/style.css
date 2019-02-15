@@ -71,14 +71,14 @@ nav > span {
 .searchBar {
     display: flex;
     justify-content: center;
-    width: 214px; height: 40px;
+    width: 195px; height: 40px;
     padding-left: 10px;
     border: 1px solid #979797;
     border-radius: 20px; 
 }
 
 .searchBar > input {
-    width: 148px;
+    width: 130px;
     font-size: 20px;
     border: none; outline: none;
 }
@@ -192,7 +192,6 @@ main {
     flex-wrap: wrap;
 }
 
-
 .product {
     width: 360px; 
     overflow: hidden;
@@ -272,7 +271,7 @@ footer {
 
 .guide {
     width: auto; height: 22px;
-    margin: 0 33px;
+    margin: 0 30px;
     font-size: 16px;
     color: #f5f5f5;
 }
@@ -309,6 +308,16 @@ footer {
 }
 
 @media screen and (max-width:1200px) {
+    
+    header > .logo {
+        flex: auto;
+        margin: 26px 0 26px 24px;
+    }
+    
+    header > .logo img {
+        height: 36px;
+    }
+
     nav {
         display: none;
     }
@@ -380,8 +389,12 @@ footer {
         margin: 45px auto 6px auto;
     }
 
+    .row {
+        justify-content: space-evenly;
+    }
+
     .product {
-        width: 200px; 
+        width: calc(31%); 
         overflow: hidden;
     }
 
@@ -403,7 +416,7 @@ footer {
 
     .title, .price {
         letter-spacing: 3.2px;
-        font-size: 14px;
+        font-size: 13px;
     }
     
     .price {
@@ -411,13 +424,18 @@ footer {
     }
 
     .ftWrap {
-        max-width: 640px;
+        max-width: 540px;
+        justify-content: space-evenly;
+    }
+
+    .ftNav > span {
+        font-size: 10px;
     }
     
     .guide {
         width: auto; height: 22px;
-        margin: 0 8px;
-        font-size: 12px;
+        margin: 0 4px;
+        font-size: 10px;
         color: #f5f5f5;
     }
     
@@ -431,7 +449,7 @@ footer {
 
     .twi {
         background-size: 100%; 
-        margin: 0 15px;
+        margin: 0 10px;
     }
     
     .fb {
@@ -439,7 +457,7 @@ footer {
     }
 
     .copy {
-        font-size: 10px;
+        font-size: 8px;
         color: #828282;
     }
 } 
