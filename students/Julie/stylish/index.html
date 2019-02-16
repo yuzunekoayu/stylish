@@ -14,13 +14,13 @@
             <a href="./"><img src="./img/logo.png" alt=""></a>
         </div>
         <nav>
-            <div class="active item">女裝</div><span>|</span>
+            <div class="item">女裝</div><span>|</span>
             <div class="item">男裝</div><span>|</span>
             <div class="item">配件</div>
         </nav>
         <div class="feature">
             <div class="searchBar">
-                    <input type="text">
+                    <input type="search" name="search">
                     <button type="submit"></button>
             </div>
             <div class="cart"><span class="badge">20</span></div>
@@ -39,9 +39,9 @@
     </header>
     <div class="bar">
         <div class="subNav">
-                <div class="subActive subItem">女裝</div><span>|</span>
-                <div class="subItem">男裝</div><span>|</span>
-                <div class="subItem">配件</div>
+                <div class="subActive subItem" id="women">女裝</div><span>|</span>
+                <div class="subItem" id="men">男裝</div><span>|</span>
+                <div class="subItem" id="acces">配件</div>
         </div>
     </div>
     <div class="carousel">
@@ -62,61 +62,7 @@
     </div>
     </div>
     <main>
-        <div class="row">
-            <div class="product">
-                <div class="new">新品</div>
-                <img src="./img/product1.jpg" alt="">
-                <div class="palette">
-                    <div class="color" id="code1"></div>
-                </div>
-                <div class="title">後鬆緊牛仔落地寬褲</div>
-                <div class="price">TWD.590</div>
-            </div>
-            <div class="product">
-                <img src="./img/product1.jpg" alt="">
-                <div class="palette">
-                    <div class="color" id="code2"></div>
-                    <div class="color" id="code3"></div>
-                </div>
-                <div class="title">前開衩扭結洋裝</div>
-                <div class="price">TWD.690</div>
-            </div>
-            <div class="product">
-                <img src="./img/product1.jpg" alt="">
-                <div class="palette">
-                    <div class="color" id="code4"></div>
-                    <div class="color" id="code5"></div>
-                </div>
-                <div class="title">涼感垂墜絲滑寬</div>
-                <div class="price">TWD.430</div>
-            </div>
-            <div class="product">
-                <img src="./img/product1.jpg" alt="">
-                <div class="palette">
-                    <div class="color" id="code6"></div>
-                    <div class="color" id="code7"></div>
-                </div>
-                <div class="title">腰鬆緊棉麻褲裙</div>
-                <div class="price">TWD.590</div>
-            </div>
-            <div class="product">
-                <img src="./img/product1.jpg" alt="">
-                <div class="palette">
-                    <div class="color" id="code8"></div>
-                    <div class="color" id="code9"></div>
-                </div>
-                <div class="title">前開衩扭結洋裝</div>
-                <div class="price">TWD.690</div>
-            </div>
-            <div class="product">
-                <img src="./img/product1.jpg" alt="">
-                <div class="palette">
-                    <div class="color" id="code10"></div>
-                </div>
-                <div class="title">透肌澎澎連袖防曬上衣</div>
-                <div class="price">TWD.430</div>
-            </div>
-        </div>
+        <div class="row" id="row"></div>
     </main>
     <footer>
         <div class="sftWrap">
@@ -153,5 +99,6 @@
             <div class="copy">&copy; 2018. All rights reserved</div>
         </div>
     </footer>
+    <script src="./main.js"></script>
 </body>
 </html>
