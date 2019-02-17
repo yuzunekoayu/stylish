@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: PingFangTC;
+    font-family: Meiryo, PingFangTC, sans-serif;
 }
 
 header {
@@ -586,6 +586,10 @@ footer {
     main {
         max-width: 360px;
         margin: 15px auto 11px auto;
+    }
+
+    .loader {
+        margin-bottom: 4px;
     }
 
     .row {

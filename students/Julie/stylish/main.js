@@ -1,7 +1,6 @@
-toggleNav(document.querySelectorAll('.item'));
-
 document.addEventListener("DOMContentLoaded", () => {
-
+    toggleNav(document.querySelectorAll('.item'));
+    
     show('all', 0);
 
     const tabs = document.querySelectorAll('.item');
