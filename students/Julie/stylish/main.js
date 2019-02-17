@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function tabListen(e) {
             if (e.currentTarget.id === tab) {
-                console.log(tab)
                 clear();
                 show(tab);
             } else {
@@ -21,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
         
         tabs[i].addEventListener('click', tabListen);
     }
-
 })
 
 function get(catalog) {
@@ -31,6 +29,7 @@ function get(catalog) {
         })
         .then( json => {
             render(json);
+            document.getElementById("loading").style.display = 'none';
         })
         .catch( err => {
             console.log(err);
@@ -42,8 +41,7 @@ function clear() {
     while (row.firstChild) {
         row.removeChild(row.firstChild);
     }
-    const loading = "./img"
-    row.innerText = "<i>"
+    document.getElementById("loading").style.display = 'block';
 }
 
 function show(cata, page) {

@@ -11,6 +11,7 @@ header {
     display: flex;
     width: 100%;
     align-items: center;
+    justify-content: space-between;
     flex-flow: row wrap;
 }
 
@@ -196,6 +197,15 @@ nav > span {
 main {
     max-width: 1200px;
     margin: 70px auto 16px auto;
+}
+
+.loader {
+    width: 100%; height: 64px;
+    background: url(./img/loading.gif) no-repeat;
+    background-position: center;
+    display: none;
+    z-index: 2;
+    margin-bottom: 39px;
 }
 
 .row {
