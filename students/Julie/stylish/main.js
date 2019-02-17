@@ -1,8 +1,27 @@
 toggleNav(document.querySelectorAll('.item'));
-toggleSubNav(document.querySelectorAll('.subItem'));
 
 document.addEventListener("DOMContentLoaded", () => {
-    show();
+
+    show('all', 0);
+
+    const tabs = document.querySelectorAll('.item');
+    for (let i = 0; i < tabs.length; i++) {
+        let tab = tabs[i].id;
+
+        function tabListen(e) {
+            if (e.currentTarget.id === tab) {
+                console.log(tab)
+                clear();
+                show(tab);
+            } else {
+                show('all', 0);
+                console.log(e.currentTarget.id);
+            }
+        }
+        
+        tabs[i].addEventListener('click', tabListen);
+    }
+
 })
 
 function get(catalog) {
@@ -18,8 +37,18 @@ function get(catalog) {
         })
 }
 
-function show(cata = 'all', page = 0) {
-    const endPoint = `/products/${cata}?paging=${page}`;
+function clear() {
+    const row = document.getElementById('row');
+    while (row.firstChild) {
+        row.removeChild(row.firstChild);
+    }
+    const loading = "./img"
+    row.innerText = "<i>"
+}
+
+function show(cata, page) {
+    let endPoint = `/products/${cata}?paging=${page}`;
+    console.log(cata, page);
     return get(endPoint);
 }
 
@@ -81,23 +110,5 @@ function toggleNav(elem) {
         }
         e.preventDefault();
       });
-    };
-  }
-
-function toggleSubNav(elem) {
-    for (var i = 0; i < elem.length; i++) {
-        elem[i].addEventListener("click", function(e) {
-        var curr = this;
-        for (var i = 0; i < elem.length; i++) {
-            if (curr != elem[i]) {
-            elem[i].classList.remove('subActive');
-            } else if (curr.classList.contains('subActive') === true) {
-            curr.classList.remove('subActive');
-            } else {
-            curr.classList.add('subActive')
-            }
-        }
-        e.preventDefault();
-        });
     };
 }
