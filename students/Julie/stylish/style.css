@@ -80,6 +80,10 @@ nav > span {
     font-size: 20px;
 }
 
+.mobileSearch {
+    display: none;
+}
+
 .searchBar {
     display: flex;
     justify-content: space-between;
@@ -171,7 +175,7 @@ nav > span {
 }
 
 .dots {
-    width: 138px; height: 10px;
+    width: 75px; height: 10px;
     position: absolute;
     left: 50%; top: 90.12%; 
     transform: translateX(-50%) translateY(-90.12%);
@@ -199,13 +203,23 @@ main {
     margin: 70px auto 16px auto;
 }
 
-.loader {
+.loading {
     width: 100%; height: 64px;
     background: url(./img/loading.gif) no-repeat;
     background-position: center;
     display: none;
     z-index: 2;
     margin-bottom: 39px;
+}
+
+.nothing {
+    width: 100%; min-height: 34.7vh;
+    display: none;
+    z-index: 2;
+    font-size: 20px;
+    margin: 30px 0 39px 0;
+    padding: 0 24px;
+    text-align: center;
 }
 
 .row {
@@ -478,7 +492,7 @@ footer {
     .logo {
         flex: none;
         width: 130px;
-        margin: 13px auto;
+        margin: 12px auto;
         position: relative;
     }
     
@@ -487,23 +501,40 @@ footer {
     }
     
     .logo img {
-        width: auto;
-        height: 25px;
+        width: auto; height: 25px;
         vertical-align: middle;
     }
-
-    .smallSearch {
+    
+    #mobileSubmit {
         width: 44px; height: 44px;
-        display: inline-block;
+        position: absolute;
+        top: 5px; right: 15px;
         background: url(./img/search.png) no-repeat;
         outline: none;
         border: none;
-        position: absolute;
-        left: 210%; top: 50%; 
-        transform: translateX(-210%) translateY(-50%);
+        opacity: 1;
+        transition: opacity .3s ease;
+    }
+    
+    .feature {
+        margin: 0;
+        min-width: 90%;
+        opacity: 0;
+        transition: opacity .3s ease;
     }
 
-    .feature {
+    .searchBar {
+        width: 100%; margin-right: 0;
+        height: 0;
+        transition: height .3s ease;
+        flex-shrink: 0;
+    }
+
+    .searchBar > input {
+        width: 90%;
+    }
+
+    .cart, .member {
         display: none;
     }
 
@@ -588,7 +619,12 @@ footer {
         margin: 15px auto 11px auto;
     }
 
-    .loader {
+    .loading {
+        margin-bottom: 4px;
+    }
+
+    .nothing {
+        font-size: 18px;
         margin-bottom: 4px;
     }
 

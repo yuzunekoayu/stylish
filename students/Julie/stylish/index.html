@@ -10,18 +10,18 @@
 <body>
     <header>
         <div class="logo">
-            <button class="smallSearch"></button>
             <a href="./"><img src="./img/logo.png" alt=""></a>
         </div>
+        <button type="submit" id="mobileSubmit"></button>
         <nav>
             <div class="item" id="women">女裝</div><span>|</span>
             <div class="item" id="men">男裝</div><span>|</span>
             <div class="item" id="accessories">配件</div>
         </nav>
-        <div class="feature">
-            <div class="searchBar">
-                    <input type="search" name="search">
-                    <button type="submit"></button>
+        <div class="feature" id="feature">
+            <div class="searchBar" id="searchBar">
+                <input type="text" id="input" placeholder="搜尋…" onfocus="this.placeholder=''" onblur="this.placeholder='搜尋…'">
+                <button id="btnSubmit"></button>
             </div>
             <div class="cart"><span class="badge">20</span></div>
             <div class="member"></div>
@@ -49,14 +49,13 @@
             <div class="activeDot dot"></div>
             <div class="dot"></div>
             <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
         </div>
         <div class="slideImg"></div>
     </div>
     </div>
     <main>
-        <div id="loading" class="loader"></div>
+        <div id="loading" class="loading"></div>
+        <div id="nothing" class="nothing">您搜尋的商品不存在或已經下架。</div>
         <div class="row" id="row"></div>
     </main>
     <footer>
@@ -95,5 +94,6 @@
         </div>
     </footer>
     <script src="./main.js"></script>
+    <script src="./api.js"></script>
 </body>
 </html>
