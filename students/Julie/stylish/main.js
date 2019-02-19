@@ -1,63 +1,73 @@
+// 等 HTML DOM 長好了才開始跑 JS。
 document.addEventListener("DOMContentLoaded", () => {
-    toggleNav(document.querySelectorAll('.item'));
+  
+  // Home Page 初始畫面
+  get('products', 'all');
+  
+  // 按 tab 變字體顏色
+  toggleNav(document.querySelectorAll('.item'));
+  
+  // 把 tab id 當作網址的 End Point 傳給 Fetch，按到哪個 tab 就傳那個 tab 的 id 
+  const tabs = document.querySelectorAll('.item');
+  for (let i = 0; i < tabs.length; i++) {
+      let tab = tabs[i].id;
 
-    catalog('all', 0);
+      function tabListen(e) {
+        if (e.currentTarget.id === tab) {
+              clear();
+              get('products', tab);
+          } else {
+              console.log(e.currentTarget.id);
+              console.log(tab);
+          }
+      }
+      
+      tabs[i].addEventListener('click', tabListen);
+  }
 
-    const tabs = document.querySelectorAll('.item');
-    for (let i = 0; i < tabs.length; i++) {
-        let tab = tabs[i].id;
-
-        function tabListen(e) {
-            if (e.currentTarget.id === tab) {
-                clear();
-                catalog(tab);
-            } else {
-                console.log(e.currentTarget.id);
-            }
-        }
-        
-        tabs[i].addEventListener('click', tabListen);
-    }
-
-    const btnSubmit = document.getElementById('btnSubmit');
-    btnSubmit.addEventListener('click', () => {
+  // 當客人按下搜尋，將客人輸入的關鍵字當作參數，傳給 Fetch。
+  const btnSubmit = document.getElementById('btnSubmit');
+  btnSubmit.addEventListener('click', () => {
         let inputWord = document.getElementById("input").value;
         if (inputWord.length > 0) {
             clear();
-            search(inputWord, 0);
+            inputField.value = "";
+            search(inputWord);
         } else {
             return
         }
-        console.log(inputWord);
-    });
+      console.log(inputWord);
+  });
 
-    let inputField = document.getElementById("input");
-    inputField.addEventListener("keypress", (e) => {
-        if (e.keyCode === 13) {
-        btnSubmit.click();
-        inputField.value = "";
-        }
-    });
-
-
-    const mobileSubmit = document.getElementById("mobileSubmit");
-    const feature = document.getElementById("feature");
-    const searchBar = document.getElementById("searchBar");
-
-    function magnify() {
-      if (mobileSubmit.style.background === 'url("./img/close.png")') {
-        mobileSubmit.style.background = 'url("./img/search.png")';
-        feature.classList.remove('featureGrow');
-        searchBar.classList.remove('searchBarGrow');
-      } else {
-        mobileSubmit.style.background = 'url("./img/close.png")';
-        feature.classList.add('featureGrow');
-        searchBar.classList.add('searchBarGrow');
+  // 讓滑鼠 click 跟鍵盤 enter 都可以 submit 搜尋關鍵字
+  let inputField = document.getElementById("input");
+  inputField.addEventListener("keypress", (e) => {
+      if (e.keyCode === 13) {
+      btnSubmit.click();
+      inputField.value = "";
       }
+  });
+
+  // 手機版 Search Bar
+  const mobileSubmit = document.getElementById("mobileSubmit");
+  const feature = document.getElementById("feature");
+  const searchBar = document.getElementById("searchBar");
+  
+  function magnify() {
+    if (mobileSubmit.style.background === 'url("./img/close.png")') {
+      mobileSubmit.style.background = 'url("./img/search.png")';
+      feature.classList.remove('featureGrow');
+      searchBar.classList.remove('searchBarGrow');
+    } else {
+      mobileSubmit.style.background = 'url("./img/close.png")';
+      feature.classList.add('featureGrow');
+      searchBar.classList.add('searchBarGrow');
     }
-    mobileSubmit.addEventListener('pointerdown', magnify); 
+  }
+  mobileSubmit.addEventListener('pointerdown', magnify);  
 });
 
+// 按 tab 變字體顏色的功能。
 function toggleNav(elem) {
     for (let i = 0; i < elem.length; i++) {
       elem[i].addEventListener("click", function(e) {

@@ -515,6 +515,7 @@ footer {
         opacity: 1;
         transition: opacity .3s ease;
         display: block;
+        cursor: pointer;
     }
     
     .feature {
