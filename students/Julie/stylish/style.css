@@ -80,7 +80,7 @@ nav > span {
     font-size: 20px;
 }
 
-.mobileSearch {
+#mobileSubmit {
     display: none;
 }
 
@@ -213,7 +213,7 @@ main {
 }
 
 .nothing {
-    width: 100%; min-height: 34.7vh;
+    width: 100%; height: calc(100vh - 315px);
     display: none;
     z-index: 2;
     font-size: 20px;
@@ -514,20 +514,32 @@ footer {
         border: none;
         opacity: 1;
         transition: opacity .3s ease;
+        display: block;
     }
     
     .feature {
-        margin: 0;
+        margin: 0 auto;
         min-width: 90%;
         opacity: 0;
         transition: opacity .3s ease;
     }
 
+    .featureGrow {
+        opacity: 1;
+        margin: 6px auto 14px auto;
+    }
+
     .searchBar {
-        width: 100%; margin-right: 0;
-        height: 0;
-        transition: height .3s ease;
+        width: 100%; height: 0;
+        margin-right: 0;
+        opacity: 0;
         flex-shrink: 0;
+        transition: height .3s ease, opacity .3s ease;
+    }
+
+    .searchBarGrow {
+        height: 40px;
+        opacity: 1;
     }
 
     .searchBar > input {

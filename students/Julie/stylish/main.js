@@ -39,23 +39,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+
     const mobileSubmit = document.getElementById("mobileSubmit");
-    mobileSubmit.addEventListener('pointerdown', (e) => {
-        const feature = document.getElementById("feature");
-        const searchBar = document.getElementById("searchBar");
-        feature.style.opacity = "1";
-        feature.style.margin = "6px auto 14px auto";
-        searchBar.style.height = "40px";
-        e.currentTarget.style.opacity = "0";
-    });
+    const feature = document.getElementById("feature");
+    const searchBar = document.getElementById("searchBar");
 
-})
-
+    function magnify() {
+      if (mobileSubmit.style.background === 'url("./img/close.png")') {
+        mobileSubmit.style.background = 'url("./img/search.png")';
+        feature.classList.remove('featureGrow');
+        searchBar.classList.remove('searchBarGrow');
+      } else {
+        mobileSubmit.style.background = 'url("./img/close.png")';
+        feature.classList.add('featureGrow');
+        searchBar.classList.add('searchBarGrow');
+      }
+    }
+    mobileSubmit.addEventListener('pointerdown', magnify); 
+});
 
 function toggleNav(elem) {
     for (let i = 0; i < elem.length; i++) {
       elem[i].addEventListener("click", function(e) {
-        let curr = this;
+        const curr = this;
         for (let i = 0; i < elem.length; i++) {
           if (curr != elem[i]) {
             elem[i].classList.remove('active');
