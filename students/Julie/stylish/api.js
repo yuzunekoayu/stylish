@@ -1,7 +1,7 @@
 let currPG = 0;
 let currEP = '';
 
-// Connect API 用 Fetch
+// Connect Product List API 跟 Product Search API 用 Fetch
 function get(api, page) {
     // 把 ep 存起來，換頁時有用。
     currEP = api;
@@ -18,10 +18,10 @@ function get(api, page) {
                 // 如果資料小於等於 0 筆，跟客人說找不到
                 document.getElementById("nothing").style.display = 'block';
             } else {
-                // 不然就 render 出來。 
+                // 不然就 render 產品出來。 
                 // 也把 paging 值存起來，換頁用。
                 currPG = json.paging;
-                render(json);
+                renderPD(json);
             }
         })
         .catch( err => {
@@ -36,7 +36,7 @@ window.onscroll = function () {
 
     // 如果卷軸到了底部
     if (winH + window.scrollY >= docH) {
-        // 如果目前的頁面在剛剛 Fetch 時，有 paging 且大於 0
+        // 如果目前的頁面在剛剛 Fetch 時，有 paging
         if (currPG !== undefined) {
             // 再 Fetch 一次，讓客人不用跳轉就可繼續讀取下一頁。
             console.log(currEP + 'paging=' + currPG);
@@ -64,12 +64,12 @@ function catalog(cata) {
     const ep = `/products/${cata}?`;
     return get(ep);
 }
-function search(keyword, page) {
+function search(keyword) {
     const ep = `/products/search?keyword=${keyword}&`;
     return get(ep);
 }
 function campaigns() {
-    const ep = '/marketing/campaogns';
+    const ep = '/marketing/campaigns';
     return get(ep);
 }
 function mkhost() {
@@ -77,8 +77,13 @@ function mkhost() {
     return get(ep);
 }
 
-// render 出畫面
-function render(layout) {
+// render Key Visual（header輪播）
+function renderKV(layout) {
+    const row = document.getElementById("row");
+}
+
+// render 產品畫面
+function renderPD(layout) {
 
     const row = document.getElementById("row");
 

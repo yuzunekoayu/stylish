@@ -1,9 +1,14 @@
+let slides, index;
+
 // 等 HTML DOM 長好了才開始跑
 document.addEventListener("DOMContentLoaded", () => {
   
   // 初始設定
   catalog('all');
   
+  slides = document.querySelectorAll(".slide");
+  index = 0;
+
   // 按 tab 變字體顏色
   toggleNav(document.querySelectorAll('.item'));
   
@@ -84,4 +89,15 @@ function toggleNav(elem) {
         e.preventDefault();
       });
     };
+}
+
+function next() {
+  // 把目前的主圖移出去
+  slides[index].classList.remove("in");
+  slides[index].classList.add("out");
+  // 下一張
+  index = (index+1) % slides.length; // 循環用 %（取餘數
+  // 把新圖秀出來
+  slides[index].classList.remove("out");
+  slides[index].classList.add("in");
 }
