@@ -2,10 +2,10 @@ let currPG = 0;
 let currEP = '';
 
 // Connect API 用 Fetch
-function get(api) {
+function get(api, page) {
     // 把 ep 存起來，換頁時有用。
     currEP = api;
-    fetch(`http://18.214.165.31/api/1.0${api}`)
+    fetch(`http://18.214.165.31/api/1.0${api}paging=${page}`)
         .then( res => {
             return res.json();
         })
@@ -36,10 +36,11 @@ window.onscroll = function () {
 
     // 如果卷軸到了底部
     if (winH + window.scrollY >= docH) {
-        // 如果目前的頁面，剛剛 Fetch 時 有 paging 且大於 0
-        if (currPG > 0 && currPG !== undefined) {
+        // 如果目前的頁面在剛剛 Fetch 時，有 paging 且大於 0
+        if (currPG !== undefined) {
             // 再 Fetch 一次，讓客人不用跳轉就可繼續讀取下一頁。
-            get(currEP + 'paging=' + currPG);
+            console.log(currEP + 'paging=' + currPG);
+            get(currEP, currPG);
         } else {
             return
         }
@@ -58,7 +59,7 @@ function clear() {
     document.getElementById("nothing").style.display = 'none';
 }
 
-// 取得 EndPoint 小精靈
+// 取得 End Point 小精靈
 function catalog(cata) {
     const ep = `/products/${cata}?`;
     return get(ep);
