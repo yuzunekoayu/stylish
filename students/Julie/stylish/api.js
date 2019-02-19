@@ -1,41 +1,51 @@
+let currPG = 0;
+let currEP = '';
+
 // Connect API 用 Fetch
-function get(api, ep) {
-    fetch(`http://18.214.165.31/api/1.0/${api}/${ep}`)
+function get(api) {
+    // 把 ep 存起來，換頁時有用。
+    currEP = api;
+    fetch(`http://18.214.165.31/api/1.0${api}`)
         .then( res => {
             return res.json();
         })
         .then( json => {
-            console.log('結果 ' + json.data.length + ' 筆資料');
-            console.log('頁數：' + json.paging);
+            console.log('json 結果 ' + json.data.length + ' 筆資料');
+            console.log('json paging: ' + json.paging);
             // Loading 圖
             document.getElementById("loading").style.display = 'none';
             if (json.data.length <= 0) {
                 // 如果資料小於等於 0 筆，跟客人說找不到
                 document.getElementById("nothing").style.display = 'block';
-            } else if (json.paging !== undefined) {
-                // 如果有好幾頁，就新增一項 query string parameter 然後無限卷軸
-                render(json);
-                window.onscroll = function () {
-                    const contentHeight = window.innerHeight + window.scrollY;
-                    const bodyHeight = document.body.scrollHeight;
-                    if (contentHeight >= bodyHeight) {
-                        let page = json.paging - 1;
-                        let params = new URLSearchParams();
-                        params.append('paging', page+=1);
-                        console.log('下一頁：Ｄ');
-                        render(json);
-                    } else {
-                        return
-                    }
-                }
             } else {
                 // 不然就 render 出來。 
+                // 也把 paging 值存起來，換頁用。
+                currPG = json.paging;
                 render(json);
             }
         })
         .catch( err => {
             console.log(err);
         })
+}
+
+// 監測卷軸位置
+window.onscroll = function () {
+    const docH = document.body.scrollHeight;
+    const winH = window.innerHeight;
+
+    // 如果卷軸到了底部
+    if (winH + window.scrollY >= docH) {
+        // 如果目前的頁面，剛剛 Fetch 時 有 paging 且大於 0
+        if (currPG > 0 && currPG !== undefined) {
+            // 再 Fetch 一次，讓客人不用跳轉就可繼續讀取下一頁。
+            get(currEP + 'paging=' + currPG);
+        } else {
+            return
+        }
+    } else {
+        return
+    }
 }
 
 // 清空畫面
@@ -48,11 +58,22 @@ function clear() {
     document.getElementById("nothing").style.display = 'none';
 }
 
-// 如果用 URLSearchParams()，參數會一直被轉成 unicode 碼，無法用中文搜尋，只好自己綁個 function
-function search(keyword) {
-    const api = 'products';
-    const ep = `search?keyword=${keyword}`;
-    return get(api, ep);
+// 取得 EndPoint 小精靈
+function catalog(cata) {
+    const ep = `/products/${cata}?`;
+    return get(ep);
+}
+function search(keyword, page) {
+    const ep = `/products/search?keyword=${keyword}&`;
+    return get(ep);
+}
+function campaigns() {
+    const ep = '/marketing/campaogns';
+    return get(ep);
+}
+function mkhost() {
+    const ep = '/marketing/hosts';
+    return get(ep);
 }
 
 // render 出畫面

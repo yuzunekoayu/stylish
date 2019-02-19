@@ -1,8 +1,8 @@
-// 等 HTML DOM 長好了才開始跑 JS。
+// 等 HTML DOM 長好了才開始跑
 document.addEventListener("DOMContentLoaded", () => {
   
-  // Home Page 初始畫面
-  get('products', 'all');
+  // 初始設定
+  catalog('all');
   
   // 按 tab 變字體顏色
   toggleNav(document.querySelectorAll('.item'));
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       function tabListen(e) {
         if (e.currentTarget.id === tab) {
               clear();
-              get('products', tab);
+              catalog(tab);
           } else {
               console.log(e.currentTarget.id);
               console.log(tab);
