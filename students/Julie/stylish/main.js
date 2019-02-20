@@ -1,6 +1,5 @@
-
-let index; 
-let dotIndex;
+let index = 0; let dotIndex = 0; let currIndex = 0;
+let slides = ''; let dots = '';
 
 // 等 HTML DOM 長好了才開始跑
 document.addEventListener("DOMContentLoaded", () => {
@@ -96,9 +95,6 @@ function toggleNav(elem) {
 }
 
 function next() {
-  let slides = document.querySelectorAll(".slide");
-  let dots = document.querySelectorAll(".dot");
-
   slides[index].classList.remove("in");
   slides[index].classList.add("out");
   dots[dotIndex].classList.remove("activeDot");

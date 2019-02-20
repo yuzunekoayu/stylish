@@ -1,9 +1,8 @@
-// 目前頁數
-let currPG = 0;
-// 目前 End Point
-let currEP = '';
+// 目前頁數，目前 End Point
+let currPG = 0; let currEP = '';
 // 伺服器名
 let host = '18.214.165.31';
+
 
 // Connect Product List API 跟 Product Search API 跟 Marketing Campaigns API
 function get(api, page) {
@@ -25,6 +24,8 @@ function get(api, page) {
             } else if (api === "/marketing/campaigns?") {
                 // 如果 api 是 Marketing Campaigns API，就 render Key Visual
                 renderKV(json);
+                slides = document.querySelectorAll(".slide");
+                dots = document.querySelectorAll(".dot");
             } else {
                 // 不然就 render 產品出來，然後也把 paging 值存起來，換頁用。
                 currEP = api;
@@ -40,13 +41,12 @@ function get(api, page) {
 // 監測卷軸位置
 window.onscroll = function () {
     const docH = document.body.scrollHeight;
-    const winH = window.innerHeight;
-
-    // 如果卷軸到了底部
-    if (winH + window.scrollY >= docH) {
+    const winH = window.innerHeight + window.scrollY;
+    // 如果卷軸到了底部（winH 如果沒四捨五入，會有明明到底了但數值還是 < docH 的情況發生所以用了 Math.round）
+    if (Math.round(winH) >= docH) {
         if (currEP === "/marketing/campaigns?") {
             // 如果是 Marketing Campaigns API，就什ㄇ都不做
-        } else if (currPG !== undefined) { 
+        } else if (currPG !== undefined && currPG >= 0) { 
             // 如果目前的頁面在剛剛 Fetch 時，有 paging
             // 再 Fetch 一次，讓客人不用跳轉就可繼續讀取下一頁。
             console.log(currEP + 'paging=' + currPG);
@@ -93,13 +93,18 @@ function renderKV(layout) {
         const slide = document.createElement("div");
         const visual = 'http://' + `${host}` + `${layout.data[i].picture}`;
         slide.className = "slide";
-        
         slide.style.backgroundImage = ('src', "url('" + visual + "')");
 
+        // 根據 <br> 把故事文拆開變一行一行
+        const line = `${layout.data[i].story}`.split('\r\n');
+
+        // 創造裝故事的 div.story
         const story = document.createElement("div");
         story.className = "story"
-        story.innerText = `${layout.data[i].story}`;
 
+        // 再用 <br> 把一行一行的故事文串起來，然後在最後一行加 span.subText 才能還原成設計稿畫的樣子。
+        story.innerHTML = `${line[0] + '<br>' + line[1] + '<br>' + line[2] + '<br><span class="subText">' + line[3] + '</span>'}`;
+        
         slide.appendChild(story);
         fragment.appendChild(slide);
     }
@@ -107,8 +112,15 @@ function renderKV(layout) {
     const dotWrap = document.createElement("div");
     dotWrap.className = "dotWrap";
     fragment.appendChild(dotWrap);
+
+    // 讓位在第一個的點點同時有 dot activeDot 的 class
+    for(let d = 0; d < layout.data.length - (layout.data.length - 1); d++) {
+        const dot = document.createElement("div");
+        dot.className = "activeDot dot";
+        dotWrap.appendChild(dot);
+    }
     
-    for(let d = 0; d < layout.data.length; d++) {
+    for(let d = 0; d < layout.data.length - 1; d++) {
         const dot = document.createElement("div");
         dot.className = "dot";
         dotWrap.appendChild(dot);
