@@ -1,25 +1,33 @@
+// 目前頁數
 let currPG = 0;
+// 目前 End Point
 let currEP = '';
+// 伺服器名
+let host = '18.214.165.31';
 
-// Connect Product List API 跟 Product Search API 用 Fetch
+// Connect Product List API 跟 Product Search API 跟 Marketing Campaigns API
 function get(api, page) {
-    // 把 ep 存起來，換頁時有用。
-    currEP = api;
-    fetch(`http://18.214.165.31/api/1.0${api}paging=${page}`)
+    // 設定一個 query string 參數叫 paging
+    let params = new URLSearchParams();
+    params.set('paging', `${page}`);
+    // Fetch
+    fetch(`http://${host}/api/1.0${api}` + params)
         .then( res => {
             return res.json();
         })
         .then( json => {
-            console.log('json 結果 ' + json.data.length + ' 筆資料');
-            console.log('json paging: ' + json.paging);
+            console.log('json 結果 ' + json.data.length + ' 筆資料，' + 'json paging: ' + json.paging);
             // Loading 圖
             document.getElementById("loading").style.display = 'none';
             if (json.data.length <= 0) {
                 // 如果資料小於等於 0 筆，跟客人說找不到
                 document.getElementById("nothing").style.display = 'block';
+            } else if (api === "/marketing/campaigns?") {
+                // 如果 api 是 Marketing Campaigns API，就 render Key Visual
+                renderKV(json);
             } else {
-                // 不然就 render 產品出來。 
-                // 也把 paging 值存起來，換頁用。
+                // 不然就 render 產品出來，然後也把 paging 值存起來，換頁用。
+                currEP = api;
                 currPG = json.paging;
                 renderPD(json);
             }
@@ -36,16 +44,14 @@ window.onscroll = function () {
 
     // 如果卷軸到了底部
     if (winH + window.scrollY >= docH) {
-        // 如果目前的頁面在剛剛 Fetch 時，有 paging
-        if (currPG !== undefined) {
+        if (currEP === "/marketing/campaigns?") {
+            // 如果是 Marketing Campaigns API，就什ㄇ都不做
+        } else if (currPG !== undefined) { 
+            // 如果目前的頁面在剛剛 Fetch 時，有 paging
             // 再 Fetch 一次，讓客人不用跳轉就可繼續讀取下一頁。
             console.log(currEP + 'paging=' + currPG);
             get(currEP, currPG);
-        } else {
-            return
         }
-    } else {
-        return
     }
 }
 
@@ -69,7 +75,7 @@ function search(keyword) {
     return get(ep);
 }
 function campaigns() {
-    const ep = '/marketing/campaigns';
+    const ep = '/marketing/campaigns?';
     return get(ep);
 }
 function mkhost() {
@@ -77,9 +83,38 @@ function mkhost() {
     return get(ep);
 }
 
-// render Key Visual（header輪播）
+// render Key Visual
 function renderKV(layout) {
-    const row = document.getElementById("row");
+    const carousel = document.getElementById("carousel");
+    
+    const fragment = document.createDocumentFragment();
+
+    for(let i = 0; i < layout.data.length; i++) {
+        const slide = document.createElement("div");
+        const visual = 'http://' + `${host}` + `${layout.data[i].picture}`;
+        slide.className = "slide";
+        
+        slide.style.backgroundImage = ('src', "url('" + visual + "')");
+
+        const story = document.createElement("div");
+        story.className = "story"
+        story.innerText = `${layout.data[i].story}`;
+
+        slide.appendChild(story);
+        fragment.appendChild(slide);
+    }
+
+    const dotWrap = document.createElement("div");
+    dotWrap.className = "dotWrap";
+    fragment.appendChild(dotWrap);
+    
+    for(let d = 0; d < layout.data.length; d++) {
+        const dot = document.createElement("div");
+        dot.className = "dot";
+        dotWrap.appendChild(dot);
+    }
+    
+    carousel.appendChild(fragment);
 }
 
 // render 產品畫面
