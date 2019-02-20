@@ -222,6 +222,7 @@ nav > span {
     background-color: rgba(255,255,255,.5);
     transition: .2s ease;
     cursor: pointer;
+    z-index: 2;
 }
 
 .activeDot, .initDot {
