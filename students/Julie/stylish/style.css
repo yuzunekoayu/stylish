@@ -158,7 +158,6 @@ nav > span {
     background-position: center center;
     margin: 0 auto;
     position: absolute; left: 100%; top:0;
-    z-index: 1;
 }
 
 .carousel > .slide:first-child {
@@ -168,7 +167,6 @@ nav > span {
 .carousel > .in {
     animation: slide-in 0.5s;
     animation-fill-mode: forwards;
-    z-index: 1;
 }
 
 .carousel > .out {
@@ -215,7 +213,6 @@ nav > span {
     transform: translateX(-50%) translateY(-90.12%);
     display: flex;
     justify-content: space-between;
-    z-index: 1;
 }
 
 .dot {

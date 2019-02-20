@@ -1,3 +1,6 @@
+
+let index;
+
 // 等 HTML DOM 長好了才開始跑
 document.addEventListener("DOMContentLoaded", () => {
   
@@ -7,7 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 按 tab 變字體顏色
   toggleNav(document.querySelectorAll('.item'));
-  
+
+  index = 0; // 要知道當前誰被選擇，0就是第一張（陣列
+
   // 把 tab id 當作網址的 End Point 傳給 Fetch，按到哪個 tab 就傳那個 tab 的 id 
   const tabs = document.querySelectorAll('.item');
   for (let i = 0; i < tabs.length; i++) {
@@ -66,6 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   mobileSubmit.addEventListener('pointerdown', magnify);  
+
+  
 });
 
 // 按 tab 變字體顏色的功能。
@@ -85,4 +92,16 @@ function toggleNav(elem) {
         e.preventDefault();
       });
     };
-  }
+}
+
+function next() {
+  let slides = document.querySelectorAll(".slide");
+
+  slides[index].classList.remove("in");
+  slides[index].classList.add("out");
+
+  index = (index+1) % slides.length;
+
+  slides[index].classList.remove("out");
+  slides[index].classList.add("in");
+}
