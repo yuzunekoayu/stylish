@@ -1,5 +1,4 @@
 let index = 0; let dotIndex = 0;
-let slides = []; let dots = [];
 
 // 等靜態 HTML DOM 長好了才開始跑
 document.addEventListener("DOMContentLoaded", () => {
@@ -91,6 +90,7 @@ function toggleNav(elem) {
 
 // 自動輪播功能
 function next() {
+  console.log(slides, dots);
   slides[index].classList.remove("in");
   slides[index].classList.add("out");
   dots[dotIndex].classList.remove("activeDot");

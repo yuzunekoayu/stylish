@@ -214,6 +214,7 @@ nav > span {
     transform: translateX(-50%) translateY(-90.12%);
     display: flex;
     justify-content: space-between;
+    z-index: 1;
 }
 
 .dot, .activeDot {
@@ -443,10 +444,6 @@ footer {
     main {
         max-width: 640px;
         margin: 45px auto 6px auto;
-    }
-
-    .row {
-        justify-content: space-evenly;
     }
 
     .product {

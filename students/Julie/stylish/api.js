@@ -2,6 +2,8 @@
 let currPG = 0; let currEP = '';
 // 伺服器名
 let host = '18.214.165.31';
+// 輪播要用的變數
+let slides = []; let dots = [];
 
 // Connect Product List API 跟 Product Search API 跟 Marketing Campaigns API
 function get(api, page) {
@@ -14,6 +16,7 @@ function get(api, page) {
             return res.json();
         })
         .then( json => {
+            console.log(json.data);
             console.log('json 結果 ' + json.data.length + ' 筆資料，' + 'json paging: ' + json.paging);
             // Loading 圖
             document.getElementById("loading").style.display = 'none';
@@ -42,10 +45,10 @@ window.onscroll = function () {
     const docH = document.body.scrollHeight;
     const winH = window.innerHeight + window.scrollY;
     // 如果卷軸到了底部（winH 如果沒四捨五入，會有明明到底了但數值還是 < docH 的情況發生所以用了 Math.round）
-    if (Math.round(winH) >= docH) {
+    if (Math.round(winH) === docH) {
         if (currEP === "/marketing/campaigns?") {
             // 如果是 Marketing Campaigns API，就什ㄇ都不做
-        } else if (currPG !== undefined && currPG >= 0) { 
+        } else if (currPG !== undefined && currPG > 0) { 
             // 如果目前的頁面在剛剛 Fetch 時，有 paging
             // 再 Fetch 一次，讓客人不用跳轉就可繼續讀取下一頁。
             console.log('Request 網址: ' + currEP + 'paging=' + currPG);
@@ -77,10 +80,10 @@ function campaigns() {
     const ep = '/marketing/campaigns?';
     return get(ep);
 }
-function mkhost() {
-    const ep = '/marketing/hosts';
-    return get(ep);
-}
+// function mkhost() {
+//     const ep = '/marketing/hosts';
+//     return get(ep);
+// }
 
 // render Key Visual
 function renderKV(layout) {

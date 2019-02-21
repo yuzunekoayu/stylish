@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Stylish</title>
+    <title>Stylish｜Product</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./product.css">
 </head>
 <body>
     <header>
@@ -38,11 +39,55 @@
         </div>
     </header>
     <div class="bar"></div>
-    <div class="carousel" id="carousel" onclick="next();"></div>
     <main>
         <div id="loading" class="loading"></div>
         <div id="nothing" class="nothing">您搜尋的商品不存在或已經下架。</div>
-        <div class="row" id="row"></div>
+        <div id ="prod" class="prod">
+            <div class="basic">
+                <img src="http://18.214.165.31/assets/201807202157/main.jpg" alt="">
+                <div class="info">
+                    <div class="prodTitle">活力花紋長筒牛仔褲</div>
+                    <div class="prodId">201807202157</div>
+                    <div class="prodPrice">TWD.1299</div>
+                    <div class="prodColors">
+                        <div class="option">顏色</div>
+                        <div class="variants">r</div>
+                        <div class="variants">g</div>
+                        <div class="variants">b</div>
+                    </div>
+                    <div class="prodSizes">
+                        <div class="option">尺寸</div>
+                        <div class="smlxl">s</div>
+                        <div class="smlxl">m</div>
+                        <div class="smlxl">l</div>
+                    </div>
+                    <div class="pieceWant">
+                        <div class="option">數量</div>
+                        <div class="pieceCounter">
+                            <button class="countBtn">-</div>
+                            <input type="text" class="count">1</div>
+                            <button class="countBtn">+</div>
+                        </div>
+                    </div>
+                    <button class="addToCart" type="submit">加入購物車</button>
+                    <div class="memo">
+                        <div id="prodNote">實品顏色依單品照為主</div>
+                        <div id="prodTexture">texture</div>
+                        <div id="prodDesc">description</div>
+                        <div id="prodPlace">
+                            素材產地 / 中國<br>
+                            加工產地 / 中國
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="details">
+                <div class="rule">細部說明</div>
+                <div class="prodStory">O.N.S is all about options, which is why we took our staple polo shirt and upgraded it with slubby linen jersey, making it even lighter for those who prefer their summer style extra-breezy.</div>
+                <img src="http://18.214.165.31/assets/201807202157/0.jpg"></img>
+                <img src="http://18.214.165.31/assets/201807202157/1.jpg"></img>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="sftWrap">
@@ -79,7 +124,7 @@
             <div class="copy">&copy; 2018. All rights reserved</div>
         </div>
     </footer>
-    <script src="./main.js"></script>
-    <script src="./api.js"></script>
+    <!-- <script src="./api.js"></script> -->
+    <!-- <script src="./main.js"></script> -->
 </body>
 </html>
