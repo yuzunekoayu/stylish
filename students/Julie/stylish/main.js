@@ -1,7 +1,7 @@
-let index = 0; let dotIndex = 0; let currIndex = 0;
-let slides = ''; let dots = '';
+let index = 0; let dotIndex = 0;
+let slides = []; let dots = [];
 
-// 等 HTML DOM 長好了才開始跑
+// 等靜態 HTML DOM 長好了才開始跑
 document.addEventListener("DOMContentLoaded", () => {
   
   // 初始畫面
@@ -11,9 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 按 tab 變字體顏色
   toggleNav(document.querySelectorAll('.item'));
-
-  index = 0;
-  dotIndex = 0;
 
   // 把 tab id 當作網址的 End Point 傳給 Fetch，按到哪個 tab 就傳那個 tab 的 id 
   const tabs = document.querySelectorAll('.item');
@@ -83,8 +80,6 @@ function toggleNav(elem) {
         for (let i = 0; i < elem.length; i++) {
           if (curr != elem[i]) {
             elem[i].classList.remove('active');
-          } else if (curr.classList.contains('active') === true) {
-            curr.classList.remove('active');
           } else {
             curr.classList.add('active')
           }
@@ -94,10 +89,12 @@ function toggleNav(elem) {
     };
 }
 
+// 自動輪播功能
 function next() {
   slides[index].classList.remove("in");
   slides[index].classList.add("out");
   dots[dotIndex].classList.remove("activeDot");
+  dots[dotIndex].classList.add("dot");
 
   index = (index+1) % slides.length;
   dotIndex = (dotIndex+1) % dots.length;
@@ -105,4 +102,5 @@ function next() {
   slides[index].classList.remove("out");
   slides[index].classList.add("in");
   dots[dotIndex].classList.add("activeDot");
+  dots[dotIndex].classList.remove("dot");
 }

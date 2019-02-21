@@ -1,8 +1,7 @@
-// 目前頁數，目前 End Point
+// 初始目前頁數，目前 End Point
 let currPG = 0; let currEP = '';
 // 伺服器名
 let host = '18.214.165.31';
-
 
 // Connect Product List API 跟 Product Search API 跟 Marketing Campaigns API
 function get(api, page) {
@@ -49,7 +48,7 @@ window.onscroll = function () {
         } else if (currPG !== undefined && currPG >= 0) { 
             // 如果目前的頁面在剛剛 Fetch 時，有 paging
             // 再 Fetch 一次，讓客人不用跳轉就可繼續讀取下一頁。
-            console.log(currEP + 'paging=' + currPG);
+            console.log('Request 網址: ' + currEP + 'paging=' + currPG);
             get(currEP, currPG);
         }
     }
