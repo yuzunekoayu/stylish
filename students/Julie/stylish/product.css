@@ -1,0 +1,172 @@
+.prod {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    padding: 0 120px;
+}
+
+.info {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 50px;
+}
+
+.left {
+    margin-right: 5.4%;
+    overflow: hidden;
+}
+
+.left > img {
+    width: 100%;
+}
+
+.prodTitle, .prodPrice {
+    color: #3f3a3a;
+}
+
+.prodTitle, .prodPrice {
+    white-space: nowrap;
+}
+
+.prodTitle {
+    font-size: 28px;
+    letter-spacing: 6.4px;
+    height: 38px;
+    margin-bottom: 16px;
+}
+
+.prodId {
+    font-size: 18px;
+    letter-spacing: 4px;
+    color: #bababa;
+    height: 24px;
+    margin-bottom: 40px;
+}
+
+.prodPrice {
+  height: 58px;
+  font-size: 28px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #3f3a3a;
+}
+
+.prodColors, .prodSizes, .pieceWant {
+    display: flex;
+    align-items: center;
+}
+
+
+.option {
+    width: 72px; height: 24px;
+    font-size: 20px;
+    letter-spacing: 4px;
+    color: #3f3a3a;
+}
+
+.prodColors { 
+    height: 36px;
+    margin-bottom: 30px;
+}
+
+.sikaku {
+    width: 36px; height: 36px;
+    margin-right: 15px;
+    position: relative;
+}
+
+.colorSelected {
+    border: 1px solid #d5d5d5;
+}
+
+.variants {
+    width: 24px; height:24px;
+    background-color: salmon;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.prodSizes { 
+    height: 34px;
+    margin-bottom: 26px;
+}
+
+.sml {
+    width: 34px; height: 34px;
+    background-color: #ececec;
+    border-radius: 50%;
+    font-size: 20px;
+    letter-spacing: 4px;
+    color: #3f3a3a;
+    text-align: center; 
+    line-height: 34px;
+    padding: 1px 0 0 4px;
+    margin-right:  20px;
+}
+
+.sizeSelected {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+.pieceWant { 
+    height: 44px; 
+    margin-bottom: 29px;
+}
+
+.addToCart {
+    width: 360px; height: 60px;
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: 4px;
+    color: #ffffff;
+    background: #000000;
+    border: 1px outset #888888;
+    outline: none;
+}
+
+.memo {
+    display: flex;
+}
+
+.memo {
+    padding-top: 40px;
+    height: 265px;
+    flex-flow: column;
+    justify-content: flex-end;
+}
+
+.prodNote {
+    flex: 1;
+}
+
+.prodTexture {
+    flex: 0;
+}
+
+.prodDesc {
+    flex: 1.2;
+}
+
+.prodPlace {
+    flex: 0;
+}
+
+.details {
+    margin-bottom: 50px;
+}
+
+.rule {
+    height: 30px;
+    margin-bottom: 28px;
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: 4px;
+    color: #8b572a;
+}
+
+.prodStory {
+    margin: 30px auto;
+}
