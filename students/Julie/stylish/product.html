@@ -39,7 +39,7 @@
         </div>
     </header>
     <div class="bar"></div>
-    <main>
+    <div class="prodMain">
         <div id="loading" class="loading"></div>
         <div id="nothing" class="nothing">您搜尋的商品不存在或已經下架。</div>
         <div id ="prod" class="prod">
@@ -53,21 +53,21 @@
                     <div class="prodPrice">TWD.1299</div>
                     <div class="prodColors">
                         <div class="option">顏色</div>
-                        <div class="colorSelected sikaku"><div class="variants"></div></div>
+                        <div class="colorSelect sikaku"><div class="variants"></div></div>
                         <div class="sikaku"><div class="variants"></div></div>
                         <div class="sikaku"><div class="variants"></div></div>
                     </div>
                     <div class="prodSizes">
                         <div class="option">尺寸</div>
                         <div class="sml">S</div>
-                        <div class="sml sizeSelected">M</div>
+                        <div class="sml sizeSelect">M</div>
                         <div class="sml">L</div>
                     </div>
-                    <div class="pieceWant">
+                    <div class="prodPiece">
                         <div class="option">數量</div>
-                        <button class="countBtn">-</button>
-                        <input type="text" class="count" value="1">
-                        <button class="countBtn">+</button>
+                        <div class="counter">
+                            <button class="countBtn">-</button><input type="text" class="count" value="1"><button class="countBtn">+</button>
+                        </div>
                     </div>
                     <button class="addToCart" type="submit">加入購物車</button>
                     <div class="memo">
@@ -92,7 +92,7 @@
                 <img src="http://18.214.165.31/assets/201807202157/1.jpg"></img>
             </div>
         </div>
-    </main>
+    </div>
     <footer>
         <div class="sftWrap">
                 <div class="sftNav-a">

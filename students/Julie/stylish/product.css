@@ -4,7 +4,11 @@
     justify-content: center;
     align-items: center;
     flex-flow: column;
-    padding: 0 120px;
+}
+
+.prodMain {
+    max-width: 1200px;
+    margin: 70px auto 16px auto;    
 }
 
 .info {
@@ -14,7 +18,8 @@
 }
 
 .left {
-    margin-right: 5.4%;
+    min-width: 60%;
+    padding-right: 5.4%;
     overflow: hidden;
 }
 
@@ -22,16 +27,20 @@
     width: 100%;
 }
 
+.right{
+    min-width: 40%;
+}
+
 .prodTitle, .prodPrice {
     color: #3f3a3a;
 }
 
-.prodTitle, .prodPrice {
+.prodTitle, .prodId {
     white-space: nowrap;
 }
 
 .prodTitle {
-    font-size: 28px;
+    font-size: 26px;
     letter-spacing: 6.4px;
     height: 38px;
     margin-bottom: 16px;
@@ -59,10 +68,12 @@
 
 
 .option {
-    width: 72px; height: 24px;
+    width: 64px; height: 24px;
     font-size: 20px;
     letter-spacing: 4px;
     color: #3f3a3a;
+    margin: 0 36px 0 0; 
+    border-right: 2px solid #d5d5d5;
 }
 
 .prodColors { 
@@ -76,7 +87,7 @@
     position: relative;
 }
 
-.colorSelected {
+.colorSelect {
     border: 1px solid #d5d5d5;
 }
 
@@ -106,14 +117,37 @@
     margin-right:  20px;
 }
 
-.sizeSelected {
+.sizeSelect {
     color: #ffffff;
     background-color: #000000;
 }
 
-.pieceWant { 
-    height: 44px; 
+.prodPiece { 
     margin-bottom: 29px;
+    display: flex;
+    align-items: center;
+}
+
+.count, .countBtn {
+    border: none; outline: none;
+    background-color: #ffffff;
+    font-size: 20px; 
+    height: 44px;
+}
+
+.counter {
+    border: 1px solid #d5d5d5;
+}
+
+.count {
+    width: 72px;
+    color: #8b572a;
+    text-align: center;
+}
+
+.countBtn {
+    width: 44px;
+    color: #3f3a3a;
 }
 
 .addToCart {
@@ -129,11 +163,8 @@
 
 .memo {
     display: flex;
-}
-
-.memo {
     padding-top: 40px;
-    height: 265px;
+    height: 230px;
     flex-flow: column;
     justify-content: flex-end;
 }
@@ -155,7 +186,12 @@
 }
 
 .details {
+    width: 90%;
     margin-bottom: 50px;
+}
+
+.details > img {
+    width: 100%;
 }
 
 .rule {
@@ -165,8 +201,214 @@
     line-height: 1.5;
     letter-spacing: 4px;
     color: #8b572a;
+    overflow: hidden;
+}
+
+.rule:after {
+    content: "";
+    display: inline-block;
+    width: 100%; height: 14px;
+    vertical-align: bottom;
+    margin: 0 -100% 0 60px;
+    border-top: 1px solid #3f3a3a;
 }
 
 .prodStory {
     margin: 30px auto;
+}
+
+@media screen and (max-width:1200px) {
+
+    .info {
+        margin-bottom: 25px;
+    }
+
+    .left {
+        min-width: 55%;
+        padding-right: 3.5%;
+    }
+
+    .right{
+        min-width: 45%;
+    }
+
+    .prodTitle {
+        font-size: 22px;
+        letter-spacing: 4px;
+        height: 34px;
+        margin-bottom: 8px;
+    }
+
+    .prodId {
+        font-size: 16px;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+    }
+
+    .prodPrice {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .option {
+        width: 52px;
+        font-size: 16px;
+        letter-spacing: 3px;
+        margin: 0 18px 0 0; 
+    }
+
+    .prodColors { 
+        height: 36px;
+        margin-bottom: 15px;
+    }
+
+    .prodColors { 
+        margin-bottom: 15px;
+    }
+
+    .sikaku {
+        width: 30px; height: 30px;
+        margin-right: 10px;
+    }
+
+    .variants {
+        width: 20px; height: 20px;
+    }
+
+    .prodSizes { 
+        margin-bottom: 13px;
+    }
+
+    .sml {
+        width: 30px; height: 30px;
+        font-size: 16px;
+        letter-spacing: 3px;
+        line-height: 30px;
+        padding: 1px 0 0 2px;
+        margin-right: 12px;
+    }
+
+    .prodPiece { 
+        margin-bottom: 15px;
+    }
+
+    .count, .countBtn {
+        font-size: 18px; 
+        height: 34px;
+    }
+
+    .count {
+        width: 54px;
+    }
+
+    .countBtn {
+        width: 34px;
+        color: #3f3a3a;
+    }
+
+    .addToCart {
+        width: 240px; height: 40px;
+        font-size: 18px;
+        line-height: 1;
+        letter-spacing: 3px;
+    }
+
+    .memo {
+        padding-top: 20px;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .info {
+        flex-flow: column;
+        justify-content: center;
+    }
+
+    .left {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .right {
+        width: 100%;
+    }
+
+    .prodTitle {
+        font-size: 20px;
+        letter-spacing: 3px;
+        height: 32px;
+        margin-bottom: 4px;
+    }
+
+    .prodId {
+        font-size: 14px;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+
+    .prodPrice {
+        height: 50px;
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .option {
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    .prodColors { 
+        margin-bottom: 8px;
+    }
+
+    .prodColors { 
+        margin-bottom: 8px;
+    }
+
+    .sikaku {
+        width: 26px; height: 26px;
+    }
+
+    .variants {
+        width: 16px; height: 16px;
+    }
+
+    .prodSizes { 
+        margin-bottom: 7px;
+    }
+
+    .sml {
+        width: 26px; height: 26px;
+        font-size: 14px;
+        line-height: 26px;
+    }
+
+    .count, .countBtn {
+        font-size: 16px; 
+        height: 30px;
+    }
+
+    .count {
+        width: 46px;
+    }
+
+    .countBtn {
+        width: 30px;
+    }
+
+    .addToCart {
+        width: 200px;
+        font-size: 16px;
+    }
+
+    .memo {
+        padding-top: 15px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .prod {
+        padding: 0 24px;
+    }
 }
