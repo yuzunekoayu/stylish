@@ -1,7 +1,7 @@
 // 初始目前頁數，目前 End Point
 let currPG = 0; let currEP = '';
 // 伺服器名
-let host = '18.214.165.31';
+let host = '18.214.165.31'; 
 // 輪播要用的變數
 let slides = []; let dots = [];
 
@@ -67,7 +67,7 @@ function clear() {
     document.getElementById("nothing").style.display = 'none';
 }
 
-// 取得 End Point 小精靈
+// 取得 End Point 小精靈 總部
 function catalog(cata) {
     const ep = `/products/${cata}?`;
     return get(ep);
@@ -80,10 +80,6 @@ function campaigns() {
     const ep = '/marketing/campaigns?';
     return get(ep);
 }
-// function mkhost() {
-//     const ep = '/marketing/hosts';
-//     return get(ep);
-// }
 
 // render Key Visual
 function renderKV(layout) {
@@ -139,8 +135,13 @@ function renderPD(layout) {
     const fragment = document.createDocumentFragment();
 
     for(let i = 0; i < layout.data.length; i++) {
+
         const product = document.createElement("div");
         product.className = "product";
+
+        const prodLink = document.createElement("a");
+        prodLink.href = `./product.html?id=${layout.data[i].id}`;
+        product.appendChild(prodLink);
 
         const palette = document.createElement("div");
         palette.className = "palette";
