@@ -186,7 +186,7 @@
 }
 
 .details {
-    width: 90%;
+    max-width: 960px;
     margin-bottom: 50px;
 }
 
@@ -215,12 +215,17 @@
 
 .prodStory {
     margin: 30px auto;
+    font-size: 16px;
 }
 
 @media screen and (max-width:1200px) {
 
+    .prodMain {
+        margin: 55px auto 16px auto;    
+    }
+
     .info {
-        margin-bottom: 25px;
+        margin-bottom: 30px;
     }
 
     .left {
@@ -259,10 +264,6 @@
 
     .prodColors { 
         height: 36px;
-        margin-bottom: 15px;
-    }
-
-    .prodColors { 
         margin-bottom: 15px;
     }
 
@@ -307,7 +308,7 @@
     }
 
     .addToCart {
-        width: 240px; height: 40px;
+        width: 240px; height: 44px;
         font-size: 18px;
         line-height: 1;
         letter-spacing: 3px;
@@ -316,12 +317,41 @@
     .memo {
         padding-top: 20px;
     }
+
+    .details {
+        max-width: 840px;
+    }
+
+    .rule {
+        margin-bottom: 20px;
+        font-size: 16px;
+        letter-spacing: 3.2px;
+    }
+
+    .rule:after {
+        margin: 0 -100% 0 30px;
+    }
+
+    .prodStory {
+        margin: 20px auto;
+        font-size: 14px;
+    }
 }
 
 @media screen and (max-width:900px) {
+
+    .prodMain {
+        margin: 35px auto 16px auto;    
+    }
+
+    .prod {
+        padding: 0 24px;
+    }
+
     .info {
         flex-flow: column;
         justify-content: center;
+        margin-bottom: 28px;
     }
 
     .left {
@@ -337,6 +367,7 @@
         font-size: 20px;
         letter-spacing: 3px;
         height: 32px;
+        margin-top: 17px; 
         margin-bottom: 4px;
     }
 
@@ -347,68 +378,94 @@
     }
 
     .prodPrice {
-        height: 50px;
+        height: 40px;
         font-size: 22px;
-        margin-bottom: 12px;
+        margin-bottom: 20px;
     }
 
     .option {
         font-size: 14px;
         letter-spacing: 2px;
+        width: 45px;
     }
 
     .prodColors { 
-        margin-bottom: 8px;
-    }
-
-    .prodColors { 
-        margin-bottom: 8px;
+        margin-bottom: 30px;
     }
 
     .sikaku {
-        width: 26px; height: 26px;
+        width: 36px; height: 36px;
     }
 
     .variants {
-        width: 16px; height: 16px;
+        width: 24px; height: 24px;
     }
 
     .prodSizes { 
-        margin-bottom: 7px;
+        margin-bottom: 30px;
     }
 
     .sml {
-        width: 26px; height: 26px;
-        font-size: 14px;
-        line-height: 26px;
+        width: 34px; height: 34px;
+        font-size: 20px;
+        line-height: 34px;
+        margin-right:  20px;
+    }
+
+    .prodPiece > .option {
+        display: none;
+    }
+
+    .counter {
+        width: 100%;
     }
 
     .count, .countBtn {
-        font-size: 16px; 
-        height: 30px;
+        font-size: 20px; 
+        height: 44px;
     }
 
     .count {
-        width: 46px;
+        width: calc(100% - 88px);
     }
 
     .countBtn {
-        width: 30px;
+        width: 44px;
     }
 
     .addToCart {
-        width: 200px;
+        width: 100%;
         font-size: 16px;
     }
 
     .memo {
-        padding-top: 15px;
-        height: 200px;
+        font-size: 14px;
+        padding-top: 28px;
+        height: 220px;
+    }
+
+    .details {
+        max-width: 600px;
+        margin-bottom: 30px;
     }
 }
 
 @media screen and (max-width:600px) {
+
     .prod {
+        padding: 0;
+    }
+
+    .prodMain {
+        margin: 0 auto;    
+    }
+
+    .right {
+        width: 100%;
+        padding: 0 24px;
+    }
+
+    .details {
         padding: 0 24px;
     }
 }
