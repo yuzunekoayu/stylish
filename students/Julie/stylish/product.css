@@ -91,9 +91,9 @@
     border: 1px solid #d5d5d5;
 }
 
-.variants {
+.iro {
     width: 24px; height:24px;
-    background-color: salmon;
+    border: 1px solid #d5d5d5;
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
@@ -272,7 +272,7 @@
         margin-right: 10px;
     }
 
-    .variants {
+    .iro {
         width: 20px; height: 20px;
     }
 
@@ -397,7 +397,7 @@
         width: 36px; height: 36px;
     }
 
-    .variants {
+    .iro {
         width: 24px; height: 24px;
     }
 
