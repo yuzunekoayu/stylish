@@ -9,7 +9,7 @@ fetch(`http://${host}/api/1.0/products/details${prodURL.search}`)
     return res.json();
   })
   .then( json => {
-    console.log(json.data);
+    console.log(json.data.variants);
     console.log('json id: ' + json.data.id);
     renderKwsk(json);
   })

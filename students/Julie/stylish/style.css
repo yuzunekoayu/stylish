@@ -321,19 +321,21 @@ main {
 }
 
 footer {
-    width: 100%; height: 115px;
+    width: 100%;
     background-color: #313538;
 }
 
 .ftWrap {
     max-width: 1160px; height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 0;
 }
 
 .ftNav {
+    flex: 2 1 auto;
     display: flex;
     justify-content: center;
 }
@@ -343,15 +345,17 @@ footer {
 }
 
 .guide {
-    width: auto; height: 22px;
-    margin: 0 30px;
+    flex: 1;
     font-size: 16px;
     color: #f5f5f5;
+    white-space: nowrap;
+    text-align: center;
 }
 
 .sns {
+    flex: 1 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .line, .twi, .fb {
@@ -360,24 +364,27 @@ footer {
 
 .line {
     background: url(./img/line.png) no-repeat; 
+    background-size: 100%;
 }
 
 .twi {
     background: url(./img/twitter.png) no-repeat;
-    margin: 0 30px;
+    background-size: 100%;
+    margin: 0 9%;
 }
 
 .fb {
     background: url(./img/facebook.png) no-repeat;
+    background-size: 100%;
 }
 
 .copy {
+    flex: 0.3 0 auto;
+    text-align: right;
     font-size: 12px;
     color: #828282;
-}
-
-.sftWrap {
-    display: none;
+    white-space: nowrap;
+    line-height: 30px;
 }
 
 @media screen and (max-width:1200px) {
@@ -489,43 +496,46 @@ footer {
     .price {
         margin: 8px 0 0 0;
     }
-
+    
     .ftWrap {
-        max-width: 540px;
-        justify-content: space-evenly;
+        max-width: 640px;
+        flex-flow: row wrap;
+    }
+
+    .ftNav {
+        flex: 1.5 1 auto;
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap;
     }
 
     .ftNav > span {
-        font-size: 10px;
+        display: none;
     }
     
+    .ftNav :nth-child(3) { order: 2; }
+    .ftNav :nth-child(5) { order: 4; margin-right: auto;}
+    .ftNav :nth-child(7) { order: 1; }
+    .ftNav :nth-child(9) { order: 3; }
+    
     .guide {
-        width: auto; height: 22px;
-        margin: 0 4px;
-        font-size: 10px;
-        color: #f5f5f5;
+        flex: 0 1 50%;
+        font-size: 14px;
+        line-height: 30px;
+    }
+
+    .sns {
+        flex: 1.5 1 auto;
+        justify-content: center;
     }
     
     .line, .twi, .fb {
-        width: 20px; height: 20px;
+        width: 30px; height: 30px;
     }
     
-    .line {
-        background-size: 100%; 
-    }
-
-    .twi {
-        background-size: 100%; 
-        margin: 0 10px;
-    }
-    
-    .fb {
-        background-size: 100%; 
-    }
-
     .copy {
-        font-size: 8px;
-        color: #828282;
+        text-align: center;
+        flex: 0 0 100%;
     }
 } 
 
@@ -722,72 +732,7 @@ footer {
         margin: 8px 0 0 0;
     }
 
-    footer {
-        height: 151px;
-        padding-top: 23px;
-    }
-
     .ftWrap {
-        display: none;
-    }
-
-    .sftWrap {
         margin-bottom: 60px;
-        width: 100%; min-height: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        color: #ffffff;
-        line-height: 2em;
-    }
-    
-    .sftNav-a, .sftNav-b, .sSns {
-        display: flex; 
-        flex-basis: calc(33.33%);  
-        justify-content: center;
-        flex-direction: column;
-        font-size: 14px;
-    }
-
-    .sGuide {
-        margin: 0 auto;
-    }
-
-    .sSns {
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        align-self: center;
-    }
-    
-    .sLine, .sTwi, .sFb {
-        width: 20px; height: 20px; 
-    }
-    
-    .sLine {
-        background: url(./img/line.png) no-repeat; 
-        background-size: 100%;
-    }
-    
-    .sTwi {
-        background: url(./img/twitter.png) no-repeat;
-        background-size: 100%;
-        margin: 0 14px;
-    }
-    
-    .sFb {
-        background: url(./img/facebook.png) no-repeat;
-        background-size: 100%;
-    }
-
-    .sCopy {
-        display: flex; 
-        margin-top: 0px;
-        flex-basis: calc(100%);  
-        justify-content: center;
-        flex-direction: column;
-        font-size: 10px;
-        text-align: center;
-        color: #828282;
     }
 }
