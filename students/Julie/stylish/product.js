@@ -5,4 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let prodURL = new URL(window.location);
   kwsk(prodURL.search);
 
+  classObserver(document.querySelector('#prodColors'), "sikaku");
+  classObserver(document.querySelector('#prodSizes'), "sml");
+
 });

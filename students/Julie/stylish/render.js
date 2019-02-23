@@ -1,7 +1,7 @@
 /* Render 小精靈
     renderKV() === render Key Visual
     renderPD() === render Product
-    renderDetails() === render Product Details
+    renderDetails() === render Product Details（單一產品頁）
 */
 
 // render Key Visual
@@ -98,7 +98,7 @@ function renderPD(layout) {
     row.appendChild(fragment);
 }
 
-// render Product Details
+// render Product Details（單一產品頁）
 function renderDetails(layout) {
     const left = document.querySelector('#left');
     const leftImg = document.createElement('img');
