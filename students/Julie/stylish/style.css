@@ -69,7 +69,7 @@ nav {
     color: #8b572a;
 }
 
-.active {
+.activeTab {
     color: #8b572a;
 }
 
@@ -237,10 +237,10 @@ main {
 
 .loading {
     width: 100%; height: 64px;
-    background: url(./img/loading.gif) no-repeat;
+    background: url(./img/loading.gif) no-repeat #fff;
     background-position: center;
     display: none;
-    z-index: 2;
+    z-index: 10;
     margin-bottom: 39px;
 }
 
@@ -425,7 +425,7 @@ footer {
         color: #ffffff;
     }
     
-    .active {
+    .activeTab {
         color: #ffffff;
     }
     

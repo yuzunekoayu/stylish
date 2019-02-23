@@ -5,7 +5,8 @@ let host = '18.214.165.31';
 // 輪播要用的變數
 let slides = []; let dots = [];
 
-// Connect Product List API 跟 Product Search API 跟 Marketing Campaigns API
+// Connect Product List API 跟 Product Search API 
+// 跟 Marketing Campaigns API 跟 Product Details API
 function get(api, page) {
     // 設定一個 query string 參數叫 paging
     let params = new URLSearchParams();
@@ -16,7 +17,7 @@ function get(api, page) {
             return res.json();
         })
         .then( json => {
-            console.log(json.data);
+            console.log(api);
             console.log('json 結果 ' + json.data.length + ' 筆資料，' + 'json paging: ' + json.paging);
             // Loading 圖
             document.getElementById("loading").style.display = 'none';
@@ -28,6 +29,11 @@ function get(api, page) {
                 renderKV(json);
                 slides = document.querySelectorAll(".slide");
                 dots = document.querySelectorAll(".dot");
+            } else if (api.includes('/products/details?id=')) {
+                // 如果 api 是 Product Details API，就 render Product Details
+                console.log(json.data.variants);
+                console.log('json id: ' + json.data.id);
+                renderDetails(json);
             } else {
                 // 不然就 render 產品出來，然後也把 paging 值存起來，換頁用。
                 currEP = api;
@@ -57,120 +63,20 @@ window.onscroll = function () {
     }
 }
 
-// 清空畫面
-function clear() {
-    const row = document.getElementById('row');
-    while (row.firstChild) {
-        row.removeChild(row.firstChild);
-    }
-    document.getElementById("loading").style.display = 'block';
-    document.getElementById("nothing").style.display = 'none';
-}
-
-// 取得 End Point 小精靈 總部
-function catalog(cata) {
+// 取得 End Point 小精靈
+function catalog(cata) {    // 分類目錄擔當
     const ep = `/products/${cata}?`;
     return get(ep);
 }
-function search(keyword) {
+function search(keyword) {  // 搜尋擔當
     const ep = `/products/search?keyword=${keyword}&`;
     return get(ep);
 }
-function campaigns() {
+function campaigns() {  // Key Visual 擔當
     const ep = '/marketing/campaigns?';
     return get(ep);
 }
-
-// render Key Visual
-function renderKV(layout) {
-    const carousel = document.getElementById("carousel");
-    
-    const fragment = document.createDocumentFragment();
-
-    for(let i = 0; i < layout.data.length; i++) {
-        const slide = document.createElement("div");
-        const visual = 'http://' + `${host}` + `${layout.data[i].picture}`;
-        slide.className = "slide";
-        slide.style.backgroundImage = ('src', "url('" + visual + "')");
-
-        // 根據 <br> 把故事文拆開變一行一行
-        const line = `${layout.data[i].story}`.split('\r\n');
-
-        // 創造裝故事的 div.story
-        const story = document.createElement("div");
-        story.className = "story"
-
-        // 再用 <br> 把一行一行的故事文串起來，然後在最後一行加 span.subText 才能還原成設計稿畫的樣子。
-        story.innerHTML = `${line[0] + '<br>' + line[1] + '<br>' + line[2] + '<br><span class="subText">' + line[3] + '</span>'}`;
-        
-        slide.appendChild(story);
-        fragment.appendChild(slide);
-    }
-
-    const dotWrap = document.createElement("div");
-    dotWrap.className = "dotWrap";
-    fragment.appendChild(dotWrap);
-
-    // 讓位在第一個的點點同時有 dot activeDot 的 class
-    for(let d = 0; d < layout.data.length - (layout.data.length - 1); d++) {
-        const dot = document.createElement("div");
-        dot.className = "activeDot dot";
-        dotWrap.appendChild(dot);
-    }
-    
-    for(let d = 0; d < layout.data.length - 1; d++) {
-        const dot = document.createElement("div");
-        dot.className = "dot";
-        dotWrap.appendChild(dot);
-    }
-    
-    carousel.appendChild(fragment);
-}
-
-// render 產品畫面
-function renderPD(layout) {
-
-    const row = document.getElementById("row");
-
-    const fragment = document.createDocumentFragment();
-
-    for(let i = 0; i < layout.data.length; i++) {
-
-        const product = document.createElement("div");
-        product.className = "product";
-
-        const prodLink = document.createElement("a");
-        prodLink.href = `./product.html?id=${layout.data[i].id}`;
-        product.appendChild(prodLink);
-
-        const palette = document.createElement("div");
-        palette.className = "palette";
-
-        for(let c = 0; c < layout.data[i].colors.length; c++) {
-            const colors = document.createElement("div");
-            colors.className = "colors";
-            let code = layout.data[i].colors[c].code;
-            colors.style.cssText = 'background:' + `#${code};`;
-            palette.appendChild(colors);
-        }
-
-        const mainImg = document.createElement("img");
-        mainImg.src = `${layout.data[i].main_image}`;
-
-        const title = document.createElement("div");
-        title.className = "title";
-        title.innerText = `${layout.data[i].title}`;
-
-        const price = document.createElement("div");
-        price.className = "price";
-        price.innerText = "TWD." + `${layout.data[i].price}`;
-
-        product.appendChild(mainImg);
-        product.appendChild(palette);
-        product.appendChild(title);
-        product.appendChild(price);
-        fragment.appendChild(product);
-    }
-    
-    row.appendChild(fragment);
+function kwsk(pdId) { // 單一產品頁擔當（詳しく希望）
+    const ep = `/products/details${pdId}`;
+    return get(ep);
 }
