@@ -32,7 +32,6 @@ function get(api, page) {
             } else if (api.includes('/products/details?id=')) {
                 // 如果 api 是 Product Details API，就 render Product Details
                 console.log(json.data.variants);
-                console.log('json id: ' + json.data.id);
                 renderDetails(json);
             } else {
                 // 不然就 render 產品出來，然後也把 paging 值存起來，換頁用。
@@ -51,7 +50,7 @@ window.onscroll = function () {
     const docH = document.body.scrollHeight;
     const winH = window.innerHeight + window.scrollY;
     // 如果卷軸到了底部（winH 如果沒四捨五入，會有明明到底了但數值還是 < docH 的情況發生所以用了 Math.round）
-    if (Math.round(winH) === docH) {
+    if (Math.ceil(winH) === docH) {
         if (currEP === "/marketing/campaigns?") {
             // 如果是 Marketing Campaigns API，就什ㄇ都不做
         } else if (currPG !== undefined && currPG > 0) { 

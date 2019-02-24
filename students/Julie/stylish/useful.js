@@ -34,16 +34,15 @@ function toggleClass(elem, active) {
 // 檢查還不存在的動態 DOM 生出來了沒，用 className 當標準
 const classObserver = function(target, wanted) {
   const option = { childList: true, subtree: true };
-  const observer = new MutationObserver( mutation => {
+  const observer = new MutationObserver(mutation => {
     mutation.forEach(function(m) {
       let nodes = m.addedNodes;
       for(i = 0; i < nodes.length; i++) {
         if (nodes[i].classList.contains(`${wanted}`)) {
-          console.log("A " + wanted + " class DOM is generated !");
           if (wanted === "sikaku") { // 單一產品頁，選顏色變出框框
             toggleClass(document.querySelectorAll('.sikaku'), 'colorSelect');
           } else if (wanted === "sml") { // 單一產品頁，選尺寸變亮暗
-            console.log(document.querySelectorAll('.sml'));
+            console.log("YOO");
             toggleClass(document.querySelectorAll('.sml'), 'sizeSelect');
           }
         }

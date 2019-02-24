@@ -100,6 +100,7 @@ function renderPD(layout) {
 
 // render Product Details（單一產品頁）
 function renderDetails(layout) {
+    
     const left = document.querySelector('#left');
     const leftImg = document.createElement('img');
     leftImg.src = layout.data.main_image;
