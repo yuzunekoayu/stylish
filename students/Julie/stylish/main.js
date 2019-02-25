@@ -5,7 +5,21 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // 初始畫面
   campaigns();
-  catalog('all');
+  // 判斷網址是否有 category 參數，有的話就要跑出正確畫面（方便各 Page 可以共用 NavBar）
+  let catas = new URL(location.href).searchParams.get('category');
+  if (catas === 'women') {
+      console.log(catas);
+      catalog("women");
+  } else if (catas === 'men') {
+      console.log(catas);
+      catalog("men");
+  } else if (catas === 'accessories') {
+      console.log(catas);
+      catalog("accessories");
+  } else {
+      catalog('all');
+  }
+  // 每 10 秒輪播 Campaign
   setInterval(next, 10000);
 
   // 按 tab 變字體顏色
