@@ -82,11 +82,11 @@ function renderPD(layout) {
 
         const title = document.createElement("div");
         title.className = "title";
-        title.innerText = `${layout.data[i].title}`;
+        title.textContent = `${layout.data[i].title}`;
 
         const price = document.createElement("div");
         price.className = "price";
-        price.innerText = "TWD." + `${layout.data[i].price}`;
+        price.textContent = "TWD." + `${layout.data[i].price}`;
 
         product.appendChild(mainImg);
         product.appendChild(palette);
@@ -107,13 +107,13 @@ function renderDetails(layout) {
     left.appendChild(leftImg);
 
     const prodTitle = document.querySelector('#prodTitle');
-    prodTitle.innerText = layout.data.title;
+    prodTitle.textContent = layout.data.title;
 
     const prodId = document.querySelector('#prodId');
-    prodId.innerText = layout.data.id;
+    prodId.textContent = layout.data.id;
 
     const prodPrice = document.querySelector('#prodPrice');
-    prodPrice.innerText = 'TWD.' + layout.data.price;
+    prodPrice.textContent = 'TWD.' + layout.data.price;
 
     const prodColors = document.querySelector('#prodColors');
 
@@ -133,19 +133,19 @@ function renderDetails(layout) {
     for (let i = 0; i < layout.data.sizes.length; i++) {
         const sml = document.createElement('div');
         sml.className = "sml";
-        sml.innerText = `${layout.data.sizes[i]}`;
+        sml.textContent = `${layout.data.sizes[i]}`;
         
         prodSizes.appendChild(sml);
     }
 
     const prodNote = document.querySelector('#prodNote');
-    prodNote.innerText = layout.data.note;
+    prodNote.textContent = layout.data.note;
 
     const prodTexture = document.querySelector('#prodTexture');
-    prodTexture.innerText = layout.data.texture;
+    prodTexture.textContent = layout.data.texture;
 
     const prodDesc = document.querySelector('#prodDesc');
-    prodDesc.innerText = layout.data.description;
+    prodDesc.textContent = layout.data.description;
 
     const madeIn = layout.data.place;
     const prodPlace = document.querySelector('#prodPlace');
@@ -159,13 +159,13 @@ function renderDetails(layout) {
 
     const storyA = document.createElement('div');
     storyA.className = "prodStory";
-    storyA.innerText = lines;
+    storyA.textContent = lines;
     const imgsA = document.createElement('img');
     imgsA.src = layout.data.images[0];
 
     const storyB = document.createElement('div');
     storyB.className = "prodStory";
-    storyB.innerText = lines;
+    storyB.textContent = lines;
     const imgsB = document.createElement('img');
     imgsB.src = layout.data.images[1];
 

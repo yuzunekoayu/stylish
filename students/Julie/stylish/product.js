@@ -15,4 +15,3 @@ const tellIfSoldOut = (num, btn) => {
     btn.classList.remove("failToCart");
   }
 }
-

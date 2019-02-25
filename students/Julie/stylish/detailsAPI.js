@@ -3,6 +3,8 @@ let host = '18.214.165.31';
 // 單一產品頁網址
 let prodURL = new URL(window.location);
 
+console.log(prodURL.search);
+
 // Connect Product Details API（試著用 async 和 await + Fetch）
 async function kwsk() {
     const res = await fetch(`http://${host}/api/1.0/products/details${prodURL.search}`);
@@ -48,6 +50,7 @@ function orderHelper(variants) {
             if (RGBtoHex(variant.color_code) === order.iro && variant.size === order.size) {
                 order.userStock = variant.stock;
                 tellIfSoldOut(order.userStock, addToCart);
+                count.value = 0;
             }
         })
     }
@@ -63,6 +66,7 @@ function orderHelper(variants) {
             if (RGBtoHex(variant.color_code) === order.iro && variant.size === order.size) {
                 order.userStock = variant.stock;
                 tellIfSoldOut(order.userStock, addToCart);
+                count.value = 0;
             }
         })
     }
@@ -70,7 +74,7 @@ function orderHelper(variants) {
     // 監聽減號被按
     minus.addEventListener("click", () => {
         if (count.value <= order.userStock && count.value > 0) {
-            addToCart.innerText = "加入購物車";
+            addToCart.textContent = "加入購物車";
             count.value --;
         }
     });
@@ -80,7 +84,7 @@ function orderHelper(variants) {
         if (count.value === 0 || count.value < order.userStock) {
             count.value ++;
         } else if (count.value = order.userStock) {
-            addToCart.innerText = "加入購物車（已達最大庫存）";
+            addToCart.textContent = "加入購物車（已達最大庫存）";
         }
     });
 
@@ -88,13 +92,10 @@ function orderHelper(variants) {
     addToCart.addEventListener("click", () => {
         if (order.iro === "" || order.size === "") {
             addToCart.disabled = true;
-            addToCart.innerText = "請選擇顏色及尺寸";
+            addToCart.textContent = "請選擇顏色及尺寸";
         } else if  (order.iro !== "" && order.size !== "" && count.amount > 0) {
             addToCart.disabled = false;
-            addToCart.innerText = "加入購物車";
+            addToCart.textContent = "加入購物車";
         }
-    });    
-    
-    
-        
+    });        
 }

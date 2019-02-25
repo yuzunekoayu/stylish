@@ -57,21 +57,26 @@ nav {
     min-width: 20%;
     letter-spacing: 20px;
     font-size: 20px;
-    color: #3f3a3a;
     margin-top: 16px;
     white-space: nowrap;
     text-align: center;
+    color: #3f3a3a;
     cursor: pointer;
-    transition: color .3s ease;
-}
-
-.item:hover {
-    color: #8b572a;
 }
 
 .activeTab {
     color: #8b572a;
 }
+
+.item > a {
+    text-decoration: none;
+    color: #3f3a3a;
+    transition: color .3s ease;
+}
+
+.item > a:hover, .item > a:active {
+    color: #8b572a;
+} 
 
 nav > span {
     display: inline-block;
@@ -414,16 +419,20 @@ footer {
     .item {
         min-width: 0; width: 32px; height: 22px;
         letter-spacing: normal;
-        font-size: 16px;
         color: #828282;
+        font-size: 16px;
         margin-top: 0;
-        cursor: pointer;
+    }
+
+    .item > a {
+        text-decoration: none;
+        color: #828282;
         transition: color .3s ease;
     }
     
-    .item:hover {
+    .item > a:hover, .item > a:active {
         color: #ffffff;
-    }
+    } 
     
     .activeTab {
         color: #ffffff;
