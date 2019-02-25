@@ -153,6 +153,7 @@
 .countBtn {
     width: 44px;
     color: #3f3a3a;
+    cursor: pointer;
 }
 
 .addToCart {

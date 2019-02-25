@@ -29,10 +29,6 @@ function get(api, page) {
                 renderKV(json);
                 slides = document.querySelectorAll(".slide");
                 dots = document.querySelectorAll(".dot");
-            } else if (api.includes('/products/details?id=')) {
-                // 如果 api 是 Product Details API，就 render Product Details
-                console.log(json.data.variants);
-                renderDetails(json);
             } else {
                 // 不然就 render 產品出來，然後也把 paging 值存起來，換頁用。
                 currEP = api;
@@ -73,9 +69,5 @@ function search(keyword) {  // 搜尋擔當
 }
 function campaigns() {  // Key Visual 擔當
     const ep = '/marketing/campaigns?';
-    return get(ep);
-}
-function kwsk(pdId) { // 單一產品頁擔當（詳しく希望）
-    const ep = `/products/details${pdId}`;
     return get(ep);
 }
