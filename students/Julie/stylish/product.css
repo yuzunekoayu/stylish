@@ -159,12 +159,20 @@
 .addToCart {
     width: 360px; height: 60px;
     font-size: 20px;
-    line-height: 1.5;
+    /* line-height: 2em; */
     letter-spacing: 4px;
     color: #ffffff;
     background: #000000;
     border: 1px outset #888888;
     outline: none;
+    cursor: pointer;
+    transition: background .2s ease, border .2s ease;
+    padding: 6px;
+}
+
+.failToCart {
+    background: silver;
+    border: 1px solid silver;
 }
 
 .memo {
