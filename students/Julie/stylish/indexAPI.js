@@ -2,16 +2,17 @@
 let currPG = 0; let currEP = '';
 // 伺服器名
 let host = '18.214.165.31'; 
-// NavBar 用
-let cataURL = new URL(window.location);
 // 輪播要用的變數
 let slides = []; let dots = [];
 
 // Connect Product List API 跟 Product Search API 
 // 跟 Marketing Campaigns API 跟 Product Details API
-function get(api) {
+function get(api, page) {
+    // 設定一個 query string 參數叫 paging
+    let params = new URLSearchParams();
+    params.set('paging', `${page}`);
     // Fetch
-    fetch(`http://${host}/api/1.0${api}`)
+    fetch(`http://${host}/api/1.0${api}` + params)
         .then( res => {
             return res.json();
         })
@@ -52,19 +53,14 @@ window.onscroll = function () {
             // 如果目前的頁面在剛剛 Fetch 時，有 paging
             // 再 Fetch 一次，讓客人不用跳轉就可繼續讀取下一頁。
             console.log('Request 網址: ' + currEP + 'paging=' + currPG);
-            get(currEP + "paging=" + currPG);
+            get(currEP, currPG);
         }
     }
 }
 
-// 取得 End Point 小精靈
+// get End Point 小精靈
 function catalog(cata) {    // 分類目錄擔當
-    // const ep = "";
-    // if (cata === ) {
-    //     ep = `/products/${cata}?`
-    // } else {
-        ep = `/products/${cata}?`;
-    // }
+    const ep = `/products/${cata}?`;
     return get(ep);
 }
 function search(keyword) {  // 搜尋擔當

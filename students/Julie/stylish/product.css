@@ -18,8 +18,8 @@
 }
 
 .left {
-    min-width: 60%;
-    padding-right: 5.4%;
+    width: 60%;
+    margin-right: 5.4%;
 }
 
 .left > img {
@@ -27,7 +27,7 @@
 }
 
 .right{
-    min-width: 40%;
+    width: 40%;
 }
 
 .prodTitle, .prodPrice {
@@ -158,7 +158,6 @@
 .addToCart {
     width: 360px; height: 60px;
     font-size: 20px;
-    /* line-height: 2em; */
     letter-spacing: 4px;
     color: #ffffff;
     background: #000000;
@@ -243,7 +242,7 @@
 
     .left {
         min-width: 55%;
-        padding-right: 3.5%;
+        margin-right: 3.5%;
     }
 
     .right{
