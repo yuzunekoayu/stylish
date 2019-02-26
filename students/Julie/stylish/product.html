@@ -24,7 +24,7 @@
                 <input type="text" id="input" placeholder="搜尋…" onfocus="this.placeholder=''" onblur="this.placeholder='搜尋…'">
                 <button id="btnSubmit" accept-charset="Big5"></button>
             </div>
-            <div class="cart"><span class="badge">20</span></div>
+            <div class="cart" id="cart"><span class="badge">20</span></div>
             <div class="member"></div>
         </div>
         <div class="smallBar">
@@ -59,6 +59,7 @@
                         <div class="counter">
                             <button id="minus" class="countBtn">-</button><input type="text" class="count" id="count" value="0" disabled><button id="plus" class="countBtn">+</button>
                         </div>
+                        <div id="restStock">庫存 0 件</div>
                     </div>
                     <button class="addToCart" type="submit" id="addToCart">加入購物車</button>
                     <div class="memo" id="memo">
@@ -91,6 +92,7 @@
             <div class="copy">&copy; 2018. All rights reserved</div>
         </div>
     </footer>
+    <script src="./cart.js"></script>
     <script src="./useful.js"></script>
     <script src="./product.js"></script>
     <script src="./detailsAPI.js"></script>

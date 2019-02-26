@@ -3,51 +3,52 @@ let host = '18.214.165.31';
 // 單一產品頁網址
 let prodURL = new URL(window.location);
 
-console.log(prodURL.search);
-
 // Connect Product Details API（試著用 async 和 await + Fetch）
 async function kwsk() {
     const res = await fetch(`http://${host}/api/1.0/products/details${prodURL.search}`);
     return res.json();
 }
 kwsk()
-    .then(data => {
-        renderDetails(data);
+    .then(json => {
+        renderDetails(json);
 
         // 點擊變顏色、變框框
-        toggleMutiple(document.querySelectorAll('.sikaku'), 'colorSelect', 'DIV');
+        toggleMutiple(document.querySelectorAll('.square'), 'colorSelect', 'DIV');
         toggleMutiple(document.querySelectorAll('.sml'), 'sizeSelect', 'DIV');
 
-        let variants = data.data.variants;
-        orderHelper(variants);
+        // 顏色、尺寸、數量 UI
+        orderHelper(json.data);
     })
     .catch(err => {
         console.log(err);
     })
 
 // 選擇顏色尺寸，告訴顧客有無庫存
-function orderHelper(variants) {
-    console.log(variants)
+function orderHelper(data) {
 
-    // 把客人選的顏色、尺寸、數量、庫存，存成一個物件（初始是 0 或 ""）
-    let order = { iro: '', size: '', amount: 0, userStock: 0 };
+    let variants = data.variants;
+
+    // 把客人選的顏色、顏色名、尺寸、數量、庫存，存成一個物件（初始是 0 或 ""）
+    let order = { iro: '', iroName:'', size: '', amount: 0, userStock: 0 };
     
-    const iros = document.querySelectorAll('.iro');
+    const squares = document.querySelectorAll('.square');
     const sizes = document.querySelectorAll('.sml');
     const minus = document.querySelector("#minus");
     const count = document.querySelector("#count");
     const plus = document.querySelector("#plus");
+    const restStock = document.querySelector('#restStock');
     const addToCart = document.querySelector("#addToCart");
 
     // 監聽顏色被按
-    iros.forEach( iro => {
-        iro.addEventListener("click", memoOrderIro);
+    squares.forEach( square => {
+        square.addEventListener("click", memoOrderIro);
     });
     // 顏色被按的 CallBack
     function memoOrderIro(e) {
-        order.iro = e.currentTarget.style.backgroundColor;
+        order.iroName = e.currentTarget.title;
+        order.iro = e.currentTarget.getAttribute("data-color_code");
         variants.forEach( variant => {
-            if (RGBtoHex(variant.color_code) === order.iro && variant.size === order.size) {
+            if (variant.color_code === order.iro && variant.size === order.size) {
                 order.userStock = variant.stock;
                 tellIfSoldOut(order.userStock, addToCart);
                 count.value = 0;
@@ -63,8 +64,9 @@ function orderHelper(variants) {
     function memoOrderSize(e) {
         order.size = e.currentTarget.innerText;
         variants.forEach( variant => {
-            if (RGBtoHex(variant.color_code) === order.iro && variant.size === order.size) {
+            if (variant.color_code === order.iro && variant.size === order.size) {
                 order.userStock = variant.stock;
+                order.amount = count.value;
                 tellIfSoldOut(order.userStock, addToCart);
                 count.value = 0;
             }
@@ -82,20 +84,46 @@ function orderHelper(variants) {
     // 監聽加號被按
     plus.addEventListener("click", () => {
         if (count.value === 0 || count.value < order.userStock) {
+            addToCart.textContent = "加入購物車";
             count.value ++;
-        } else if (count.value = order.userStock) {
-            addToCart.textContent = "加入購物車（已達最大庫存）";
         }
     });
 
     // 監聽「加入購物車」按鈕被按
     addToCart.addEventListener("click", () => {
-        if (order.iro === "" || order.size === "") {
+        order.amount = count.value;
+
+        if (order.iro === "" || order.size === "" || order.amount <= 0) {
             addToCart.disabled = true;
-            addToCart.textContent = "請選擇顏色及尺寸";
-        } else if  (order.iro !== "" && order.size !== "" && count.amount > 0) {
+            addToCart.textContent = "請選擇款式及數量";
+        
+        } else if  (order.iro !== "" && order.size !== "" && order.amount > 0) {
+            
+            console.log(order.amount);
+            
             addToCart.disabled = false;
             addToCart.textContent = "加入購物車";
+
+            setOrder();
+
+            function setOrder() {
+                let newOrder = {
+                    id: data.id,
+                    name: data.title, 
+                    price: data.price,
+                    color: {
+                        name: order.iroName,
+                        code: order.iro
+                    },
+                    size: order.size,
+                    qty: order.amount
+                };
+                list.push(newOrder);
+                localStorage.setItem("list", JSON.stringify(list));
+            }
+        
         }
-    });        
+    });
+        
+    
 }

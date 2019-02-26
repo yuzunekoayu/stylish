@@ -118,15 +118,17 @@ function renderDetails(layout) {
     const prodColors = document.querySelector('#prodColors');
 
     for (let i = 0; i < layout.data.colors.length; i++) {
-        const sikaku =  document.createElement('div');
-        sikaku.className = "sikaku";
+        const square =  document.createElement('div');
+        square.className = "square";
+        square.title = `${layout.data.colors[i].name}`;
+        square.dataset.color_code = `${layout.data.colors[i].code}`;
 
         const iro = document.createElement('div');
         iro.className = "iro";
         iro.style.cssText = 'background:' + `#${layout.data.colors[i].code}`;
-        
-        sikaku.appendChild(iro);
-        prodColors.appendChild(sikaku);
+
+        square.appendChild(iro);
+        prodColors.appendChild(square);
     }
 
     const prodSizes = document.querySelector('#prodSizes');
