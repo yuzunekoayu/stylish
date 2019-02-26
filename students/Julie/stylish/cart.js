@@ -5,4 +5,5 @@ if (localStorage.getItem("list")) {
 }
 
 // localStorage.removeItem("list");
-console.log(localStorage);
+
+console.log(list);
