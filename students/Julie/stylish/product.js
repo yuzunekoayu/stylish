@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const tellIfSoldOut = (num, btn) => {
-  if (num === 0) {
+  if (num <= 0) {
     btn.disabled = true;
     btn.innerText = "缺貨中";
     btn.classList.add("failToCart");

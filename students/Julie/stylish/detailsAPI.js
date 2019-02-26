@@ -28,6 +28,7 @@ function orderHelper(data) {
 
     let variants = data.variants;
 
+    // 如果購物車有東西，先扣掉購物車數量
     variants.forEach(variant => {
         if (list.length > 0) {
             list.forEach(goods => {
