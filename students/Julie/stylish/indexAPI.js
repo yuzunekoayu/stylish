@@ -61,13 +61,13 @@ window.onscroll = function () {
 // get End Point 小精靈
 function catalog(cata) {    // 分類目錄擔當
     const ep = `/products/${cata}?`;
-    return get(ep);
+    return get(ep, 0);
 }
 function search(keyword) {  // 搜尋擔當
     const ep = `/products/search?keyword=${keyword}&`;
-    return get(ep);
+    return get(ep, 0);
 }
 function campaigns() {  // Key Visual 擔當
     const ep = '/marketing/campaigns?';
-    return get(ep);
+    return get(ep, 0);
 }

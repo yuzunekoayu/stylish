@@ -23,12 +23,12 @@ function toggleSingle(elem, active) {
 }
 
 // 多個元素點擊 toogle class
-function toggleMutiple(elem, active) {
+function toggleMutiple(elem, active, wantedTag) {
     for (let i = 0; i < elem.length; i++) {
       elem[i].onclick = function() {
         let el = elem[0];
         while(el) { 
-          if(el.tagName === "DIV"){
+          if(el.tagName === wantedTag){
             el.classList.remove(`${active}`);
           }
           el = el.nextSibling;

@@ -15,8 +15,8 @@ kwsk()
         renderDetails(data);
 
         // 點擊變顏色、變框框
-        toggleMutiple(document.querySelectorAll('.sikaku'), 'colorSelect');
-        toggleMutiple(document.querySelectorAll('.sml'), 'sizeSelect');
+        toggleMutiple(document.querySelectorAll('.sikaku'), 'colorSelect', 'DIV');
+        toggleMutiple(document.querySelectorAll('.sml'), 'sizeSelect', 'DIV');
 
         let variants = data.data.variants;
         orderHelper(variants);

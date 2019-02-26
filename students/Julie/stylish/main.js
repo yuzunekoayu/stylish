@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(next, 10000);
 
   // 按 tab 變字體顏色
-  toggleMutiple(document.querySelectorAll('.item'), "activeTab");
+  toggleMutiple(document.querySelectorAll('.item'), "activeTab", "A");
 
   // 把 tab id 當作網址的 End Point 傳給 Fetch，按到哪個 tab 就傳那個 tab 的 id 
   const tabs = document.querySelectorAll('.item');
