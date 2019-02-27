@@ -9,6 +9,7 @@ const tellIfSoldOut = (num, btn) => {
     btn.disabled = true;
     btn.innerText = "缺貨中";
     btn.classList.add("failToCart");
+    num = 0
     restStock.textContent = "剩餘 " + num + " 件";
     restStock.style.opacity = "1";
   } else {

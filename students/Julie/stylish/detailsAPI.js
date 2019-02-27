@@ -61,9 +61,7 @@ function orderHelper(data) {
         variants.forEach( variant => {
             if (variant.color_code === order.iro && variant.size === order.size) {
                 order.userStock = variant.stock;
-                order.amount = count.value;
-                tellIfSoldOut(order.userStock, addToCart);
-                variant.stock -= order.amount;
+                tellIfSoldOut(variant.stock, addToCart);
                 count.value = 0;
             }
         })
@@ -79,10 +77,7 @@ function orderHelper(data) {
         variants.forEach( variant => {
             if (variant.color_code === order.iro && variant.size === order.size) {
                 order.userStock = variant.stock;
-                console.log(list);
-                order.amount = count.value;
-                tellIfSoldOut(order.userStock, addToCart);
-                variant.stock -= order.amount;
+                tellIfSoldOut(variant.stock, addToCart);
                 count.value = 0;
             }
         })
@@ -120,10 +115,10 @@ function orderHelper(data) {
             variants.forEach( variant => {
                 if (variant.color_code === order.iro && variant.size === order.size) {
                     variant.stock = parseInt(variant.stock) - parseInt(order.amount);
-                    restStock.textContent = "剩餘 " + variant.stock + " 件";
+                    order.userStock = variant.stock;
+                    tellIfSoldOut(variant.stock, addToCart);
                 }
             });
-            count.value = 0;
 
             // 先看看 Local Storage 是否有加過同款的商品
             let alreadyExist = list.filter( (goods) => {
@@ -163,6 +158,8 @@ function orderHelper(data) {
                 localStorage.setItem("list", JSON.stringify(list));
                 console.log(localStorage);
             }
+            order.amount = count.value = 0;
+            console.log(list);
         }
     });
         
