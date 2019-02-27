@@ -7,13 +7,12 @@ if (localStorage.getItem("list")) {
 
 //購物車小圖數字
 const badges = document.querySelectorAll(".badge");
-let cartCount = 0;
-
 countGoods();
 
 function countGoods(params) {
+    let cartCount = 0;
     list.forEach(goods => {
-        cartCount += parseInt(goods.qty);
+        cartCount = parseInt(cartCount) + parseInt(goods.qty);
     });
     badges.forEach(badge => {
         badge.textContent = cartCount;
@@ -22,4 +21,4 @@ function countGoods(params) {
 
 // localStorage.removeItem("list");
 
-console.log(list);
+console.log("初始list", list);

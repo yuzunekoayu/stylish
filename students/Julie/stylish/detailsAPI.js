@@ -112,6 +112,7 @@ function orderHelper(data) {
             // 顧客很乖，給加購物車。
             addToCart.disabled = false;
             addToCart.textContent = "加入購物車";
+            // 加入購物車同時，庫存減掉顧客欲買的數量
             variants.forEach( variant => {
                 if (variant.color_code === order.iro && variant.size === order.size) {
                     variant.stock = parseInt(variant.stock) - parseInt(order.amount);
@@ -132,14 +133,13 @@ function orderHelper(data) {
                 // 找到到底是哪個重複，然後加要新增的數量，再變回字串放回去。
                 list = JSON.parse(localStorage.getItem('list'));
                 list.forEach(goods => {
-                    if(order.iroName === goods.color.name && order.size === goods.size && goods.id === data.id) {  //look for match with name
-                        console.log("目前數量：" + order.amount);
+                    if(order.iroName === goods.color.name && order.size === goods.size && goods.id === data.id) { 
+                        console.log("購物車舊數量：",  goods.qty, "要新增的數量：", order.amount);
                         goods.qty = parseInt(goods.qty) + parseInt(order.amount);
                     }
                 });
-                console.log("updateList", list);
+                console.log("合併後List", list);
                 localStorage.setItem("list", JSON.stringify(list));
-                console.log(localStorage);
             } else {
                 // 沒重複的話，就在 Local Storage 新增一筆
                 let newOrder = {
@@ -154,13 +154,12 @@ function orderHelper(data) {
                     qty: order.amount
                 };
                 list.push(newOrder);
-                console.log("新增List", list);
+                console.log("有新一筆的List", list);
                 localStorage.setItem("list", JSON.stringify(list));
-                console.log(localStorage);
             }
             order.amount = count.value = 0;
-            console.log(list);
         }
+        countGoods();
     });
         
     
