@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+    toggleMutiple(document.querySelectorAll('.item'), "activeTab", "A");
+ 
+});
+
 // 伺服器名
 let host = '18.214.165.31';
 // 單一產品頁網址
@@ -161,6 +167,21 @@ function orderHelper(data) {
         }
         countGoods();
     });
-        
-    
+}
+
+const tellIfSoldOut = (num, btn) => {
+    if (num <= 0) {
+      btn.disabled = true;
+      btn.innerText = "缺貨中";
+      btn.classList.add("failToCart");
+      num = 0
+      restStock.textContent = "剩餘 " + num + " 件";
+      restStock.style.opacity = "1";
+    } else {
+      btn.disabled = false;
+      btn.innerText = "加入購物車";
+      btn.classList.remove("failToCart");
+      restStock.textContent = "剩餘 " + num + " 件";
+      restStock.style.opacity = "1";
+    }
 }

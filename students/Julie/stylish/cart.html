@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stylish｜Shopping Cart</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./cart.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="./"><img src="./img/logo.png" alt=""></a>
+        </div>
+        <button id="mobileSubmit"></button>
+        <nav>
+            <a class="item" id="women" href="index.html?category=women">女裝</a><span>|</span>
+            <a class="item" id="men" href="index.html?category=men">男裝</a><span>|</span>
+            <a class="item" id="accessories" href="index.html?category=accessories">配件</a>
+        </nav>
+        <div class="feature" id="feature">
+            <div class="searchBar" id="searchBar">
+                <input type="text" id="input" placeholder="搜尋…" onfocus="this.placeholder=''" onblur="this.placeholder='搜尋…'">
+                <button id="btnSubmit" accept-charset="Big5"><a href="index.html?keyword="></a></button>
+            </div>
+            <div class="cart" id="cart"><a href="./cart.html"></a><span class="badge" id="badge">0</span></div>
+            <div class="member"></div>
+        </div>
+        <div class="smallBar">
+            <div class="sCart">
+                <div class="scIcon"><span class="badge">0</span></div>
+                <div class="moji">購物車</div>
+            </div><span>｜</span>
+            <div class="sMember">
+                <div class="smIcon"></div>
+                <div class="moji">會員　</div>
+            </div>
+        </div>
+    </header>
+    <div class="bar"></div>
+    <div class="cartMain">
+        <p>HOME > BAG</p>
+        <div class="cartTitle">
+            <p>購物車(0)</p>
+            <p>數量</p>
+            <p>單價</p>
+            <p>小計</p>
+        </div>
+        <div class="cartList">
+            <div class="cartItem">
+                <div class="cartLeft">
+                    <div class="cartImg">
+                        <img src="" alt="">
+                    </div>
+                    <div class="cartBasic">
+                        前開衩扭結洋裝<br>
+                        <br>
+                        03040047<br>
+                        <br>
+                        顏色｜白<br>
+                        尺寸｜M<br>
+                    </div>
+                </div>
+                <div class="cartMiddle">
+                    
+                    <div class="cartQty">
+                        <div class="cartMoji">數量</div>
+                        <select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+
+                    <div class="cartPiecePrice">
+                        <div class="cartMoji">單價</div>
+                        <p>NT.590</p>
+                    </div>
+
+                    <div class="cartSubtotal">
+                        <div class="cartMoji">小計</div>
+                        <p>NT.1290</p>
+                    </div>
+
+                </div>
+                <div class="cartLeft">
+                    <div class="cartDelete"></div>
+                </div>
+            </div>
+            <div class="cartItem">
+                <div class="cartLeft">
+                    <div class="cartImg">
+                        <img src="" alt="">
+                    </div>
+                    <div class="cartBasic">
+                        前開衩扭結洋裝<br>
+                        <br>
+                        03040047<br>
+                        <br>
+                        顏色｜白<br>
+                        尺寸｜M<br>
+                    </div>
+                </div>
+                <div class="cartMiddle">
+                    
+                    <div class="cartQty">
+                        <div class="cartMoji">數量</div>
+                        <select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+
+                    <div class="cartPiecePrice">
+                        <div class="cartMoji">單價</div>
+                        <p>NT.590</p>
+                    </div>
+
+                    <div class="cartSubtotal">
+                        <div class="cartMoji">小計</div>
+                        <p>NT.1290</p>
+                    </div>
+
+                </div>
+                <div class="cartLeft">
+                    <div class="cartDelete"></div>
+                </div>
+            </div>
+            <div class="cartItem">
+                <div class="cartLeft">
+                    <div class="cartImg">
+                        <img src="" alt="">
+                    </div>
+                    <div class="cartBasic">
+                        前開衩扭結洋裝<br>
+                        <br>
+                        03040047<br>
+                        <br>
+                        顏色｜白<br>
+                        尺寸｜M<br>
+                    </div>
+                </div>
+                <div class="cartMiddle">
+                    
+                    <div class="cartQty">
+                        <div class="cartMoji">數量</div>
+                        <select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+
+                    <div class="cartPiecePrice">
+                        <div class="cartMoji">單價</div>
+                        <p>NT.590</p>
+                    </div>
+
+                    <div class="cartSubtotal">
+                        <div class="cartMoji">小計</div>
+                        <p>NT.1290</p>
+                    </div>
+
+                </div>
+                <div class="cartLeft">
+                    <div class="cartDelete"></div>
+                </div>
+            </div>
+        </div>
+        <div class="cartShipment">
+            <div class="cartArea">
+                <p>配送國家</p>
+                <select>
+                    <option value="臺灣及離島">臺灣及離島</option>
+                    <option value="其他國家">其他國家</option>
+                </select>
+            </div>
+            <div class="cartPayment">
+            <p>付款方式</p>
+            <select>
+                <option value="宅配貨到付款">宅配貨到付款</option>
+                <option value="信用卡">信用卡</option>
+            </select>
+            </div>
+        </div>
+        <div class="cartNotice">
+            ※ 提醒您：<br>
+            ● 選擇宅配-請填寫正確收件人資訊，避免包裹配送不達<br>
+            ● 選擇超商-請填寫正確收件人姓名(與證件相符)，避免無法領取<br>
+        </div>
+        <div class="cartTitle">
+            <p>訂購資料</p>
+        </div>
+        <div class="cartOrderInfo">
+            <form action="">
+                <p>收件人姓名</p><input type="text">
+                <p>務必填寫完整收件人姓名，避免包裹無法順利簽收</p>
+                <p>手機</p><input type="text">
+                <p>地址</p><input type="text">
+            </form>
+            <div class="cartDeliverTime">
+                <p>配送時間</p>
+                <div>
+                    <input type="radio" name="time" value="08:00-12:00">
+                    <label for="08:00-12:00">08:00-12:00</label>
+                </div>
+                <div>
+                    <input type="radio" name="time" value="14:00-18:00">
+                    <label for="14:00-18:00">14:00-18:00</label>
+                </div>
+                <div>
+                    <input type="radio" name="time" value="不指定" checked>
+                    <label for="不指定">不指定</label>
+                </div>
+            </div>
+        </div>
+        <div class="cartTitle">
+            <p>信用卡資料</p>
+        </div>
+        <div class="cartCreditInfo">
+            <form action="">
+                <p>信用卡卡號</p><input type="text">
+                <p>到期日</p><input type="text">
+                <p>安全碼</p><input type="text">
+            </form>
+        </div>
+        <div class="cartCheck">
+            <div class="cartMoney">
+                <p>總金額</p>
+                NT. 1770
+            </div>
+            <div class="cartMoney">
+                <p>運費</p>
+                NT. 30
+            </div>
+            <div class="cartMoney">
+                <p>應付金額</p>
+                NT. 1880
+            </div>
+        </div>
+        <button class="cartYesPay">確認付款</button>
+    </div>
+    <footer>
+        <div class="ftWrap">
+            <div class="ftNav">
+                <div class="guide">關於 Stylish</div><span>｜</span>
+                <div class="guide">服務條款</div><span>｜</span>
+                <div class="guide">隱私政策</div><span>｜</span>
+                <div class="guide">聯絡我們</div><span>｜</span>
+                <div class="guide">FAQ</div>
+            </div>
+            <div class="sns">
+                <div class="line"></div>
+                <div class="twi"></div>
+                <div class="fb"></div>
+            </div>
+            <div class="copy">&copy; 2018. All rights reserved</div>
+        </div>
+    </footer>
+    <script src="./localStorage.js"></script>
+    <script src="./cart.js"></script>
+    <script src="./useful.js"></script>
+    <script src="./search.js"></script>
+</body>
+</html>
