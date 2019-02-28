@@ -1,0 +1,87 @@
+.cartMain {
+    max-width: 1160px;
+    margin: 47px auto 148px auto;
+}
+
+.cartTitle, .cartList, .cartItem, .cartLeft, .cartMiddle,
+.cartShipment, .cartArea, .cartPayment, .cartDeliverTime,
+.cartCheck, .cartYesPay {
+    display: flex;
+}
+
+.cartTitle {
+    margin: 50px 0 16px 0 ;
+}
+
+.cartList {
+    flex-flow: column;
+    border: 1px solid #979797;
+    padding: 10px 31px 40px 44px;
+}
+
+.cartItem {
+    margin-top: 30px;
+}
+
+.cartLeft {
+    flex: 2 0 auto;
+}
+
+.cartImg {
+    width: 114px; height: 151px;
+}
+
+.cartBasic {
+    margin-left: 10px;
+}
+
+.cartMiddle {
+    justify-content: space-between;
+    align-items: center;
+    width: 404px;
+}
+
+.cartShipment, .cartArea, .cartPayment {
+    margin: 26px auto 20px auto;
+}
+
+.cartShipment {
+    background-color: #e8e8e8;
+}
+
+.cartShipment p {
+    margin: 0 20px 0 30px;
+}
+
+.cartOrderInfo {
+    max-width: 684px;
+}
+
+.cartOrderInfo form {
+    width: 100%;
+}
+
+.cartOrderInfo input {
+    width: 80%; height: 30px;
+    margin-left: 30px;
+    border-radius: 6px;
+    outline: none; 
+    border: 1px solid #979797;
+}
+
+.cartReminder {
+    text-align: right;
+    color: #8b572a; 
+    padding-right: 25px;
+    margin: 10px 0 30px 0;
+}
+
+.cartCheck {
+    flex-flow: column;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.cartYesPay {
+    margin-left: auto;
+}

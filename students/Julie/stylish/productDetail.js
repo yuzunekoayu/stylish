@@ -69,6 +69,14 @@ function orderHelper(data) {
                 order.userStock = variant.stock;
                 tellIfSoldOut(variant.stock, addToCart);
                 count.value = 0;
+            } else if (variant.color_code === order.iro && variant.stock === 0) {
+                sizes.forEach(size => {
+                    if (size.textContent === variant.size) {
+                        size.className = "sml sizeFade";
+                    } else {
+                        size.classList.remove("sizeFade");
+                    }
+                })
             }
         })
     }
@@ -85,6 +93,14 @@ function orderHelper(data) {
                 order.userStock = variant.stock;
                 tellIfSoldOut(variant.stock, addToCart);
                 count.value = 0;
+            } else if (variant.size === order.size && variant.stock === 0) {
+                squares.forEach(square => {
+                    if (square.getAttribute("data-color_code") === variant.color_code) {
+                        square.classList.add("iroFade");
+                    } else {
+                        square.classList.remove("iroFade");
+                    }
+                })
             }
         })
     }

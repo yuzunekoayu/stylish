@@ -101,6 +101,11 @@
     cursor: pointer;
 }
 
+.iroFade {
+    opacity: 0.35;
+    pointer-events: none;
+}
+
 .prodSizes { 
     height: 34px;
     margin-bottom: 26px;
@@ -119,6 +124,12 @@
     margin-right:  20px;
     transition: color .2s ease, background-color .3s ease;
     cursor: pointer;
+}
+
+.sizeFade {
+    color: #ffffff;
+    background-color: #f6f6f6;
+    pointer-events: none;
 }
 
 .sizeSelect {
