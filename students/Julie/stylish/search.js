@@ -1,28 +1,27 @@
-// 當客人按下搜尋，將客人輸入的關鍵字當作參數，傳給 Fetch。
-const btnSubmit = document.getElementById('btnSubmit');
-btnSubmit.addEventListener('click', () => {
-      let inputWord = document.getElementById("input").value;
-      if (inputWord.length > 0) {
-            clear(document.getElementById('row'));
-            search(inputWord);
-            inputField.value = "";
-        }
-    console.log(inputWord);
-});
+// 所有 Page 共用搜尋功能
+const searchForm = document.querySelector('#searchBar');
+const productPage = window.location.href.indexOf("product");
+const cartPage = window.location.href.indexOf("cart");
 
-// 讓滑鼠 click 跟鍵盤 enter 都可以 submit 搜尋關鍵字
-let inputField = document.getElementById("input");
-inputField.addEventListener("keypress", (e) => {
-    if (e.keyCode === 13) {
-    btnSubmit.click();
-    inputField.value = "";
-    }
-}); 
+searchForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const keyword = new FormData(searchForm).get('keyword');
+  if (keyword === "") {
+    return;
+  } else if (productPage > -1 || cartPage > -1) {  
+    window.location.href = `index.html?tag=${keyword}`
+  } else {
+    clear(document.querySelector('#row'));
+    search(keyword)
+  }
+  searchForm.reset();
+})
 
 // 手機版 Search Bar 樣式
 const mobileSubmit = document.querySelector("#mobileSubmit");
 const feature = document.querySelector("#feature");
 const searchBar = document.querySelector("#searchBar");
+
 function magnify() {
   if (mobileSubmit.style.background === 'url("./img/close.png")') {
     mobileSubmit.style.background = 'url("./img/search.png")';

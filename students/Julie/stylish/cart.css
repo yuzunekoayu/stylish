@@ -5,12 +5,13 @@
 
 .cartTitle, .cartList, .cartItem, .cartLeft, .cartMiddle,
 .cartShipment, .cartArea, .cartPayment, .cartDeliverTime,
-.cartCheck, .cartYesPay {
+.cartCheck, .cartMoney, .cartYesPay {
     display: flex;
 }
 
 .cartTitle {
-    margin: 50px 0 16px 0 ;
+    margin: 50px 0 12px 0 ;
+    font-weight: bold;
 }
 
 .cartList {
@@ -21,6 +22,7 @@
 
 .cartItem {
     margin-top: 30px;
+    align-items: center;
 }
 
 .cartLeft {
@@ -29,6 +31,11 @@
 
 .cartImg {
     width: 114px; height: 151px;
+    background: #8b572a;
+}
+
+.cartImg > img {
+    width: 100%;
 }
 
 .cartBasic {
@@ -39,14 +46,50 @@
     justify-content: space-between;
     align-items: center;
     width: 404px;
+    text-align: center;
 }
 
-.cartShipment, .cartArea, .cartPayment {
-    margin: 26px auto 20px auto;
+.cartMoji {
+    /* display: none; */
+    margin-bottom: 10px;
+}
+
+.cartQty > select {
+    width: 80px; height: 30px;
+    outline: none;
+    border-radius: 6px;
+    padding-left: 17px;
+}
+
+.cartRight {
+    flex: 0.57 0 auto;
+}
+
+.cartDelete {
+    width: 44px; height: 44px;
+    background: url(./img/cart-remove.png) no-repeat;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.cartDelete:hover {
+    background: url(./img/cart-remove-hover.png) no-repeat;
 }
 
 .cartShipment {
+    margin: 26px auto 20px auto;
     background-color: #e8e8e8;
+}
+
+.cartShipment select {
+    width: 171px; height: 30px;
+    border-radius: 6px;
+    outline: none;
+    padding-left: 17px;
+}
+
+.cartArea, .cartPayment {
+    margin: 22px 52px 22px 0;
 }
 
 .cartShipment p {
@@ -61,27 +104,67 @@
     width: 100%;
 }
 
-.cartOrderInfo input {
-    width: 80%; height: 30px;
+.cartTextInput {
+    width: 83.6%; height: 30px;
     margin-left: 30px;
     border-radius: 6px;
     outline: none; 
     border: 1px solid #979797;
+    padding: 3px 10px;
+    margin-top: 30px;
 }
 
 .cartReminder {
     text-align: right;
     color: #8b572a; 
-    padding-right: 25px;
-    margin: 10px 0 30px 0;
+    margin-top: 10px;
 }
 
 .cartCheck {
     flex-flow: column;
     align-items: flex-end;
+    max-width: 240px;
+    margin-left: auto;
+    margin-top: 89px;
+}
+
+.cartMoney {
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
 }
 
+.cartMoney:nth-child(2) {
+    margin: 20px 0 40px 0;
+}
+
+.cartMoneyWord {
+    flex: 1 0;
+}
+
+.cartMoneyUnit {
+    flex: 0 0;
+    margin-right: 10px;
+}
+
+.cartMoneyTotal {
+    font-size: 30px;
+    flex: 0 0;
+}
+
+.cartMoneyWord, .cartMoneyUnit {
+    font-size: 16px;
+}
+
 .cartYesPay {
-    margin-left: auto;
+    width: 240px; height: 60px;
+    background: black;
+    color: white;
+    font-size: 20px;
+    letter-spacing: 4px;
+    border: 1px outset #888888;
+    outline: none;
+    cursor: pointer;
+    margin: 50px 0 0 auto;
+    justify-content: center;
 }

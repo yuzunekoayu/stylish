@@ -112,6 +112,7 @@ nav > span {
     background-position: calc(100% - 5px) calc(100% + 3px);
     border: none; outline: none;
     cursor: pointer;
+    position: relative;
 }
 
 .searchBar, .cart {
