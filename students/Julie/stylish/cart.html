@@ -41,8 +41,16 @@
     <div class="bar"></div>
     <div class="cartMain">
         <p>HOME > BAG</p>
-        <div class="cartTitle">
-            購物車(0)
+        <div class="cartTop">
+            <div class="cartTitle">
+                購物車(0)
+            </div>
+            <div class="cartSubTitle">
+                <p>數量</p>
+                <p>單價</p>
+                <p>小計</p>
+                <div class="airDelete"></div>
+            </div>
         </div>
         <div class="cartList">
             <div class="cartItem">
@@ -59,70 +67,28 @@
                         尺寸｜M<br>
                     </div>
                 </div>
-                <div class="cartMiddle">
-                    
-                    <div class="cartQty">
-                        <div class="cartMoji">數量</div>
-                        <select>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                    </div>
-
-                    <div class="cartPiecePrice">
-                        <div class="cartMoji">單價</div>
-                        <p>NT.590</p>
-                    </div>
-
-                    <div class="cartSubtotal">
-                        <div class="cartMoji">小計</div>
-                        <p>NT.1290</p>
-                    </div>
-
-                </div>
-                    <div class="cartRight">
-                        <div class="cartDelete"></div>
-                    </div>
-            </div>
-            <div class="cartItem">
-                <div class="cartLeft">
-                    <div class="cartImg">
-                        <img src="" alt="">
-                    </div>
-                    <div class="cartBasic">
-                        前開衩扭結洋裝<br>
-                        <br>
-                        03040047<br>
-                        <br>
-                        顏色｜白<br>
-                        尺寸｜M<br>
-                    </div>
-                </div>
-                <div class="cartMiddle">
-                    
-                    <div class="cartQty">
-                        <div class="cartMoji">數量</div>
-                        <select>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                    </div>
-
-                    <div class="cartPiecePrice">
-                        <div class="cartMoji">單價</div>
-                        <p>NT.590</p>
-                    </div>
-
-                    <div class="cartSubtotal">
-                        <div class="cartMoji">小計</div>
-                        <p>NT.1290</p>
-                    </div>
-
-                </div>
                 <div class="cartRight">
-                        <div class="cartDelete"></div>
+                    
+                    <div class="cartQty">
+                        <div class="cartMoji">數量</div>
+                        <select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+
+                    <div class="cartPiecePrice">
+                        <div class="cartMoji">單價</div>
+                        <p>NT.590</p>
+                    </div>
+
+                    <div class="cartSubtotal">
+                        <div class="cartMoji">小計</div>
+                        <p>NT.1290</p>
+                    </div>
+
+                    <div class="cartDelete"></div>
                 </div>
             </div>
             <div class="cartItem">
@@ -139,7 +105,7 @@
                         尺寸｜M<br>
                     </div>
                 </div>
-                <div class="cartMiddle">
+                <div class="cartRight">
                     
                     <div class="cartQty">
                         <div class="cartMoji">數量</div>
@@ -160,9 +126,7 @@
                         <p>NT.1290</p>
                     </div>
 
-                </div>
-                <div class="cartRight">
-                        <div class="cartDelete"></div>
+                    <div class="cartDelete"></div>
                 </div>
             </div>
         </div>
@@ -193,12 +157,12 @@
         <div class="cartOrderInfo">
             <form action="">
                 <p><label for="fullName">收件人姓名</label><input class="cartTextInput" type="text"></p>
-                <p class="cartReminder">務必填寫完整收件人姓名，避免包裹無法順利簽收</p>
+                <div class="cartReminder">務必填寫完整收件人姓名，避免包裹無法順利簽收</div>
                 <p><label for="phoneNum">手機　　　</label><input class="cartTextInput" type="text"></p>
                 <p><label for="address">地址　　　</label><input class="cartTextInput" type="text"></p>
             </form>
             <div class="cartDeliverTime">
-                <p>配送時間</p>
+                <p>配送時間　</p>
                 <div>
                     <input type="radio" name="time" value="08:00-12:00">
                     <label for="08:00-12:00">08:00-12:00</label>
