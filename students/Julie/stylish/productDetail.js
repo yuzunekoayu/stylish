@@ -46,8 +46,8 @@ function orderHelper(data) {
     });
     
     // 把客人選的顏色、顏色名、尺寸、數量、庫存，存成一個物件（初始是 0 或 ""）
-    let order = { iro: '', iroName:'', size: '', amount: 0, userStock: 0 };
-    
+    let order = { iro: '', iroName:'', size: '', amount: 0, userStock: 0};
+
     const squares = document.querySelectorAll('.square');
     const sizes = document.querySelectorAll('.sml');
     const minus = document.querySelector("#minus");
@@ -101,6 +101,7 @@ function orderHelper(data) {
     plus.addEventListener("click", () => {
         if (count.value === 0 || count.value < order.userStock) {
             addToCart.textContent = "加入購物車";
+            addToCart.disabled = false;
             count.value ++;
         }
     });
@@ -157,7 +158,8 @@ function orderHelper(data) {
                         code: order.iro
                     },
                     size: order.size,
-                    qty: order.amount
+                    qty: order.amount,
+                    mainImg: data.main_image,
                 };
                 list.push(newOrder);
                 console.log("有新一筆的List", list);

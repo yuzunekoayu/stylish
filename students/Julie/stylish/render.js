@@ -176,3 +176,96 @@ function renderDetails(layout) {
 
     details.appendChild(fragment);
 } 
+
+// render Shopping Cart List（購物車清單）
+function renderCartList(layout) {
+
+    // console.log(layout);
+    // console.log(cartList);
+
+    const fragment = document.createDocumentFragment();
+    
+    for (let i = 0; i < layout.length; i++) {
+        const cartItem = document.createElement('div');
+        cartItem.classList = "cartItem";
+        
+        const cartLeft = document.createElement('div');
+        cartLeft.classList = "cartLeft";
+
+        const cartRight = document.createElement('div');
+        cartRight.classList = "cartRight";
+
+        cartItem.appendChild(cartLeft);
+        cartItem.appendChild(cartRight);
+    
+        const cartImgWrap = document.createElement('div');
+        cartImgWrap.classList = "cartImg";
+        
+        const cartImg = document.createElement('img');
+        cartImg.src = layout[i].mainImg;
+
+        cartImgWrap.appendChild(cartImg);
+        cartLeft.appendChild(cartImgWrap);
+
+        const cartBasic = document.createElement('div');
+        cartBasic.classList = "cartBasic";
+        cartBasic.innerHTML = layout[i].name + '<br><br>' + 
+                                layout[i].id + '<br><br>顏色｜' + 
+                                layout[i].color.name + '<br>尺寸｜' + 
+                                layout[i].size + '<br>';
+    
+        cartLeft.appendChild(cartBasic);
+        
+        const cartQty = document.createElement('div');
+        cartQty.classList = "cartQty";
+
+        const cartM1 = document.createElement('div');
+        cartM1.classList = "cartMoji";
+        cartM1.textContent = "數量";
+
+        const qtySelect = document.createElement('select');
+        record(layout[i].id, layout[i].color.code, layout[i].size, layout[i].qty, qtySelect);
+
+        cartQty.appendChild(cartM1);
+        cartQty.appendChild(qtySelect);
+
+        const cartPiece = document.createElement('div');
+        cartPiece.classList = "cartPiecePrice";
+
+        const cartM2 = document.createElement('div');
+        cartM2.classList = "cartMoji";
+        cartM2.textContent = "單價";
+
+        const cartPrice = document.createElement('p');
+        cartPrice.textContent = "NT." + layout[i].price;
+
+        cartPiece.appendChild(cartM2);
+        cartPiece.appendChild(cartPrice);
+
+        const cartSub = document.createElement('div');
+        cartSub.classList = "cartSubtotal";
+        
+        const cartM3 = document.createElement('div');
+        cartM3.classList = "cartMoji";
+        cartM3.textContent = "小計";
+        
+        const cartTotal = document.createElement('p');
+        cartTotal.textContent = "NT." + layout[i].price * layout[i].qty;
+
+        cartSub.appendChild(cartM3);
+        cartSub.appendChild(cartTotal);
+
+        cartRight.appendChild(cartQty);
+        cartRight.appendChild(cartPiece);
+        cartRight.appendChild(cartSub);
+
+        const cartDelete = document.createElement('div');
+        cartDelete.classList = "cartDelete";
+        cartRight.appendChild(cartDelete);
+        
+        fragment.appendChild(cartItem);
+    }
+
+    cartList.appendChild(fragment);
+
+}

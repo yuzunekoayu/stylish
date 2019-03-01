@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     // 初始畫面
     campaigns();
-    // 判斷網址是否有 category 參數，有的話就要跑出正確畫面（方便各 Page 可以共用 NavBar）
+    // 判斷網址是否有 category 或 tag 參數，有的話就要跑出正確畫面（方便各 Page 共用 NavBar）
     let url = new URL(location.href)
     let catas = url.searchParams.get('category');
     let tag = url.searchParams.get('tag');
