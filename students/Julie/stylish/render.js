@@ -2,6 +2,7 @@
     renderKV() === render Key Visual
     renderPD() === render Product
     renderDetails() === render Product Details（單一產品頁）
+    renderCartList === render Cart List（購物車清單）
 */
 
 // render Key Visual
@@ -261,6 +262,7 @@ function renderCartList(layout) {
 
         const cartDelete = document.createElement('div');
         cartDelete.classList = "cartDelete";
+        cartDelete.dataset.delete = layout[i].delete;
         cartRight.appendChild(cartDelete);
         
         fragment.appendChild(cartItem);
