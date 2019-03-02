@@ -97,9 +97,10 @@
 }
 
 .cartDelete {
-    width: 44px; height: 44px;
+    width: 44px; height: 38px;
     background: url(./img/cart-remove.png) no-repeat;
     cursor: pointer;
+    align-self: flex-end;
 }
 
 .cartDelete:hover {

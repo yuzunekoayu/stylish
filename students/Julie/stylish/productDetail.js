@@ -160,7 +160,7 @@ function orderHelper(data) {
                     size: order.size,
                     qty: order.amount,
                     mainImg: data.main_image,
-                    delete: data.id + order.iro + order.size
+                    confirm: data.id + order.iro + order.size
                 };
                 list.push(newOrder);
                 console.log("有新一筆的List", list);

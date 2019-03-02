@@ -189,6 +189,7 @@ function renderCartList(layout) {
     for (let i = 0; i < layout.length; i++) {
         const cartItem = document.createElement('div');
         cartItem.classList = "cartItem";
+        cartItem.dataset.confirm = layout[i].confirm;
         
         const cartLeft = document.createElement('div');
         cartLeft.classList = "cartLeft";
@@ -225,32 +226,34 @@ function renderCartList(layout) {
         cartM1.textContent = "數量";
 
         const qtySelect = document.createElement('select');
+        qtySelect.dataset.confirm = layout[i].confirm;
         record(layout[i].id, layout[i].color.code, layout[i].size, layout[i].qty, qtySelect);
 
         cartQty.appendChild(cartM1);
         cartQty.appendChild(qtySelect);
 
         const cartPiece = document.createElement('div');
-        cartPiece.classList = "cartPiecePrice";
 
         const cartM2 = document.createElement('div');
         cartM2.classList = "cartMoji";
         cartM2.textContent = "單價";
 
         const cartPrice = document.createElement('p');
+        cartPrice.id = "cartPiecePrice";
         cartPrice.textContent = "NT." + layout[i].price;
 
         cartPiece.appendChild(cartM2);
         cartPiece.appendChild(cartPrice);
 
         const cartSub = document.createElement('div');
-        cartSub.classList = "cartSubtotal";
         
         const cartM3 = document.createElement('div');
         cartM3.classList = "cartMoji";
         cartM3.textContent = "小計";
         
         const cartTotal = document.createElement('p');
+        cartTotal.id = "cartSubTotal";
+        cartTotal.dataset.confirm = layout[i].confirm;
         cartTotal.textContent = "NT." + layout[i].price * layout[i].qty;
 
         cartSub.appendChild(cartM3);
@@ -262,7 +265,7 @@ function renderCartList(layout) {
 
         const cartDelete = document.createElement('div');
         cartDelete.classList = "cartDelete";
-        cartDelete.dataset.delete = layout[i].delete;
+        cartDelete.dataset.confirm = layout[i].confirm;
         cartRight.appendChild(cartDelete);
         
         fragment.appendChild(cartItem);

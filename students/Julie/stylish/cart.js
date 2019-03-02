@@ -5,10 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
     
     toggleMutiple(document.querySelectorAll('.item'), "activeTab", "A");
     
+    const cartTopTitle = document.querySelector('#cartTopTitle');
     const cartList = document.querySelector('#cartList');
     const sumTotal = document.querySelector('#sumTotal');
     const shippingFee = document.querySelector('#shippingFee');
     const payable = document.querySelector('#payable');
+    
     initCart();
     
 });
@@ -21,6 +23,7 @@ function initCart() {
     } else {
         renderCartList(list);
         calcTotal();
+        changeQty();
         deleteItem();
     }
 }
@@ -39,19 +42,8 @@ function findMax(v, color, size, qty, parent) {
             max = m.stock;
         }
     })
-    console.log(max);
+    console.log("真正庫存", max);
     optionMaker(max, qty, parent);
-}
-
-// 空空畫面
-function cartNothing() {
-    const cartEmpty = document.createElement('div')
-    cartEmpty.textContent = '您的購物車是空的喔～!';
-    cartEmpty.className = 'cartEmpty'
-    while (cartList.firstChild) {
-        cartList.removeChild(cartList.firstChild);
-    }
-    cartList.appendChild(cartEmpty);
 }
 
 // 為了製造跟真正庫存數量相對應的下拉選單 option 的功能
@@ -70,12 +62,61 @@ function optionMaker(max, qty, parent) {
     } 
 }
 
-// 計算價錢
+// 換數量功能
+function changeQty() {
+    const select = document.querySelectorAll('.cartQty > select');
+
+    select.forEach( (opt) => { 
+        opt.addEventListener('change', (e) => {
+            // 找到正確的要改數量的商品
+            list.forEach((li) => {
+                if (li.confirm === e.target.getAttribute("data-confirm")) {
+                    // 更新 qty
+                    li.qty = e.target.value;
+                    // 更新小計
+                    updateSubTotal(li);
+                }
+            });
+            // 存回 local storage
+            localStorage.setItem('list', JSON.stringify(list));
+            console.log("換數量後", list);
+            // 重算價錢
+            calcTotal();
+            // Nav 右上、cartList 左上數字
+            countGoods();
+        });
+    });
+}
+
+// 更新小計功能
+function updateSubTotal(li) {
+    const cartSubTotal = document.querySelectorAll('#cartSubTotal');
+    cartSubTotal.forEach((p) => {
+        if (p.getAttribute("data-confirm") === li.confirm) {
+            p.textContent = "NT." + `${li.price * parseInt(li.qty)}`;
+        }
+    })
+}
+
+// 空空畫面
+function cartNothing() {
+    const cartEmpty = document.createElement('div')
+    cartEmpty.textContent = '您的購物車是空的喔～!';
+    cartEmpty.className = 'cartEmpty'
+    while (cartList.firstChild) {
+        cartList.removeChild(cartList.firstChild);
+    }
+    cartList.appendChild(cartEmpty);
+}
+
+// 計算價錢（總計、運費、應付）
 let sumTotalNum = []; let shippingFeeNum = 30; let payableNum = 0;
 function calcTotal() {
     if (list.length === 0 ) {
+        // 如果購物車空空，沒事。
         return
     } else {
+        // 購物車有東西，總計 = 單價 * 數量，再加總。
         sumTotalNum = list.map( (li) => {
             return li.price * parseInt(li.qty);
         });
@@ -83,19 +124,22 @@ function calcTotal() {
             return acc + curr;
         });
 
+        // 應付 = 運費 + 總計（目前全館運費一律 30 (ry）
         payableNum = sumTotalNum + shippingFeeNum;
 
+        // 顯示數字在正確的 div 內。
         sumTotal.textContent = sumTotalNum;
         shippingFee.textContent = shippingFeeNum;
         payable.textContent = payableNum;
     }
 }
 
-
 // 移除功能
 function deleteItem() {
     const trashCan = document.querySelectorAll('.cartDelete');
+    const items = document.querySelectorAll('.cartItem');    
     
+    // 垃圾桶被按
     trashCan.forEach( (tc) => {
         tc.addEventListener('click', deleteHelper);
     });
@@ -103,27 +147,28 @@ function deleteItem() {
     function deleteHelper(e) {
         // 刪除 localStorage 資料，然後存回去
         list = list.filter( (li) => {
-            return li.delete !== e.target.getAttribute("data-delete");
+            return li.confirm !== e.target.getAttribute("data-confirm");
         });
         localStorage.setItem('list',JSON.stringify(list));
+        console.log("購物車移除商品後", list);
 
         if (list.length === 0) {
+            // 如果購物車變空的，顯示空空畫面，價格都歸零
             cartNothing();
             sumTotal.textContent = 0;
             shippingFee.textContent = 0;
             payable.textContent = 0;
         } else {
-            while (cartList.firstChild) {
-                cartList.removeChild(cartList.firstChild);
-            }
-            // 重新 render 新的 lacalStorage 資料
-            renderCartList(list);
+            // 購物車還有其他商品，比對刪除碼，移除那項符合的商品
+            items.forEach( (item) => {
+                if (item.getAttribute("data-confirm") === e.target.getAttribute("data-confirm")) {
+                    item.parentNode.removeChild(item);
+                }
+            });
         }
         // 重算價錢
         calcTotal();
-        // nav bar 右上小車數字
+        // Nav 右上、cartList 左上數字
         countGoods();
-        // 不寫的話，重 render 後再按垃圾桶就沒反應
-        deleteItem();
     }
 }
