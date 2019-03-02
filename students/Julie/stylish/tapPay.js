@@ -1,7 +1,49 @@
+// 檢查購物車是否空空
+function checkCartList() {
+    if (list.length > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// 檢查訂購資料（還沒用正規表現）
+function checkOrderInfo() {
+    // 選到訂到購料表格，做成 FormData 物件
+    const orderForm = new FormData(orderInfo);
+    // 檢查是否都填好，買家名字、電話、手機、email、配送時間，缺一不可。
+    if (orderForm.get('consumer') !== "" && orderForm.get('phone') !== "" && 
+        orderForm.get('address') !== "" && orderForm.get('email') !== "" && 
+        orderForm.get('deliverTime') !== null) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// 確認付款按鈕綁定事件
+cartYesPay.addEventListener("click", finalCheck);
+
+function finalCheck(e) {
+    e.preventDefault();
+
+    console.log(sumTotalNum, shippingFeeNum, payableNum);
+    console.log(checkCartList(), checkOrderInfo());
+    console.log(selectDeliveryArea.value, selectPayWay.value);
+
+    if (checkCartList() === true && checkOrderInfo() === true) {
+        console.log("您是個認真填表的好顧客～!");
+        onSubmit();
+    } else {
+        console.log("您是不認真填表的顧客:(");
+        return
+    }
+}
+
 // Tap Pay SDK 初始化　TPDirect.setupSDK(appID, appKey, serverType)
 TPDirect.setupSDK(12348, "app_pa1pQcKoY22IlnSXq5m5WP5jFKzoRG58VEXpT7wU62ud7mMbDOGzCYIlzzLF", "sandbox");
 
-// 外觀設定（?） TPDirect.card.setup(config)
+// 外觀設定 TPDirect.card.setup(config)
 TPDirect.card.setup({
     fields: {
         number: {
@@ -16,7 +58,7 @@ TPDirect.card.setup({
         },
         ccv: {
             element: '#card-ccv',
-            placeholder: '後三碼'
+            placeholder: '卡片背面後三碼'
         }
     },
     styles: {
@@ -34,7 +76,7 @@ TPDirect.card.setup({
         },
         // Styling card-number field
         'input.card-number': {
-            // 'font-size': '16px'
+            'font-size': '20px'
         },
         // style focus state
         ':focus': {
@@ -58,16 +100,14 @@ TPDirect.card.setup({
     }
 });
 
-// 檢查輸入的對不對（?） TPDirect.card.onUpdate(callback)
+// 檢查輸入的對不對 TPDirect.card.onUpdate(callback)
 TPDirect.card.onUpdate(function (update) {
     // update.canGetPrime === true
     // --> you can call TPDirect.card.getPrime()
     if (update.canGetPrime) {
         // Enable submit Button to get prime.
-        // submitButton.removeAttribute('disabled')
     } else {
         // Disable submit Button to get prime.
-        // submitButton.setAttribute('disabled', true)
     }
 
     // cardTypes = ['mastercard', 'visa', 'jcb', 'amex', 'unknown']
@@ -77,52 +117,50 @@ TPDirect.card.onUpdate(function (update) {
 
     // number 欄位是錯誤的
     if (update.status.number === 2) {
-        // setNumberFormGroupToError()
+        // setNumberFormGroupToError();        
     } else if (update.status.number === 0) {
-        // setNumberFormGroupToSuccess()
+        // setNumberFormGroupToSuccess();
     } else {
-        // setNumberFormGroupToNormal()
+        // setNumberFormGroupToNormal();
     }
 
     if (update.status.expiry === 2) {
-        // setNumberFormGroupToError()
+        // setNumberFormGroupToError();
     } else if (update.status.expiry === 0) {
-        // setNumberFormGroupToSuccess()
+        // setNumberFormGroupToSuccess();
     } else {
-        // setNumberFormGroupToNormal()
+        // setNumberFormGroupToNormal();
     }
 
     if (update.status.cvc === 2) {
-        // setNumberFormGroupToError()
+        // setNumberFormGroupToError();
     } else if (update.status.cvc === 0) {
-        // setNumberFormGroupToSuccess()
+        // setNumberFormGroupToSuccess();
     } else {
-        // setNumberFormGroupToNormal()
+        // setNumberFormGroupToNormal();
     }
 });
 
-// 取得 Prime（?） TPDirect.card.getPrime(callback)
+// 取得 Prime 授權。TPDirect.card.getPrime(callback)
 // call TPDirect.card.getPrime when user submit form to get tappay prime
 // $('form').on('submit', onSubmit)
-function onSubmit(event) {
-    event.preventDefault()
-
+function onSubmit() {
     // 取得 TapPay Fields 的 status
     const tappayStatus = TPDirect.card.getTappayFieldsStatus()
 
     // 確認是否可以 getPrime
     if (tappayStatus.canGetPrime === false) {
-        alert('can not get prime')
+        console.log('您是個不好好填信用卡資料的顧客，can not get prime');
         return
     }
 
     // Get prime
     TPDirect.card.getPrime((result) => {
         if (result.status !== 0) {
-            alert('get prime error ' + result.msg)
+            console.log('get prime error ' + result.msg);
             return
         }
-        alert('get prime 成功，prime: ' + result.card.prime)
+        console.log('您是個認真填信用卡資料的好顧客！，get prime 成功，prime: ' + result.card.prime);
 
         // send prime to your server, to pay with Pay by Prime API .
         // Pay By Prime Docs: https://docs.tappaysdk.com/tutorial/zh/back.html#pay-by-prime-api

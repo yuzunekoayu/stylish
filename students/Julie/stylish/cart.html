@@ -91,16 +91,16 @@
         <div class="cartShipment">
             <div class="cartArea">
                 <p>配送國家</p>
-                <select>
+                <select id="selectDeliveryArea">
                     <option value="臺灣及離島">臺灣及離島</option>
                     <option value="其他國家">其他國家</option>
                 </select>
             </div>
             <div class="cartPayment">
             <p>付款方式</p>
-            <select>
-                <option value="宅配貨到付款">宅配貨到付款</option>
-                <option value="信用卡">信用卡</option>
+            <select id="selectPayWay">
+                <option value="credit_card">信用卡</option>
+                <option value="courier">宅配貨到付款</option>
             </select>
             </div>
         </div>
@@ -113,27 +113,28 @@
             訂購資料
         </div>
         <div class="cartOrderInfo">
-            <form action="">
-                <p><label for="fullName">收件人姓名</label><input class="cartTextInput" type="text"></p>
+            <form id="orderInfo" action="">
+                <p><label>收件人姓名</label><input name="consumer" class="cartTextInput" type="text"></p>
                 <div class="cartReminder">務必填寫完整收件人姓名，避免包裹無法順利簽收</div>
-                <p><label for="phoneNum">手機　　　</label><input class="cartTextInput" type="text"></p>
-                <p><label for="address">地址　　　</label><input class="cartTextInput" type="text"></p>
+                <p><label>手機　　　</label><input name="phone" class="cartTextInput" type="text"></p>
+                <p><label>地址　　　</label><input name="address" class="cartTextInput" type="text"></p>
+                <p><label>電子信箱　</label><input name="email" class="cartTextInput" type="text"></p>
+                <div class="cartDeliverTime">
+                    <p>配送時間　</p>
+                    <div>
+                        <input type="radio" name="deliverTime" value="08:00-12:00">
+                        <label for="08:00-12:00">08:00-12:00</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="deliverTime" value="14:00-18:00">
+                        <label for="14:00-18:00">14:00-18:00</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="deliverTime" value="不指定" checked>
+                        <label for="不指定">不指定</label>
+                    </div>
+                </div>
             </form>
-            <div class="cartDeliverTime">
-                <p>配送時間　</p>
-                <div>
-                    <input type="radio" name="time" value="08:00-12:00">
-                    <label for="08:00-12:00">08:00-12:00</label>
-                </div>
-                <div>
-                    <input type="radio" name="time" value="14:00-18:00">
-                    <label for="14:00-18:00">14:00-18:00</label>
-                </div>
-                <div>
-                    <input type="radio" name="time" value="不指定" checked>
-                    <label for="不指定">不指定</label>
-                </div>
-            </div>
         </div>
         <div class="cartTitle">
             信用卡資料

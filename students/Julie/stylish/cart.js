@@ -1,17 +1,32 @@
 // 伺服器名
 let host = '18.214.165.31';
+// 總計、運費、應付
+let sumTotalNum = []; let shippingFeeNum = 30; let payableNum = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
     
     toggleMutiple(document.querySelectorAll('.item'), "activeTab", "A");
     
-    const cartTopTitle = document.querySelector('#cartTopTitle');
-    const cartList = document.querySelector('#cartList');
-    const sumTotal = document.querySelector('#sumTotal');
-    const shippingFee = document.querySelector('#shippingFee');
-    const payable = document.querySelector('#payable');
-    const cartYesPay = document.querySelector('#cartYesPay');
     
+    const cartList = document.querySelector('#cartList'); // 購物車商品清單
+    const cartTopTitle = document.querySelector('#cartTopTitle'); // Cart List 左上數字
+
+    const sumTotal = document.querySelector('#sumTotal'); // 總計
+    const shippingFee = document.querySelector('#shippingFee'); // 運費
+    const payable = document.querySelector('#payable'); // 應付
+
+    const selectDeliveryArea = document.querySelector('#selectDeliveryArea'); // 選擇配送國家
+    const selectPayWay = document.querySelector('#selectPayWay'); // 選擇付款方式
+
+    const orderInfo = document.querySelector('#orderInfo'); // 訂購資料表格
+
+    // const creditNum = document.querySelector('#card-number') // 信用卡號
+    // const creditExp = document.querySelector('#card-expiration-date') // 到期日
+    // const creditCcv = document.querySelector('#card-ccv') // 安全碼
+
+    const cartYesPay = document.querySelector('#cartYesPay'); // 確認付款按鈕
+    
+
     initCart();
     
 });
@@ -110,8 +125,7 @@ function cartNothing() {
     cartList.appendChild(cartEmpty);
 }
 
-// 計算價錢（總計、運費、應付）
-let sumTotalNum = []; let shippingFeeNum = 30; let payableNum = 0;
+// 計算價錢
 function calcTotal() {
     if (list.length === 0 ) {
         // 如果購物車空空，沒事。
