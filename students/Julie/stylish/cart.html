@@ -140,9 +140,9 @@
         </div>
         <div class="cartOrderInfo">
             <form action="">
-                <p><label for="creditCard">信用卡卡號</label><input class="cartTextInput" type="text"></p>
-                <p><label for="creditDate">到期日　　</label><input class="cartTextInput" type="text"></p>
-                <p><label for="creditSafe">安全碼　　</label><input class="cartTextInput" type="text"></p>
+                <div class="cartTp"><p>信用卡卡號</p><div class="tpfield" id="card-number"></div></div>
+                <div class="cartTp"><p>到期日　　</p><div class="tpfield" id="card-expiration-date"></div></div>
+                <div class="cartTp"><p>安全碼　　</p><div class="tpfield" id="card-ccv"></div></div>
             </form>
         </div>
         <div class="cartCheck">
@@ -162,7 +162,7 @@
                 <div class="cartMoneyTotal" id="payable">0</div>
             </div>
         </div>
-        <button class="cartYesPay" type="submit">確認付款</button>
+        <button class="cartYesPay" id="cartYesPay" type="submit">確認付款</button>
     </div>
     <footer>
         <div class="ftWrap">
@@ -186,5 +186,7 @@
     <script src="./useful.js"></script>
     <script src="./search.js"></script>
     <script src="./render.js"></script>
+    <script src="https://js.tappaysdk.com/tpdirect/v4"></script>
+    <script src="./tapPay.js"></script>
 </body>
 </html>

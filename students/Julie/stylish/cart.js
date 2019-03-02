@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const sumTotal = document.querySelector('#sumTotal');
     const shippingFee = document.querySelector('#shippingFee');
     const payable = document.querySelector('#payable');
+    const cartYesPay = document.querySelector('#cartYesPay');
     
     initCart();
     
