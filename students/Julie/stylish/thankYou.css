@@ -16,6 +16,15 @@ body {
     padding-bottom: 70px;
 }
 
+/* 之後如果有時間再回來用 CSS 畫圖 XD! */
+.envWrap {
+    position: relative;
+}
+
+.envTop, .envFront, .envMiddle, .envBottom {
+    position: absolute;
+}
+
 .thankWrap > p, #thankTitle {
     text-align: center; 
 }
