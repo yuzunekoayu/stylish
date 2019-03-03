@@ -181,9 +181,6 @@ function renderDetails(layout) {
 // render Shopping Cart List（購物車清單）
 function renderCartList(layout) {
 
-    // console.log(layout);
-    // console.log(cartList);
-
     const fragment = document.createDocumentFragment();
     
     for (let i = 0; i < layout.length; i++) {

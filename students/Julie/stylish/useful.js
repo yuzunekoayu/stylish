@@ -1,7 +1,6 @@
 /* 好用ㄉ功能
   clear() === 清空畫面（首頁換分類、顯示搜尋結果用）
-  toogleMutiple() === 選擇多個元素，點到的那個 add class，沒點到的 remove class（Nav Bar、單一產品頁選顏色尺寸、預計輪播也要用）
-  magnify() === 手機版 Search Bar 樣式變化用。
+  toogleMutiple() === 選擇多個元素，點到的那個 add class，沒點到的 remove class（Nav Bar、單一產品頁選顏色尺寸）
 */
 
 // 清空畫面

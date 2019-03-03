@@ -2,11 +2,12 @@
 let host = '18.214.165.31';
 // 總計、運費、應付
 let sumTotalNum = []; let shippingFeeNum = 30; let payableNum = 0;
+// 檢查信用卡資料有沒有填好用
+let creditReady = false;
 
 document.addEventListener("DOMContentLoaded", () => {
     
     toggleMutiple(document.querySelectorAll('.item'), "activeTab", "A");
-    
     
     const cartList = document.querySelector('#cartList'); // 購物車商品清單
     const cartTopTitle = document.querySelector('#cartTopTitle'); // Cart List 左上數字
@@ -20,13 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const orderInfo = document.querySelector('#orderInfo'); // 訂購資料表格
 
-    // const creditNum = document.querySelector('#card-number') // 信用卡號
-    // const creditExp = document.querySelector('#card-expiration-date') // 到期日
-    // const creditCcv = document.querySelector('#card-ccv') // 安全碼
-
     const cartYesPay = document.querySelector('#cartYesPay'); // 確認付款按鈕
-    
+    const processingOrder = document.querySelector('#processingOrder'); // 跳轉 Thank You Page 前 Loading 圖
 
+    cartTopTitle.textContent = "購物車(" + countGoods() + ")";
     initCart();
     
 });
@@ -100,6 +98,7 @@ function changeQty() {
             calcTotal();
             // Nav 右上、cartList 左上數字
             countGoods();
+            cartTopTitle.textContent = "購物車(" + countGoods() + ")";
         });
     });
 }
@@ -185,5 +184,6 @@ function deleteItem() {
         calcTotal();
         // Nav 右上、cartList 左上數字
         countGoods();
+        cartTopTitle.textContent = "購物車(" + countGoods() + ")";
     }
 }

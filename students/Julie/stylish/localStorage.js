@@ -17,11 +17,7 @@ function countGoods() {
     badges.forEach(badge => {
         badge.textContent = cartCount;
     });
-    if (cartTopTitle !== undefined) {
-        cartTopTitle.textContent = "購物車(" + cartCount + ")";
-    }
+    return cartCount;
 }
-
-// localStorage.removeItem("list");
 
 console.log("初始list", list);
