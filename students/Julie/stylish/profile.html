@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Stylish</title>
+    <title>Stylish｜Profile</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -14,9 +14,9 @@
         </div>
         <button id="mobileSubmit"></button>
         <nav>
-            <a class="item" id="women" href="#">女裝</a><span>|</span>
-            <a class="item" id="men" href="#">男裝</a><span>|</span>
-            <a class="item" id="accessories" href="#">配件</a>
+            <a class="item" id="women" href="index.html?category=women">女裝</a><span>|</span>
+            <a class="item" id="men" href="index.html?category=men">男裝</a><span>|</span>
+            <a class="item" id="accessories" href="index.html?category=accessories">配件</a>
         </nav>
         <div class="feature" id="feature">
             <form action="" class="searchBar" id="searchBar">
@@ -38,12 +38,7 @@
         </div>
     </header>
     <div class="bar"></div>
-    <div class="carousel" id="carousel" onclick="next();"></div>
-    <main>
-        <div id="loading" class="loading"></div>
-        <div id="nothing" class="nothing">您搜尋的商品不存在或已經下架。</div>
-        <div class="row" id="row"></div>
-    </main>
+    
     <footer>
         <div class="ftWrap">
             <div class="ftNav">
@@ -61,11 +56,9 @@
             <div class="copy">&copy; 2018. All rights reserved</div>
         </div>
     </footer>
-    <script src="./search.js"></script>
     <script src="./localStorage.js"></script>
-    <script src="./main.js"></script>
-    <script src="./render.js"></script>
-    <script src="./indexAPI.js"></script>
+    <script src="./thankYou.js"></script>
     <script src="./useful.js"></script>
+    <script src="./search.js"></script>
 </body>
 </html>
