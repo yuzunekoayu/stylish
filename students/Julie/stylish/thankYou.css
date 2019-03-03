@@ -16,7 +16,7 @@ body {
     padding-bottom: 70px;
 }
 
-/* 之後如果有時間再回來用 CSS 畫圖 XD! */
+/* 之後如果有時間再來用 XD! */
 .envWrap {
     position: relative;
 }
@@ -39,6 +39,7 @@ body {
     color: #8b572a;
     letter-spacing: 2px;
     font-family: "Yu Gothic", "Meiryo", "Microsoft JenghHei", sans-serif;
+    font-weight: 500;
     margin: 30px 0;
 }
 
