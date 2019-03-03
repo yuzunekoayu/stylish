@@ -1,0 +1,26 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.profileMain {
+    max-width: 1160px;
+    margin: 30px auto auto auto;
+}
+
+/* .profileCard {
+    width: 1160px;
+} */
+
+.profileIcon {
+    width: 180px; height:180px;
+    margin: 0 auto;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    background: skyblue;
+}
+
+#profileName, #profileEmail {
+    text-align: center;
+}
