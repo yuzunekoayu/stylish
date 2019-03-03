@@ -13,7 +13,7 @@ function renderKV(layout) {
 
     for(let i = 0; i < layout.data.length; i++) {
         const slide = document.createElement("div");
-        const visual = 'http://' + `${host}` + `${layout.data[i].picture}`;
+        const visual = 'https://' + `${host}` + `${layout.data[i].picture}`;
         slide.className = "slide";
         slide.style.backgroundImage = ('src', "url('" + visual + "')");
 

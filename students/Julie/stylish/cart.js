@@ -1,5 +1,5 @@
 // 伺服器名
-let host = '18.214.165.31';
+let host = 'api.appworks-school.tw';
 // 總計、運費、應付
 let sumTotalNum = []; let shippingFeeNum = 30; let payableNum = 0;
 // 檢查信用卡資料有沒有填好用
@@ -43,7 +43,7 @@ function initCart() {
 
 // 為了抓取真正庫存的 Fetch
 async function record(id, color, size, qty, parent) {
-    let res = await fetch(`http://${host}/api/1.0/products/details?id=${id}`);
+    let res = await fetch(`https://${host}/api/1.0/products/details?id=${id}`);
     let json = await res.json();
     findMax(json.data.variants, color, size, qty, parent);
 }

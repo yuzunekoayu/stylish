@@ -5,13 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // 伺服器名
-let host = '18.214.165.31';
+let host = 'api.appworks-school.tw';
 // 單一產品頁網址
 let prodURL = new URL(window.location);
 
 // Connect Product Details API（試著用 async 和 await + Fetch）
 async function kwsk() {
-    const res = await fetch(`http://${host}/api/1.0/products/details${prodURL.search}`);
+    const res = await fetch(`https://${host}/api/1.0/products/details${prodURL.search}`);
     return res.json();
 }
 kwsk()

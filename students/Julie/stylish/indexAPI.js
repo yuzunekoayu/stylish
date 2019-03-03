@@ -1,7 +1,7 @@
 // 初始目前頁數，目前 End Point
 let currPG = 0; let currEP = '';
 // 伺服器名
-let host = '18.214.165.31'; 
+let host = 'api.appworks-school.tw'; 
 // 輪播要用的變數
 let slides = []; let dots = [];
 
@@ -12,7 +12,7 @@ function get(api, page) {
     let params = new URLSearchParams();
     params.set('paging', `${page}`);
     // Fetch
-    fetch(`http://${host}/api/1.0${api}` + params)
+    fetch(`https://${host}/api/1.0${api}` + params)
         .then( res => {
             return res.json();
         })
