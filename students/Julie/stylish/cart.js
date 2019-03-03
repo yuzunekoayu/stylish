@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const orderInfo = document.querySelector('#orderInfo'); // 訂購資料表格
 
     const cartYesPay = document.querySelector('#cartYesPay'); // 確認付款按鈕
-    const processingOrder = document.querySelector('#processingOrder'); // 跳轉 Thank You Page 前 Loading 圖
 
     cartTopTitle.textContent = "購物車(" + countGoods() + ")";
     initCart();
