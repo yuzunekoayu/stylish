@@ -12,6 +12,7 @@ body {
 #profileNotIn {
     width: 600px; height: 400px;
     flex-direction: column;
+    display: none;
 }
 
 #loginBtn {
@@ -29,6 +30,7 @@ body {
 #profileCard {
     width: 600px; height: 400px;
     flex-direction: column;
+    display: none;
 }
 
 .profileIcon {

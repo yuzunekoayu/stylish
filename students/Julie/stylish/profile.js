@@ -28,9 +28,6 @@ function statusChangeCallback(response) {
     // let accessToken = authResponse.accessToken;
     const profileNotIn = document.querySelector('#profileNotIn');
     const profileCard = document.querySelector('#profileCard');
-
-    profileNotIn.style.display = "none";
-    profileCard.style.display = "none";
     
     console.log('statusChangeCallback');
     console.log(response);
