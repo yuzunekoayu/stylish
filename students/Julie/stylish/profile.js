@@ -25,7 +25,7 @@ window.fbAsyncInit = function() {
 // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
 
-    let accessToken = authResponse.accessToken;
+    // let accessToken = authResponse.accessToken;
     const profileNotIn = document.querySelector('#profileNotIn');
     const profileCard = document.querySelector('#profileCard');
 
