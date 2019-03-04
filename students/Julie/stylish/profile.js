@@ -1,7 +1,15 @@
+// 各 Page Nav Bar 會員小 icon（PC & mobile版）
 const memberIcon = document.querySelector('.member');
 const mobileMemberIcon = document.querySelector('.smIcon');
 
-console.log(memberIcon, mobileMemberIcon);
+// Profile Page 登入按鈕、會員資料畫面
+const profileNotIn = document.querySelector('#profileNotIn');
+const profileCard = document.querySelector('#profileCard');
+
+// Profile Page 使用者大頭貼、姓名、email 欄
+const userIcon = document.querySelector('#profileIcon');
+const userName = document.querySelector('#profileName');
+const userEmail = document.querySelector('#profileEmail');
 
 // Load the SDK asynchronously
 (function(d, s, id) {
@@ -30,16 +38,16 @@ window.fbAsyncInit = function() {
 // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
 
-    const profileNotIn = document.querySelector('#profileNotIn');
-    const profileCard = document.querySelector('#profileCard');
-    
     if (response.status === 'connected') {
-        // Logged into your app and Facebook.
-        profileNotIn.style.display = "none";
-        profileCard.style.display = "flex";
+        // 如果使用者已登入
+        if ( window.location.href.indexOf("profile") > -1) {
+            // 顯示 Profile 給使用者看
+            profileNotIn.style.display = "none";
+            profileCard.style.display = "flex";
+        }
         testAPI();
     } else {
-        // The person is not logged into your app or we are unable to tell.
+        // 沒登入，或情況不明，給使用者看登入按鈕
         profileNotIn.style.display = "flex";
     }
 }
@@ -49,20 +57,23 @@ function statusChangeCallback(response) {
 function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api("/me?fields=id, name, email", function(response) {
-        console.log(response);
-        
-        memberIcon.style.background = `url(https://graph.facebook.com/${response.id}/picture?type=small) no-repeat`;
-        mobileMemberIcon.style.background = `url(https://graph.facebook.com/${response.id}/picture?type=small) no-repeat`;
-
+        // 如果我在 Profile Page 的話。
         if ( window.location.href.indexOf("profile") > -1) {
-            const userIcon = document.querySelector('#profileIcon');
+            // 先變 NavBar 小 icon
+            memberIcon.style.background = `url(https://graph.facebook.com/${response.id}/picture?type=small) no-repeat`;
+            mobileMemberIcon.style.background = `url(https://graph.facebook.com/${response.id}/picture?type=small) no-repeat`;
+        
+            // 大頭貼圖片網址（有 id 就可取得的方法）
             let userIconImg = `https://graph.facebook.com/${response.id}/picture?type=large`;
-            const userName = document.querySelector('#profileName');
-            const userEmail = document.querySelector('#profileEmail');
-
+            
+            // 將相對應的 div 變成正確內容。
             userIcon.style.background = `url(${userIconImg}) no-repeat`;
             userName.textContent = response.name;
             userEmail.textContent = response.email;
+        } else {
+            // 變 NavBar 小 icon 就好
+            memberIcon.style.background = `url(https://graph.facebook.com/${response.id}/picture?type=small) no-repeat`;
+            mobileMemberIcon.style.background = `url(https://graph.facebook.com/${response.id}/picture?type=small) no-repeat`;
         }
     });
 }
