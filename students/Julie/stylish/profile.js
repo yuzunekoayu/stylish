@@ -68,7 +68,8 @@ function testAPI() {
             
             // 將相對應的 div 變成正確內容。
             userIcon.style.background = `url(${userIconImg}) no-repeat`;
-            userIcon.style.backgrooundSize = "100%";
+            userIcon.style.backgrooundSize = "cover";
+            userIcon.style.backgrooundPosition = "center";
             userName.textContent = response.name;
             userEmail.textContent = response.email;
         } else {
