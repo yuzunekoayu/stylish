@@ -23,3 +23,4 @@ function countGoods() {
 }
 
 console.log("初始list", list);
+console.log('權杖', access_token);
