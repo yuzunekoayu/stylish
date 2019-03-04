@@ -49,14 +49,14 @@ function statusChangeCallback(response) {
 // successful.  See statusChangeCallback() for when this call is made.
 function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api("/me?fields=id, name, email", function(response) { // ← 主要是這個，其他ㄉ是多餘ㄉ，經過授權才可以拿到資料不然error
+    FB.api("/me?fields=id, name, email", function(response) {
         console.log(response);
-        const userIcon = document.querySelector('.profileIcon > img');
-        let userIconImg = `https://graph.facebook.com/${response.id}/picture?type=normal`;
+        const userIcon = document.querySelector('#profileIcon');
+        let userIconImg = `https://graph.facebook.com/${response.id}/picture?type=large`;
         const userName = document.querySelector('#profileName');
         const userEmail = document.querySelector('#profileEmail');
 
-        userIcon.src = userIconImg;
+        userIcon.style.backgroundImage = `url(${userIconImg})`;
         userName.textContent = response.name;
         userEmail.textContent = response.email;
 
