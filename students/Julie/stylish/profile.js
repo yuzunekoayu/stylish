@@ -1,6 +1,8 @@
 const memberIcon = document.querySelector('.member');
 const mobileMemberIcon = document.querySelector('.smIcon');
 
+console.log(memberIcon, mobileMemberIcon);
+
 // Load the SDK asynchronously
 (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -35,12 +37,10 @@ function statusChangeCallback(response) {
         // Logged into your app and Facebook.
         profileNotIn.style.display = "none";
         profileCard.style.display = "flex";
-        console.log("YOOO");
         testAPI();
     } else {
         // The person is not logged into your app or we are unable to tell.
         profileNotIn.style.display = "flex";
-        console.log("NOT IN")
     }
 }
 
