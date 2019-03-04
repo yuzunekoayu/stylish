@@ -52,7 +52,7 @@ function testAPI() {
         console.log(response);
 
         const memberIcon = document.querySelector('.member');
-        const mobileMemberIcon = doument.querySelector('.smIcon');
+        const mobileMemberIcon = document.querySelector('.smIcon');
         
         memberIcon.style.background = `url(https://graph.facebook.com/${response.id}/picture?type=small) no-repeat`;
         mobileMemberIcon.style.background = `url(https://graph.facebook.com/${response.id}/picture?type=small) no-repeat`;
