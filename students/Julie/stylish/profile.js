@@ -27,7 +27,7 @@ function statusChangeCallback(response) {
 
     const profileNotIn = document.querySelector('#profileNotIn');
     const profileCard = document.querySelector('#profileCard');
-    let accessToken = response.authResponse.accessToken;
+    let accessToken = FB.getAuthResponse()['accessToken'];
     
     console.log('statusChangeCallback');
     
