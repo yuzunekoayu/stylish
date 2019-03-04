@@ -63,5 +63,5 @@ function testAPI() {
 function checkLoginState() {
     FB.login(function(response) {
         statusChangeCallback(response);
-    }, {scope:"user_icon, user_name, email"});
+    }, {scope:"email"});
 }
