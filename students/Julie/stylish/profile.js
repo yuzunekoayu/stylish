@@ -25,7 +25,7 @@ window.fbAsyncInit = function() {
 // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
 
-    // let accessToken = authResponse.accessToken;
+    let accessToken = response.authResponse.accessToken;
     const profileNotIn = document.querySelector('#profileNotIn');
     const profileCard = document.querySelector('#profileCard');
     
@@ -50,7 +50,7 @@ function statusChangeCallback(response) {
 // successful.  See statusChangeCallback() for when this call is made.
 function testAPI(token) {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api(`/me?fields=name, email, profile_pic&access_token=${accessToken}`, function(response) { // ← 主要是這個，其他ㄉ是多餘ㄉ，經過授權才可以拿到資料不然error
+    FB.api(`/me?fields=name, email, profile_pic&access_token=${token}`, function(response) { // ← 主要是這個，其他ㄉ是多餘ㄉ，經過授權才可以拿到資料不然error
         console.log(response);
     });
 }
