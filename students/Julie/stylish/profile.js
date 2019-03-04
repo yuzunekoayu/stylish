@@ -30,7 +30,7 @@ function statusChangeCallback(response) {
     const profileCard = document.querySelector('#profileCard');
     
     console.log('statusChangeCallback');
-    console.log(response);
+    console.log(response.authResponse.accessToken);
     
     if (response.status === 'connected') {
         // Logged into your app and Facebook.
