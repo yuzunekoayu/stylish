@@ -123,6 +123,7 @@ nav > span {
     width: 44px; height: 44px;
     cursor: pointer;
     position: relative;
+    border-radius: 50%;
 }
 
 .cart > a , .member > a {
