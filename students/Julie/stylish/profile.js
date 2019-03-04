@@ -50,10 +50,8 @@ function statusChangeCallback(response) {
 // successful.  See statusChangeCallback() for when this call is made.
 function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-        console.log('Successful login for: ' + response.name);
-        document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
+    FB.api('/me?fields=id, name, email, gender, birthday', function(response) { // ← 主要是這個，其他ㄉ是多餘ㄉ，經過授權才可以拿到資料不然error
+        console.log(response);
     });
 }
 
