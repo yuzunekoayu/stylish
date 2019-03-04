@@ -40,8 +40,8 @@ function statusChangeCallback(response) {
         testAPI();
     } else {
         // The person is not logged into your app or we are unable to tell.
-        profileNotIn.style.display = "none";
-        profileCard.style.display = "flex";
+        profileNotIn.style.display = "flex";
+        profileCard.style.display = "none";
         console.log("NOT IN")
     }
 }
