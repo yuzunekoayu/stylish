@@ -25,6 +25,7 @@ window.fbAsyncInit = function() {
 // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
 
+    let accessToken = response.authResponse.accessToken;
     const profileNotIn = document.querySelector('#profileNotIn');
     const profileCard = document.querySelector('#profileCard');
 
@@ -36,23 +37,23 @@ function statusChangeCallback(response) {
     
     if (response.status === 'connected') {
         // Logged into your app and Facebook.
-        profileNotIn.style.display = "none";
+        // profileNotIn.style.display = "none";
         profileCard.style.display = "flex";
         console.log("YOOO");
-        testAPI();
+        testAPI(accessToken);
     } else {
         // The person is not logged into your app or we are unable to tell.
         profileNotIn.style.display = "flex";
-        profileCard.style.display = "none";
+        // profileCard.style.display = "none";
         console.log("NOT IN")
     }
 }
 
 // Here we run a very simple test of the Graph API after login is
 // successful.  See statusChangeCallback() for when this call is made.
-function testAPI() {
+function testAPI(token) {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) { // ← 主要是這個，其他ㄉ是多餘ㄉ，經過授權才可以拿到資料不然error
+    FB.api(`/me?fields=name, email&access_token=${accessToken}`, function(response) { // ← 主要是這個，其他ㄉ是多餘ㄉ，經過授權才可以拿到資料不然error
         console.log(response);
     });
 }
