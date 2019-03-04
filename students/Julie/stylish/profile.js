@@ -25,7 +25,6 @@ window.fbAsyncInit = function() {
 // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
 
-    let accessToken = response.authResponse.accessToken;
     const profileNotIn = document.querySelector('#profileNotIn');
     const profileCard = document.querySelector('#profileCard');
     
@@ -37,7 +36,7 @@ function statusChangeCallback(response) {
         profileNotIn.style.display = "none";
         profileCard.style.display = "flex";
         console.log("YOOO");
-        testAPI(accessToken);
+        testAPI(response.authResponse.accessToken);
     } else {
         // The person is not logged into your app or we are unable to tell.
         profileNotIn.style.display = "flex";
