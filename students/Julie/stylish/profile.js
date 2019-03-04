@@ -50,15 +50,23 @@ function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api("/me?fields=id, name, email", function(response) {
         console.log(response);
-        const userIcon = document.querySelector('#profileIcon');
-        let userIconImg = `https://graph.facebook.com/${response.id}/picture?type=large`;
-        const userName = document.querySelector('#profileName');
-        const userEmail = document.querySelector('#profileEmail');
 
-        userIcon.style.backgroundImage = `url(${userIconImg})`;
-        userName.textContent = response.name;
-        userEmail.textContent = response.email;
+        const memberIcon = document.querySelector('.member');
+        const mobileMemberIcon = doument.querySelector('.smIcon');
+        
+        memberIcon.style.background = `url(https://graph.facebook.com/${response.id}/picture?type=small) no-repeat`;
+        mobileMemberIcon.style.background = `url(https://graph.facebook.com/${response.id}/picture?type=small) no-repeat`;
 
+        if ( window.location.href.indexOf("profile") > -1) {
+            const userIcon = document.querySelector('#profileIcon');
+            let userIconImg = `https://graph.facebook.com/${response.id}/picture?type=large`;
+            const userName = document.querySelector('#profileName');
+            const userEmail = document.querySelector('#profileEmail');
+
+            userIcon.style.backgroundImage = `url(${userIconImg}) no-repeat`;
+            userName.textContent = response.name;
+            userEmail.textContent = response.email;
+        }
     });
 }
 
