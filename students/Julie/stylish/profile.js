@@ -34,7 +34,7 @@ function statusChangeCallback(response) {
     
     if (response.status === 'connected') {
         // Logged into your app and Facebook.
-        // profileNotIn.style.display = "none";
+        profileNotIn.style.display = "none";
         profileCard.style.display = "flex";
         console.log("YOOO");
         testAPI(accessToken);
