@@ -66,7 +66,7 @@ function testAPI() {
             mobileMemberIcon.style.background = `url(https://graph.facebook.com/${response.id}/picture?type=small) no-repeat`;
         
             // 大頭貼圖片網址（有 id 就可取得的方法）
-            let userIconImg = `https://graph.facebook.com/${response.id}/picture?type=normal`;
+            let userIconImg = `https://graph.facebook.com/${response.id}/picture?type=large`;
             
             // 將相對應的 div 變成正確內容。
             userIcon.style.background = `url(${userIconImg}) no-repeat`;
