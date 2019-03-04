@@ -58,7 +58,9 @@ function statusChangeCallback(response) {
         testAPI();
     } else {
         // 沒登入，或情況不明，給使用者看登入按鈕
-        profileNotIn.style.display = "flex";
+        if ( window.location.href.indexOf("profile") > -1) {
+            profileNotIn.style.display = "flex";
+        }
     }
 }
 
