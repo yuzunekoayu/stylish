@@ -9,6 +9,7 @@ body {
     margin: 30px auto auto auto;
 }
 
+<<<<<<< HEAD
 #profileNotIn {
     width: 600px; height: 400px;
     flex-direction: column;
@@ -30,6 +31,11 @@ body {
     width: 600px; height: 400px;
     flex-direction: column;
 }
+=======
+/* .profileCard {
+    width: 1160px;
+} */
+>>>>>>> 2098755e83589edb5494695db83f9b0198e41ab2
 
 .profileIcon {
     width: 180px; height:180px;
