@@ -9,27 +9,9 @@ body {
     margin: 30px auto auto auto;
 }
 
-#profileNotIn {
-    width: 600px; height: 400px;
-    flex-direction: column;
-}
-
-#loginBtn {
-    width: 180px; height: 40px;
-    background: black;
-    color: white;
-    font-size: 16px;
-    letter-spacing: 4px;
-    border: 1px outset #888888;
-    outline: none;
-    cursor: pointer;
-    margin-top: 60px;
-}
-
-#profileCard {
-    width: 600px; height: 400px;
-    flex-direction: column;
-}
+/* .profileCard {
+    width: 1160px;
+} */
 
 .profileIcon {
     width: 180px; height:180px;
