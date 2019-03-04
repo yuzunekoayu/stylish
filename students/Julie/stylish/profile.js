@@ -63,7 +63,7 @@ function testAPI() {
             const userName = document.querySelector('#profileName');
             const userEmail = document.querySelector('#profileEmail');
 
-            userIcon.style.backgroundImage = `url(${userIconImg}) no-repeat`;
+            userIcon.style.background = `url(${userIconImg}) no-repeat`;
             userName.textContent = response.name;
             userEmail.textContent = response.email;
         }
