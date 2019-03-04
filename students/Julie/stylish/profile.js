@@ -32,8 +32,19 @@ window.fbAsyncInit = function() {
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
         console.log("權杖", response.authResponse.accessToken);
+        saveAccessToken(response);
     });
 };
+
+// 把權杖存到 local storage 如果使用者有 FB 登入
+function saveAccessToken(response) {
+    if (response.status === 'connected') {
+        let access_token = response.authResponse.accessToken;
+        localStorage.setItem('access_token', JSON.stringify(access_token));
+    } else {
+        return
+    }
+}
 
 // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
