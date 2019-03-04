@@ -28,20 +28,20 @@ function statusChangeCallback(response) {
     const profileNotIn = document.querySelector('#profileNotIn');
     const profileCard = document.querySelector('#profileCard');
 
-    // profileNotIn.style.display = "none";
-    // profileCard.style.display = "none";
-
+    
     console.log('statusChangeCallback');
     console.log(response);
     
     if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-        // profileCard.style.display = "flex";
+        // Logged into your app and Facebook.
+        profileNotIn.style.display = "none";
+        profileCard.style.display = "flex";
         console.log("YOOO");
         testAPI();
     } else {
-      // The person is not logged into your app or we are unable to tell.
-        // profileCard.style.display = "flex";
+        // The person is not logged into your app or we are unable to tell.
+        profileNotIn.style.display = "none";
+        profileCard.style.display = "flex";
         console.log("NOT IN")
     }
 }
@@ -61,5 +61,5 @@ function testAPI() {
 function checkLoginState() {
     FB.login(function(response) {
         statusChangeCallback(response);
-    }, {scope:"email"});
+    }, {scope:"user_icon, user_name, email"});
 }
