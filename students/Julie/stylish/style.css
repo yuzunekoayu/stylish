@@ -665,6 +665,7 @@ footer {
 
     .smIcon {
         background: url(./img/member-mobile.png) no-repeat;
+        border-radius: 50%;
     }
 
     .moji {
