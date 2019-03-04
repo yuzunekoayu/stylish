@@ -31,7 +31,7 @@ window.fbAsyncInit = function() {
 
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
-        console.log(response);
+        console.log("權杖", statusChangeCallback(response));
     });
 };
 
@@ -70,7 +70,7 @@ function testAPI() {
             
             // 將相對應的 div 變成正確內容。
             userIcon.style.background = `url(${userIconImg}) no-repeat`;
-            userIcon.style.objectFit = "cover";
+            userIcon.style.backgrooundSize = "100%";
             userName.textContent = response.name;
             userEmail.textContent = response.email;
         } else {

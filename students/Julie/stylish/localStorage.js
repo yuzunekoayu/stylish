@@ -4,6 +4,8 @@ let list = [];
 if (localStorage.getItem("list")) {
     list = JSON.parse(localStorage.getItem('list'));
 }
+// 如果有 FB 登入，或沒登
+let access_token = JSON.parse(localStorage.getItem('access_token')) || "";
 
 // NavBar 購物車小圖數字，購物車頁面左上 Title 數字
 const badges = document.querySelectorAll(".badge");

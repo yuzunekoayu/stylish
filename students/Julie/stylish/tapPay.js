@@ -185,7 +185,7 @@ function checkOut (order) {
     const url = `https://${host}/api/1.0/order/checkout`
     fetch(url, {
         method: 'POST', 
-        headers: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json', 'Authorization': `Bearer x${access_token}`},
         // 用 Fetch POST的話，必須把轉成字串才行。 
         body: JSON.stringify(order)
     })
