@@ -27,6 +27,7 @@ function statusChangeCallback(response) {
 
     const profileNotIn = document.querySelector('#profileNotIn');
     const profileCard = document.querySelector('#profileCard');
+    let accessToken = response.authResponse.accessToken;
     
     console.log('statusChangeCallback');
     
@@ -35,7 +36,7 @@ function statusChangeCallback(response) {
         profileNotIn.style.display = "none";
         profileCard.style.display = "flex";
         console.log("YOOO");
-        testAPI(response.authResponse.accessToken);
+        testAPI();
     } else {
         // The person is not logged into your app or we are unable to tell.
         profileNotIn.style.display = "flex";
@@ -46,11 +47,19 @@ function statusChangeCallback(response) {
 
 // Here we run a very simple test of the Graph API after login is
 // successful.  See statusChangeCallback() for when this call is made.
-function testAPI(token) {
+function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api(`/me?fields=name, email, profile_pic&access_token=${token}`, function(response) { // ← 主要是這個，其他ㄉ是多餘ㄉ，經過授權才可以拿到資料不然error
-        console.log(token);
+    FB.api("/me?fields=id, name, email", function(response) { // ← 主要是這個，其他ㄉ是多餘ㄉ，經過授權才可以拿到資料不然error
         console.log(response);
+        const userIcon = document.querySelector('.profileIcon > img');
+        let userIconImg = `https://graph.facebook.com/${response.id}/picture?type=normal`;
+        const userName = document.querySelector('#profileName');
+        const userEmail = document.querySelector('#profileEmail');
+
+        userIcon.src = userIconImg;
+        userName.textContent = response.name;
+        userEmail.textContent = response.email;
+
     });
 }
 
