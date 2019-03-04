@@ -7,7 +7,7 @@ const profileNotIn = document.querySelector('#profileNotIn');
 const profileCard = document.querySelector('#profileCard');
 
 // Profile Page 使用者大頭貼、姓名、email 欄
-const userIcon = document.querySelector('#profileIcon');
+const userIcon = document.querySelector('#profileIcon > img');
 const userName = document.querySelector('#profileName');
 const userEmail = document.querySelector('#profileEmail');
 
@@ -67,9 +67,7 @@ function testAPI() {
             let userIconImg = `https://graph.facebook.com/${response.id}/picture?type=large`;
             
             // 將相對應的 div 變成正確內容。
-            userIcon.style.background = `url(${userIconImg}) no-repeat`;
-            userIcon.style.backgrooundSize = "cover";
-            userIcon.style.backgrooundPosition = "center";
+            userIcon.src = `${userIconImg}`;
             userName.textContent = response.name;
             userEmail.textContent = response.email;
         } else {
