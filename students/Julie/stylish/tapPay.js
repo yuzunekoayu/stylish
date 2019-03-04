@@ -182,11 +182,7 @@ function onSubmit() {
 
 // POST 訂單給 Check Out API，用 Fetch，取得訂單號碼，跳轉到 Thank You Page
 function checkOut (order) {
-<<<<<<< HEAD
     const url = `https://${host}/api/1.0/order/checkout`
-=======
-    const url = `http://${host}/api/1.0/order/checkout`
->>>>>>> 2098755e83589edb5494695db83f9b0198e41ab2
     fetch(url, {
         method: 'POST', 
         headers: {'Content-Type': 'application/json'},
