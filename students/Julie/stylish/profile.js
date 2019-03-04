@@ -31,7 +31,7 @@ window.fbAsyncInit = function() {
 
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
-        console.log("權杖", statusChangeCallback(response));
+        console.log("權杖", response.authResponse.accessToken);
     });
 };
 
@@ -39,7 +39,6 @@ window.fbAsyncInit = function() {
 function statusChangeCallback(response) {
 
     if (response.status === 'connected') {
-        let access_token = response.authResponse.accessToken;
         // 如果使用者已登入
         if ( window.location.href.indexOf("profile") > -1) {
             // 顯示 Profile 給使用者看
@@ -47,7 +46,6 @@ function statusChangeCallback(response) {
             profileCard.style.display = "flex";
         }
         testAPI();
-        return access_token;
     } else {
         // 沒登入，或情況不明，給使用者看登入按鈕
         profileNotIn.style.display = "flex";
