@@ -39,6 +39,7 @@ window.fbAsyncInit = function() {
 function statusChangeCallback(response) {
 
     if (response.status === 'connected') {
+        let access_token = response.authResponse.accessToken;
         // 如果使用者已登入
         if ( window.location.href.indexOf("profile") > -1) {
             // 顯示 Profile 給使用者看
@@ -46,6 +47,7 @@ function statusChangeCallback(response) {
             profileCard.style.display = "flex";
         }
         testAPI();
+        return access_token;
     } else {
         // 沒登入，或情況不明，給使用者看登入按鈕
         profileNotIn.style.display = "flex";
@@ -64,10 +66,11 @@ function testAPI() {
             mobileMemberIcon.style.background = `url(https://graph.facebook.com/${response.id}/picture?type=small) no-repeat`;
         
             // 大頭貼圖片網址（有 id 就可取得的方法）
-            let userIconImg = `https://graph.facebook.com/${response.id}/picture?type=large`;
+            let userIconImg = `https://graph.facebook.com/${response.id}/picture?type=normal`;
             
             // 將相對應的 div 變成正確內容。
             userIcon.style.background = `url(${userIconImg}) no-repeat`;
+            userIcon.style.objectFit = "cover";
             userName.textContent = response.name;
             userEmail.textContent = response.email;
         } else {
