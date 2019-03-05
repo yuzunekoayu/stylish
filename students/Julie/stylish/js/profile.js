@@ -1,6 +1,6 @@
 // 各 Page Nav Bar 會員小 icon（PC & mobile版）
-const memberIcon = document.querySelector('.member');
-const mobileMemberIcon = document.querySelector('.smIcon');
+const memberIcon = document.querySelector('.member > img');
+const mobileMemberIcon = document.querySelector('.smIcon > img');
 
 // Profile Page 登入按鈕、會員資料畫面
 const profileNotIn = document.querySelector('#profileNotIn');
@@ -72,8 +72,8 @@ function testAPI() {
         // 如果我在 Profile Page 的話。
         if ( window.location.href.indexOf("profile") > -1) {
             // 先變 NavBar 小 icon
-            memberIcon.style.background = `url(https://graph.facebook.com/${response.id}/picture?type=small) no-repeat`;
-            mobileMemberIcon.style.background = `url(https://graph.facebook.com/${response.id}/picture?type=small) no-repeat`;
+            memberIcon.src = `https://graph.facebook.com/${response.id}/picture?type=small`;
+            mobileMemberIcon.src = `https://graph.facebook.com/${response.id}/picture?type=small`;
         
             // 大頭貼圖片網址（有 id 就可取得的方法）
             let userIconImg = `https://graph.facebook.com/${response.id}/picture?type=large`;
@@ -83,9 +83,9 @@ function testAPI() {
             userName.textContent = response.name;
             userEmail.textContent = response.email;
         } else {
-            // 變 NavBar 小 icon 就好
-            memberIcon.style.background = `url(https://graph.facebook.com/${response.id}/picture?type=small) no-repeat`;
-            mobileMemberIcon.style.background = `url(https://graph.facebook.com/${response.id}/picture?type=small) no-repeat`;
+            // 如果不在 Profile Page 變 NavBar 小 icon 就好
+            memberIcon.src = `https://graph.facebook.com/${response.id}/picture?type=small`;
+            mobileMemberIcon.src = `https://graph.facebook.com/${response.id}/picture?type=small`;
         }
     });
 }

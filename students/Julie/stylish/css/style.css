@@ -166,6 +166,12 @@ nav > span {
     background: url(../img/member-hover.png) no-repeat; 
 }
 
+.member > img {
+    display: block;
+    width: 90%;
+    border-radius: 50%;
+}
+
 .smallBar {
     display: none;
 }
