@@ -35,3 +35,4 @@ function magnify() {
   }
 }
 mobileSubmit.addEventListener('pointerdown', magnify); 
+mobileSubmit.addEventListener('click', magnify);
