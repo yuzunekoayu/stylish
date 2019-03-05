@@ -34,6 +34,8 @@ function get(api, page) {
                 currEP = api;
                 currPG = json.paging;
                 renderPD(json);
+                // 監測卷軸 & 下一頁加載
+                window.addEventListener('scroll', scrollEventHandler);
             }
         })
         .catch( err => {
@@ -41,22 +43,48 @@ function get(api, page) {
         })
 }
 
-// 監測卷軸位置
-window.onscroll = function () {
-    const docH = document.body.scrollHeight;
-    const winH = window.innerHeight + window.scrollY;
-    // 如果卷軸到了底部（winH 如果沒四捨五入，會有明明到底了但數值還是 < docH 的情況發生所以用了 Math.round）
-    if (Math.ceil(winH) === docH) {
-        if (currEP === "/marketing/campaigns?") {
-            // 如果是 Marketing Campaigns API，就什ㄇ都不做
-        } else if (currPG !== undefined && currPG > 0) { 
-            // 如果目前的頁面在剛剛 Fetch 時，有 paging
-            // 再 Fetch 一次，讓客人不用跳轉就可繼續讀取下一頁。
-            console.log('Request 網址: ' + currEP + 'paging=' + currPG);
-            get(currEP, currPG);
-        }
+// 監測卷軸事件的 CallBack （觸發條件：）
+const scrollEventHandler = function() {
+    if (currEP === "/marketing/campaigns?") {
+        // 如果是 Marketing Campaigns API，就什ㄇ都不做
+    } else if(currPG !== undefined && currPG > 0 && isScrolledIntoView(document.querySelector('#row').lastChild)) {
+        console.log('Request 網址: ' + currEP + 'paging=' + currPG);
+        get(currEP, currPG);
+        unbindScrollEventHandler();
+    } else {
+      	return
     }
 }
+
+function unbindScrollEventHandler() {
+	window.removeEventListener('scroll', scrollEventHandler);
+}
+
+
+function isScrolledIntoView(el) {
+    let elemTop = el.getBoundingClientRect().top;
+    let elemBottom = el.getBoundingClientRect().bottom;
+
+    let isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+    return isVisible;
+}
+
+// // 監測卷軸位置
+// window.onscroll = function () {
+//     const docH = document.body.scrollHeight;
+//     const winH = window.innerHeight + window.scrollY;
+//     // 如果卷軸到了底部（winH 如果沒四捨五入，會有明明到底了但數值還是 < docH 的情況發生所以用了 Math.round）
+//     if (Math.ceil(winH) === docH) {
+//         if (currEP === "/marketing/campaigns?") {
+//             // 如果是 Marketing Campaigns API，就什ㄇ都不做
+//         } else if (currPG !== undefined && currPG > 0) { 
+//             // 如果目前的頁面在剛剛 Fetch 時，有 paging
+//             // 再 Fetch 一次，讓客人不用跳轉就可繼續讀取下一頁。
+//             console.log('Request 網址: ' + currEP + 'paging=' + currPG);
+//             get(currEP, currPG);
+//         }
+//     }
+// }
 
 // get End Point 小精靈
 function catalog(cata) {    // 分類目錄擔當
