@@ -120,13 +120,12 @@ nav > span {
 }
 
 .cart, .member {
-    width: 44px; height: 44px;
+    width: 34px; height: 34px;
     cursor: pointer;
     position: relative;
-    border-radius: 50%;
 }
 
-.cart > a , .member > a {
+.cart > a , .member > a, .sMember > a, .sCart > a {
     position: absolute;
     width: 100%; height: 100%;
     top: 0; left: 0;
@@ -140,10 +139,12 @@ nav > span {
 
 .cart {
     background: url(../img/cart.png) no-repeat;
+    background-position: center; 
 }
 
 .cart:hover {
     background: url(../img/cart-hover.png) no-repeat;
+    background-position: center; 
 }
 
 .badge {
@@ -160,15 +161,16 @@ nav > span {
 
 .member {
     background: url(../img/member.png) no-repeat; 
+    background-position: center; 
 }
 
 .member:hover {
     background: url(../img/member-hover.png) no-repeat; 
+    background-position: center; 
 }
 
 .member > img {
-    display: block;
-    width: 90%;
+    width: 100%;
     border-radius: 50%;
 }
 
@@ -643,7 +645,7 @@ footer {
         bottom: 0;
         width: 100%; height: 60px;
         background: #313538;
-        z-index: 1;
+        z-index: 9;
     }
     
     .sCart, .sMember {
@@ -651,6 +653,7 @@ footer {
         justify-content: center;
         align-items: center;
         display: flex;
+        position: relative;
     }
 
     .smallBar > span {
@@ -660,17 +663,24 @@ footer {
     }
 
     .scIcon, .smIcon {
-        width: 44px; height: 44px;
+        width: 34px; height: 34px;
         display: inline-block;
     }
     
     .scIcon {
         background: url(../img/cart-mobile.png) no-repeat;
         position: relative;
+        background-position: center; 
     }
 
     .smIcon {
         background: url(../img/member-mobile.png) no-repeat;
+        border-radius: 50%;
+        background-position: center; 
+    }
+
+    .smIcon > img {
+        width: 100%;
         border-radius: 50%;
     }
 
