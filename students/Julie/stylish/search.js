@@ -2,13 +2,14 @@
 const searchForm = document.querySelector('#searchBar');
 const productPage = window.location.href.indexOf("product");
 const cartPage = window.location.href.indexOf("cart");
+const profilePage = window.location.href.indexOf("profile");
 
 searchForm.addEventListener('submit', e => {
   e.preventDefault();
   const keyword = new FormData(searchForm).get('keyword');
   if (keyword === "") {
     return;
-  } else if (productPage > -1 || cartPage > -1) {  
+  } else if (productPage > -1 || cartPage > -1 || profilePage > -1) {  
     window.location.href = `index.html?tag=${keyword}`
   } else {
     clear(document.querySelector('#row'));
