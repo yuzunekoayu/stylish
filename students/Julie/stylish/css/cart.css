@@ -98,13 +98,13 @@
 
 .cartDelete {
     width: 44px; height: 38px;
-    background: url(./img/cart-remove.png) no-repeat;
+    background: url(../img/cart-remove.png) no-repeat;
     cursor: pointer;
     align-self: flex-end;
 }
 
 .cartDelete:hover {
-    background: url(./img/cart-remove-hover.png) no-repeat;
+    background: url(../img/cart-remove-hover.png) no-repeat;
 }
 
 .cartShipment {
@@ -243,7 +243,7 @@
 
 #processingOrder {
     width: 30px; height: 30px;
-    background: url(./img/loading.gif) no-repeat;
+    background: url(../img/loading.gif) no-repeat;
     background-size: 100%;
     z-index: 1;
     margin-right: 20px;
