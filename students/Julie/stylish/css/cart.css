@@ -5,7 +5,7 @@
 
 .cartTop, .cartTitle, .cartSubTitle, .cartList, .cartItem, .cartLeft, .cartRight,
 .cartShipment, .cartArea, .cartPayment, .cartDeliverTime, .cartTp,
-.cartCheck, .cartMoney, .cartYesPay {
+.cartCheck, .cartMoney, .cartYesPay, .cartNoPay {
     display: flex;
 }
 
@@ -227,10 +227,8 @@
     font-size: 16px;
 }
 
-.cartYesPay {
+.cartYesPay, .cartNoPay {
     width: 240px; height: 60px;
-    background: black;
-    color: white;
     font-size: 20px;
     letter-spacing: 4px;
     border: 1px outset #888888;
@@ -239,6 +237,17 @@
     margin: 50px 0 0 auto;
     justify-content: center;
     align-items: center;
+    color: white;
+    transition: background .2s ease;
+}
+
+.cartYesPay {
+    background: black;
+}
+
+.cartNoPay {
+    background: silver;
+    border: 1px solid silver;
 }
 
 #processingOrder {

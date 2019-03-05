@@ -11,9 +11,14 @@ function checkCartList() {
 function checkOrderInfo() {
     // 選到訂到購料表格，做成 FormData 物件
     const orderForm = new FormData(orderInfo);
+
     // 檢查是否都填好，買家名字、電話、手機、email、配送時間，缺一不可。
-    if (orderForm.get('consumer') !== "" && orderForm.get('phone') !=="" && 
-        orderForm.get('address') !== "" && orderForm.get('email') !== "" && 
+    if (orderForm.get('consumer') !== "" && 
+        // 台灣手機正規表現（開頭 09，中間空格或 dash 可有可無，只接受數字）
+        orderForm.get('phone').match(/^09\d{2}[\s\-]?\d{3}[\s\-]?\d{3}$/) && 
+        orderForm.get('address') !== "" &&
+        // email 正規表現
+        orderForm.get('email').match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/) &&
         orderForm.get('deliverTime') !== null) {
         return true;
     } else {
