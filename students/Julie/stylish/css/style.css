@@ -6,6 +6,9 @@
 
 body {
     font-family: Meiryo, PingFangTC, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;    
 }
 
 header {
@@ -295,16 +298,15 @@ nav > span {
 
 main {
     max-width: 1200px;
-    margin: 70px auto 16px auto;
+    width: 100%;
+    margin: 70px auto auto auto;
 }
 
 .loading {
-    width: 100%; height: 64px;
-    background: url(../img/loading.gif) no-repeat #fff;
+    width: 100%; height: calc(100vh - 315px);
+    background: url(../img/loading.gif) no-repeat;
     background-position: center;
     display: none;
-    z-index: 10;
-    margin-bottom: 39px;
 }
 
 .nothing {
@@ -312,7 +314,7 @@ main {
     display: none;
     z-index: 2;
     font-size: 20px;
-    margin: 30px 0 39px 0;
+    margin: 35px 0 0 0;
     padding: 0 24px;
     text-align: center;
 }
@@ -385,6 +387,7 @@ main {
 
 footer {
     width: 100%;
+    margin-top: 20px;
     background-color: #313538;
 }
 
@@ -524,7 +527,7 @@ footer {
 
     main {
         max-width: 640px;
-        margin: 45px auto 6px auto;
+        margin: 45px auto auto auto;
     }
 
     .product {
@@ -746,11 +749,11 @@ footer {
 
     main {
         max-width: 360px;
-        margin: 15px auto 11px auto;
+        margin: 15px auto auto auto;
     }
 
     .loading {
-        margin-bottom: 4px;
+        height: calc(100vh - 315px);
     }
 
     .nothing {
