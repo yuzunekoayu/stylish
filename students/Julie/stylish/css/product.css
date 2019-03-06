@@ -8,7 +8,8 @@
 
 .prodMain {
     max-width: 1200px;
-    margin: 70px auto 16px auto;    
+    width: 100%;
+    margin: 70px auto auto auto;    
 }
 
 .info {
@@ -265,7 +266,7 @@
     }
 
     .right{
-        min-width: 45%;
+        min-width: 43%;
     }
 
     .prodTitle {

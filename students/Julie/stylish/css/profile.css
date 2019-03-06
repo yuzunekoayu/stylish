@@ -1,8 +1,8 @@
 .profileMain {
     max-width: 1160px;
     margin: 30px auto auto auto;
+    width: 100%;
 }
-
 
 #profileNotIn {
     width: 600px; height: 400px;
