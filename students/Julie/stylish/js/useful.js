@@ -3,6 +3,8 @@
   toogleMutiple() === 選擇多個元素，點到的那個 add class，沒點到的 remove class（Nav Bar、單一產品頁選顏色尺寸）
 */
 
+// global clear toggleMutiple
+
 // 清空畫面
 function clear(area) {
   while (area.firstChild) {

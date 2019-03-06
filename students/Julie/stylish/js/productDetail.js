@@ -1,11 +1,11 @@
+// eslint no-unused-vars: ["error",{"vars": "local"}]
+
 document.addEventListener("DOMContentLoaded", () => {
 
     toggleMutiple(document.querySelectorAll('.item'), "activeTab", "A");
  
 });
 
-// 伺服器名
-let host = 'api.appworks-school.tw';
 // 單一產品頁網址
 let prodURL = new URL(window.location);
 
@@ -27,7 +27,7 @@ kwsk()
     })
     .catch(err => {
         console.log(err);
-    })
+    });
 
 // 選擇顏色尺寸，告訴顧客有無庫存
 function orderHelper(data) {
@@ -41,7 +41,7 @@ function orderHelper(data) {
                 if (goods.color.code === variant.color_code && goods.size === variant.size) {
                     variant.stock = parseInt(variant.stock) - parseInt(goods.qty);
                 }
-            })
+            });
         }
     });
     
@@ -53,7 +53,6 @@ function orderHelper(data) {
     const minus = document.querySelector("#minus");
     const count = document.querySelector("#count");
     const plus = document.querySelector("#plus");
-    const restStock = document.querySelector('#restStock');
     const addToCart = document.querySelector("#addToCart");
 
     // 監聽顏色被按
@@ -70,7 +69,7 @@ function orderHelper(data) {
                 tellIfSoldOut(variant.stock, addToCart);
                 count.value = 0;
             }
-        })
+        });
     }
 
     // 監聽尺寸被按
@@ -86,7 +85,7 @@ function orderHelper(data) {
                 tellIfSoldOut(variant.stock, addToCart);
                 count.value = 0;
             }
-        })
+        });
     }
 
     // 監聽減號被按
@@ -173,11 +172,12 @@ function orderHelper(data) {
 }
 
 const tellIfSoldOut = (num, btn) => {
+    const restStock = document.querySelector('#restStock');
     if (num <= 0) {
       btn.disabled = true;
       btn.innerText = "缺貨中";
       btn.classList.add("failToCart");
-      num = 0
+      num = 0;
       restStock.textContent = "剩餘 " + num + " 件";
       restStock.style.opacity = "1";
     } else {
@@ -187,4 +187,4 @@ const tellIfSoldOut = (num, btn) => {
       restStock.textContent = "剩餘 " + num + " 件";
       restStock.style.opacity = "1";
     }
-}
+};

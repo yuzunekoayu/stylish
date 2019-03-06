@@ -14,6 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const backToIndex = document.querySelector('#backToIndex');
     backToIndex.addEventListener('click', () => {
         window.location.href = "index.html";
-    })
+    });
 
 });

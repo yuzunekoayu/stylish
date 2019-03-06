@@ -5,9 +5,10 @@
     renderCartList === render Cart List（購物車清單）
 */
 
+// global renderKV renderPD renderCartList host record cartList renderDetails
+
 // render Key Visual
 function renderKV(layout) {
-    console.log(layout);
     const carousel = document.getElementById("carousel");
     
     const fragment = document.createDocumentFragment();
@@ -26,7 +27,7 @@ function renderKV(layout) {
 
         // 創造裝故事的 div.story
         const story = document.createElement("div");
-        story.className = "story"
+        story.className = "story";
 
         // 再用 <br> 把一行一行的故事文串起來，然後在最後一行加 span.subText 才能還原成設計稿畫的樣子。
         story.innerHTML = `${line[0] + '<br>' + line[1] + '<br>' + line[2] + '<br><span class="subText">' + line[3] + '</span>'}`;

@@ -1,3 +1,5 @@
+// global FB
+
 // 各 Page Nav Bar 會員小 icon（PC & mobile版）
 const memberIcon = document.querySelector('.member > img');
 const mobileMemberIcon = document.querySelector('.smIcon > img');
@@ -41,7 +43,7 @@ function saveAccessToken(response) {
         let access_token = response.authResponse.accessToken;
         localStorage.setItem('access_token', JSON.stringify(access_token));
     } else {
-        return
+        return;
     }
 }
 
@@ -67,7 +69,7 @@ function statusChangeCallback(response) {
 // Here we run a very simple test of the Graph API after login is
 // successful.  See statusChangeCallback() for when this call is made.
 function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
+    // console.log('Welcome!  Fetching your information.... ');
     FB.api("/me?fields=id, name, email", function(response) {
         // 如果我在 Profile Page 的話。
         if ( window.location.href.indexOf("profile") > -1) {

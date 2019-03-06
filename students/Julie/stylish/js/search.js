@@ -10,13 +10,13 @@ searchForm.addEventListener('submit', e => {
   if (keyword === "") {
     return;
   } else if (productPage > -1 || cartPage > -1 || profilePage > -1) {  
-    window.location.href = `index.html?tag=${keyword}`
+    window.location.href = `index.html?tag=${keyword}`;
   } else {
     clear(document.querySelector('#row'));
-    search(keyword)
+    search(keyword);
   }
   searchForm.reset();
-})
+});
 
 // 手機版 Search Bar 樣式
 const mobileSubmit = document.querySelector("#mobileSubmit");

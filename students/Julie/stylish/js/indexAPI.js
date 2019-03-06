@@ -1,7 +1,8 @@
+// eslint no-unused-vars: ["error",{"vars": "local"}]
+// global catalog search campaigns
+
 // 初始目前頁數，目前 End Point
 let currPG = 0; let currEP = '';
-// 伺服器名
-let host = 'api.appworks-school.tw'; 
 // 輪播要用的變數
 let slides = []; let dots = [];
 
@@ -31,7 +32,7 @@ function get(api, page) {
                 slides = document.querySelectorAll(".slide");
                 dots = document.querySelectorAll(".dot");
 
-                dots.forEach( (dot) => {dot.addEventListener('click', currentSlide)});
+                dots.forEach( (dot) => {dot.addEventListener('click', currentSlide);});
             } else {
                 // 不然就 render 產品出來，然後也把 paging 值存起來，換頁用。
                 currEP = api;
@@ -43,7 +44,7 @@ function get(api, page) {
         })
         .catch( err => {
             console.log(err);
-        })
+        });
 }
 
 // 監測卷軸事件的 CallBack
@@ -62,9 +63,9 @@ const scrollEventHandler = function() {
         // 不用擔心要怎麼把監聽事件加回去，重新觸發 get () 時就又會重新監聽了，
         // 因為監聽卷軸這件事就寫在 get() 裡面。
     } else {
-      	return
+        return;
     }
-}
+};
 
 // 移除監聽用的函式
 function unbindScrollEventHandler() {

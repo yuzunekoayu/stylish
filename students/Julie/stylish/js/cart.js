@@ -1,5 +1,5 @@
-// 伺服器名
-let host = 'api.appworks-school.tw';
+// eslint no-unused-vars: ["error",{"vars": "local"}]
+
 // 總計、運費、應付
 let sumTotalNum = []; let shippingFeeNum = 30; let payableNum = 0;
 // 檢查信用卡資料有沒有填好用

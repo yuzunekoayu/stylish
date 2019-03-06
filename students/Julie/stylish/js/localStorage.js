@@ -1,3 +1,7 @@
+// global list access_token badges countGoods
+
+// 伺服器名
+let host = 'api.appworks-school.tw';
 // 購物車沒東西
 let list = [];
 // 購物車有東西

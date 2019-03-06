@@ -7,8 +7,24 @@
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly",
-        "getParams": "readonly",
-        "getProducts": "readonly"
+        "clear": "readonly",
+        "toggleMutiple": "readonly",
+        "catalog": "readonly",
+        "search": "readonly",
+        "campaigns": "readonly",
+        "renderKV": "readonly",
+        "renderPD": "readonly",
+        "renderCartList": "readonly",
+        "renderDetails": "readonly",
+        "FB": "readonly",
+        "host": "readonly",
+        "record": "readonly",
+        "cartList": "readonly",
+        "list": "true",
+        "access_token": "readonly",
+        "badges": "readonly",
+        "countGoods": "readonly",
+        "restStock": "readonly"
     },
     "parserOptions": {
         "ecmaVersion": 2018
@@ -252,7 +268,7 @@
         "require-jsdoc": "off",
         "require-unicode-regexp": "off",
         "rest-spread-spacing": "error",
-        "semi": "off",
+        "semi": "error",
         "semi-spacing": [
             "error",
             {
@@ -296,6 +312,12 @@
         "yoda": [
             "error",
             "never"
+        ],
+        "no-unused-vars": [
+            "error",
+            {
+                "vars": "local"
+            }
         ]
     }
 }
