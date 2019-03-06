@@ -620,7 +620,7 @@ footer {
         width: 44px; height: 44px;
         position: absolute;
         top: 5px; right: 15px;
-        background: url(../img/search.png) no-repeat;
+        background-image: url(../img/search.png) no-repeat;
         outline: none;
         border: none;
         opacity: 1;
