@@ -32,9 +32,6 @@ cartYesPay.addEventListener("click", finalCheck);
 function finalCheck(e) {
     e.preventDefault();
 
-    console.log(sumTotalNum, shippingFeeNum, payableNum);
-    console.log(checkCartList(), checkOrderInfo());
-    console.log(selectDeliveryArea.value, selectPayWay.value);
     const cartMoneyWarn = document.querySelector('.cartMoneyWarn'); // 填表有誤警語
 
     if (checkCartList() === true && checkOrderInfo() === true && creditReady === true) {
@@ -48,7 +45,7 @@ function finalCheck(e) {
         console.log("您是不認真填表的顧客:(");
         cartMoneyWarn.style.opacity = "1";
         cartYesPay.classList = 'cartNoPay';
-        cartYesPay.innerHTML = '修改好了，確認付款';
+        cartYesPay.innerHTML = '確認付款';
     }
 }
 

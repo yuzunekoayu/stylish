@@ -228,6 +228,7 @@
     color: rgb(173, 24, 24);
     opacity: 0;
     transition: opacity .2s ease;
+    font-size: 12px;
 }
 
 .cartMoneyWord, .cartMoneyUnit {
