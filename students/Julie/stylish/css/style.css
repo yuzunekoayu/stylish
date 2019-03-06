@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0; padding: 0;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
 body {
@@ -113,6 +114,7 @@ nav > span {
     border: none; outline: none;
     cursor: pointer;
     position: relative;
+    background-color: transparent;
 }
 
 .searchBar, .cart {
@@ -623,6 +625,7 @@ footer {
         top: 5px; right: 15px;
         background-image: url(../img/search.png);
         background-repeat: no-repeat;
+        background-color: transparent;
         outline: none;
         border: none;
         opacity: 1;
