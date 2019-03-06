@@ -11,13 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let catas = url.searchParams.get('category');
     let tag = url.searchParams.get('tag');
     if (catas === 'women') {
-        console.log(catas);
+        document.querySelectorAll(".item")[0].classList.add("activeTab");
         catalog("women");
     } else if (catas === 'men') {
-        console.log(catas);
+        document.querySelectorAll(".item")[1].classList.add("activeTab");
         catalog("men");
     } else if (catas === 'accessories') {
-        console.log(catas);
+        document.querySelectorAll(".item")[2].classList.add("activeTab");
         catalog("accessories");
     } else if (tag !== null ) {
         search(tag);
