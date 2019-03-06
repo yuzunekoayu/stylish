@@ -20,6 +20,41 @@ body {
     display: none;
 }
 
+.fbLogo {
+    background: #4661b0;
+    text-indent: -999em;
+    width: 180px; 
+    height: 180px;
+    border-radius: 3px; 
+    position: relative;
+    overflow: hidden; 
+    border: 15px solid #4661b0;
+    border-bottom: 0; 
+    margin-bottom: 20px; 
+}
+
+.fbLogo:before {
+	content: "/20";
+	position: absolute; 
+	background: #4661b0; 
+	width: 40px; 
+	height: 120px; 
+	bottom: -30px; 
+	right: -40px;
+	border: 20px solid white; 
+	border-radius: 25px;
+}
+
+.fbLogo:after {
+	content: "/20";
+	position: absolute;
+	width: 55px;
+	top: 80px;
+	height: 20px; 
+	background: white; 
+	right: 5px; 
+}
+
 #loginBtn {
     width: 180px; height: 40px;
     background: black;
