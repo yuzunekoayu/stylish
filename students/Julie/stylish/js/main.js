@@ -1,4 +1,4 @@
-let index = 0; let dotIndex = 0;
+let slideIndex = 1;
 
 // 等靜態 HTML DOM 長好了才開始跑
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         catalog("all");
     }
     // 每 10 秒輪播 Campaign
-    setInterval(next, 10000);
+    setInterval(plusSlides, 2000);
 
     // 按 tab 變字體顏色
     toggleMutiple(document.querySelectorAll('.item'), "activeTab", "A");
@@ -49,17 +49,42 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // 自動輪播功能
-function next() {
-  slides[index].classList.remove("in");
-  slides[index].classList.add("out");
-  dots[dotIndex].classList.remove("activeDot");
-  dots[dotIndex].classList.add("dot");
+// function nextSlide() {
+//     slides[slideIndex].classList.remove("in");
+//     slides[slideIndex].classList.add("out");
+//     dots[dotIndex].classList.remove("activeDot");
+//     dots[dotIndex].classList.add("dot");
 
-  index = (index+1) % slides.length;
-  dotIndex = (dotIndex+1) % dots.length;
+//     slideIndex = (slideIndex+1) % slides.length;
+//     dotIndex = (dotIndex+1) % dots.length;
 
-  slides[index].classList.remove("out");
-  slides[index].classList.add("in");
-  dots[dotIndex].classList.add("activeDot");
-  dots[dotIndex].classList.remove("dot");
+//     slides[slideIndex].classList.remove("out");
+//     slides[slideIndex].classList.add("in");
+//     dots[dotIndex].classList.add("activeDot");
+//     dots[dotIndex].classList.remove("dot");
+// }
+
+function plusSlides() {
+    showSlides(slideIndex += 1);
+}
+
+function currentSlide(e) {
+    showSlides(slideIndex = e.target.getAttribute('data-navdot'));
+}
+
+function showSlides(n) {
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList = "slide out";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace("dot activeDot", "dot");
+    }
+    slides[slideIndex - 1].classList = "slide in";
+    dots[slideIndex - 1].className += " activeDot";
 }

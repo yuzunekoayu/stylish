@@ -34,5 +34,5 @@ function magnify() {
     searchBar.classList.add('searchBarGrow');
   }
 }
-mobileSubmit.addEventListener('pointerdown', magnify); 
 mobileSubmit.addEventListener('click', magnify);
+// pointerdown 事件雖然很理想但是 Safari 還不支援。 

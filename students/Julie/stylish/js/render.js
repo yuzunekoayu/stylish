@@ -7,6 +7,7 @@
 
 // render Key Visual
 function renderKV(layout) {
+    console.log(layout);
     const carousel = document.getElementById("carousel");
     
     const fragment = document.createDocumentFragment();
@@ -16,6 +17,9 @@ function renderKV(layout) {
         const visual = 'https://' + `${host}` + `${layout.data[i].picture}`;
         slide.className = "slide";
         slide.style.backgroundImage = ('src', "url('" + visual + "')");
+
+        const campaign = document.createElement("a");
+        campaign.href = `./product.html?id=${layout.data[i].product_id}`;
 
         // 根據 <br> 把故事文拆開變一行一行
         const line = `${layout.data[i].story}`.split('\r\n');
@@ -28,6 +32,7 @@ function renderKV(layout) {
         story.innerHTML = `${line[0] + '<br>' + line[1] + '<br>' + line[2] + '<br><span class="subText">' + line[3] + '</span>'}`;
         
         slide.appendChild(story);
+        slide.appendChild(campaign);
         fragment.appendChild(slide);
     }
 
@@ -38,13 +43,15 @@ function renderKV(layout) {
     // 讓位在第一個的點點同時有 dot activeDot 的 class
     for(let d = 0; d < layout.data.length - (layout.data.length - 1); d++) {
         const dot = document.createElement("div");
-        dot.className = "activeDot dot";
+        dot.className = "dot activeDot";
+        dot.dataset.navdot = d + 1;
         dotWrap.appendChild(dot);
     }
     
     for(let d = 0; d < layout.data.length - 1; d++) {
         const dot = document.createElement("div");
         dot.className = "dot";
+        dot.dataset.navdot = d + 2;
         dotWrap.appendChild(dot);
     }
     
