@@ -107,7 +107,8 @@ nav > span {
 .searchBar > button {
     min-width: 60px;
     display: inline-block;
-    background-image: url(../img/search.png) no-repeat;
+    background-image: url(../img/search.png);
+    background-repeat: no-repeat;
     background-position: calc(100% - 5px) calc(100% + 3px);
     border: none; outline: none;
     cursor: pointer;
@@ -620,7 +621,8 @@ footer {
         width: 44px; height: 44px;
         position: absolute;
         top: 5px; right: 15px;
-        background-image: url(../img/search.png) no-repeat;
+        background-image: url(../img/search.png);
+        background-repeat: no-repeat;
         outline: none;
         border: none;
         opacity: 1;

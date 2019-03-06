@@ -24,12 +24,12 @@ const feature = document.querySelector("#feature");
 const searchBar = document.querySelector("#searchBar");
 
 function magnify() {
-  if (mobileSubmit.style.backgroundImage === 'url("./img/close.png") no-repeat') {
-    mobileSubmit.style.backgroundImage = 'url("./img/search.png") no-repeat';
+  if (mobileSubmit.style.backgroundImage === 'url("./img/close.png")') {
+    mobileSubmit.style.backgroundImage = 'url("./img/search.png")';
     feature.classList.remove('featureGrow');
     searchBar.classList.remove('searchBarGrow');
   } else {
-    mobileSubmit.style.backgroundImage = 'url("./img/close.png") no-repeat';
+    mobileSubmit.style.backgroundImage = 'url("./img/close.png")';
     feature.classList.add('featureGrow');
     searchBar.classList.add('searchBarGrow');
   }
