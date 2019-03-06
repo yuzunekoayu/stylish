@@ -318,6 +318,7 @@
             {
                 "vars": "local"
             }
-        ]
+        ],
+        "no-console": "off"
     }
 }
