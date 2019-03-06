@@ -33,10 +33,6 @@ function get(api, page) {
                 slides = document.querySelectorAll(".slide");
                 dots = document.querySelectorAll(".dot");
 
-                let pause = null; 
-                function startCycle(func, time) { pause = setInterval(func, time) };
-                function pauseCycle () { clearInterval(pause) };
-                
                 startCycle(plusSlides, 10000);
                 
                 // 只要 dot 被點擊，自動輪播就停止，一去ㄅ回，但是可以自點要哪張就出現哪張。

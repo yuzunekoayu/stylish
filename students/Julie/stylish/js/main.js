@@ -1,3 +1,6 @@
+// eslint no-unused-vars: ["error",{"vars": "local"}]
+// global startCycle pauseCycle plusSlides currentSlide slides dots
+
 let slideIndex = 1;
 // let dotIndex = 0;
 
@@ -7,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 初始畫面
     campaigns();
     // 判斷網址是否有 category 或 tag 參數，有的話就要跑出正確畫面（方便各 Page 共用 NavBar）
-    let url = new URL(location.href)
+    let url = new URL(location.href);
     let catas = url.searchParams.get('category');
     let tag = url.searchParams.get('tag');
     if (catas === 'women') {
@@ -30,24 +33,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 把 tab id 當作網址的 End Point 傳給 Fetch，按到哪個 tab 就傳那個 tab 的 id 
     const tabs = document.querySelectorAll('.item');
-    for (let i = 0; i < tabs.length; i++) {
-        let tab = tabs[i].id;
-
-        function tabListen(e) {
-        if (e.currentTarget.id === tab) {
+    for (let i = 0; i < tabs.length; i++) {   
+        tabs[i].addEventListener('click', function (e) {
+            if (e.currentTarget.id === tabs[i].id) {
                 clear(document.getElementById('row'));
-                catalog(tab);
+                catalog(tabs[i].id);
             } else {
                 console.log(e.currentTarget.id);
-                console.log(tab);
+                console.log(tabs[i].id);
             }
-        }
-        tabs[i].addEventListener('click', tabListen);
+        });
     }
-
 });
 
 // 輪播 CallBcak
+let pause = null;
+
+function startCycle(func, time) { 
+    pause = setInterval(func, time);
+}
+
+function pauseCycle () { 
+    clearInterval(pause);
+}
+
 function plusSlides() {
     showSlides(slideIndex += 1);
 }
@@ -66,7 +75,7 @@ function showSlides(n) {
     for (let i = 0; i < slides.length; i++) {
         slides[i].classList = "slide out";
     }
-    for (i = 0; i < dots.length; i++) {
+    for (let i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace("dot activeDot", "dot");
     }
     slides[slideIndex - 1].classList = "slide in";

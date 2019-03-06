@@ -1,29 +1,29 @@
 // eslint no-unused-vars: ["error",{"vars": "local"}]
+// global creditReady sumTotalNum shippingFeeNum payableNum cartList sumTotal shippingFee payable selectDeliveryArea selectPayWay orderInfo cartYesPay
 
-let max;
 // 總計、運費、應付
 let sumTotalNum = []; let shippingFeeNum = 30; let payableNum = 0;
 // 檢查信用卡資料有沒有填好用
 let creditReady = false;
 
+const cartList = document.querySelector('#cartList'); // 購物車商品清單
+const cartTopTitle = document.querySelector('#cartTopTitle'); // Cart List 左上數字
+
+const sumTotal = document.querySelector('#sumTotal'); // 總計
+const shippingFee = document.querySelector('#shippingFee'); // 運費
+const payable = document.querySelector('#payable'); // 應付
+
+const selectDeliveryArea = document.querySelector('#selectDeliveryArea'); // 選擇配送國家
+const selectPayWay = document.querySelector('#selectPayWay'); // 選擇付款方式
+
+const orderInfo = document.querySelector('#orderInfo'); // 訂購資料表格
+
+const cartYesPay = document.querySelector('#cartYesPay'); // 確認付款按鈕
+
 document.addEventListener("DOMContentLoaded", () => {
-    
+
     toggleMutiple(document.querySelectorAll('.item'), "activeTab", "A");
     
-    const cartList = document.querySelector('#cartList'); // 購物車商品清單
-    const cartTopTitle = document.querySelector('#cartTopTitle'); // Cart List 左上數字
-
-    const sumTotal = document.querySelector('#sumTotal'); // 總計
-    const shippingFee = document.querySelector('#shippingFee'); // 運費
-    const payable = document.querySelector('#payable'); // 應付
-
-    const selectDeliveryArea = document.querySelector('#selectDeliveryArea'); // 選擇配送國家
-    const selectPayWay = document.querySelector('#selectPayWay'); // 選擇付款方式
-
-    const orderInfo = document.querySelector('#orderInfo'); // 訂購資料表格
-
-    const cartYesPay = document.querySelector('#cartYesPay'); // 確認付款按鈕
-
     cartTopTitle.textContent = "購物車(" + countGoods() + ")";
     initCart();
     
@@ -51,6 +51,7 @@ async function record(id, color, size, qty, parent) {
 
 // 為了找到對的庫存數量的功能
 function findMax(v, color, size, qty, parent) {
+    let max = 0;
     v.forEach((m) => {
         if (m.color_code === color && m.size === size) {
             max = m.stock;
