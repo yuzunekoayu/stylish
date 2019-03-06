@@ -35,15 +35,20 @@ function finalCheck(e) {
     console.log(sumTotalNum, shippingFeeNum, payableNum);
     console.log(checkCartList(), checkOrderInfo());
     console.log(selectDeliveryArea.value, selectPayWay.value);
+    const cartMoneyWarn = document.querySelector('.cartMoneyWarn'); // 填表有誤警語
 
     if (checkCartList() === true && checkOrderInfo() === true && creditReady === true) {
         console.log("您是個認真填表的好顧客～!");
+        cartMoneyWarn.style.opacity = "0";
+        cartYesPay.classList = 'cartYesPay';
         onSubmit();
         // 跳轉 Thank You Page 前的 Loading 畫面。
         cartYesPay.innerHTML = '<div id="processingOrder"></div>處理中';
     } else {
         console.log("您是不認真填表的顧客:(");
-        return;
+        cartMoneyWarn.style.opacity = "1";
+        cartYesPay.classList = 'cartNoPay';
+        cartYesPay.innerHTML = '修改好了，確認付款';
     }
 }
 
@@ -83,7 +88,7 @@ TPDirect.card.setup({
         },
         // Styling card-number field
         'input.card-number': {
-            'font-size': '20px'
+            // 'font-size': '20px'
         },
         // style focus state
         ':focus': {

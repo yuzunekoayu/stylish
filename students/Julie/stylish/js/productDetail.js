@@ -166,6 +166,7 @@ function orderHelper(data) {
                 localStorage.setItem("list", JSON.stringify(list));
             }
             order.amount = count.value = 0;
+            alert('成功加入購物車!');
         }
         countGoods();
     });

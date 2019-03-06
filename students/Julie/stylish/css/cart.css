@@ -208,7 +208,6 @@
     border-top: 1px solid #3f3a3a;
 }
 
-
 .cartMoneyWord {
     flex: 1 0;
 }
@@ -223,6 +222,14 @@
     flex: 0 0;
 }
 
+.cartMoneyWarn {
+    margin-top: 30px;
+    margin-left: auto;
+    color: rgb(173, 24, 24);
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+
 .cartMoneyWord, .cartMoneyUnit {
     font-size: 16px;
 }
@@ -234,7 +241,7 @@
     border: 1px outset #888888;
     outline: none;
     cursor: pointer;
-    margin: 50px 0 0 auto;
+    margin: 3px 0 0 auto;
     justify-content: center;
     align-items: center;
     color: white;
@@ -390,9 +397,8 @@
         margin-top: 48px;
     }
 
-    .cartYesPay {
+    .cartYesPay, .cartNoPay {
         width: 100%;
-        margin: 40px 0 0 auto;
     }
 
 

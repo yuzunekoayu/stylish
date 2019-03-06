@@ -1,4 +1,5 @@
 let slideIndex = 1;
+// let dotIndex = 0;
 
 // 等靜態 HTML DOM 長好了才開始跑
 document.addEventListener("DOMContentLoaded", () => {
@@ -23,8 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         catalog("all");
     }
-    // 每 10 秒輪播 Campaign
-    setInterval(plusSlides, 2000);
 
     // 按 tab 變字體顏色
     toggleMutiple(document.querySelectorAll('.item'), "activeTab", "A");
@@ -48,22 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// 自動輪播功能
-// function nextSlide() {
-//     slides[slideIndex].classList.remove("in");
-//     slides[slideIndex].classList.add("out");
-//     dots[dotIndex].classList.remove("activeDot");
-//     dots[dotIndex].classList.add("dot");
-
-//     slideIndex = (slideIndex+1) % slides.length;
-//     dotIndex = (dotIndex+1) % dots.length;
-
-//     slides[slideIndex].classList.remove("out");
-//     slides[slideIndex].classList.add("in");
-//     dots[dotIndex].classList.add("activeDot");
-//     dots[dotIndex].classList.remove("dot");
-// }
-
+// 輪播 CallBcak
 function plusSlides() {
     showSlides(slideIndex += 1);
 }

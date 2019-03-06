@@ -28,11 +28,22 @@ function get(api, page) {
             } else if (api === "/marketing/campaigns?") {
                 // 如果 api 是 Marketing Campaigns API，就 render Key Visual
                 renderKV(json);
+
                 // 輪播功能
                 slides = document.querySelectorAll(".slide");
                 dots = document.querySelectorAll(".dot");
 
-                dots.forEach( (dot) => {dot.addEventListener('click', currentSlide);});
+                let pause = null; 
+                function startCycle(func, time) { pause = setInterval(func, time) };
+                function pauseCycle () { clearInterval(pause) };
+                
+                startCycle(plusSlides, 2000);
+                
+                // 只要 dot 被點擊，自動輪播就停止，一去ㄅ回，但是可以自點要哪張就出現哪張。
+                dots.forEach( (dot) => {
+                    dot.addEventListener('click', pauseCycle);
+                    dot.addEventListener('click', currentSlide);
+                });
             } else {
                 // 不然就 render 產品出來，然後也把 paging 值存起來，換頁用。
                 currEP = api;
