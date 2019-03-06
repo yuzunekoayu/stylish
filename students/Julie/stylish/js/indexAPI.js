@@ -37,7 +37,7 @@ function get(api, page) {
                 function startCycle(func, time) { pause = setInterval(func, time) };
                 function pauseCycle () { clearInterval(pause) };
                 
-                startCycle(plusSlides, 2000);
+                startCycle(plusSlides, 10000);
                 
                 // 只要 dot 被點擊，自動輪播就停止，一去ㄅ回，但是可以自點要哪張就出現哪張。
                 dots.forEach( (dot) => {
