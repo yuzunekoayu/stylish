@@ -20,11 +20,11 @@
         "host": "readonly",
         "record": "readonly",
         "cartList": "readonly",
-        "list": "true",
         "access_token": "readonly",
         "badges": "readonly",
         "countGoods": "readonly",
-        "restStock": "readonly"
+        "restStock": "readonly",
+        "list": "true"
     },
     "parserOptions": {
         "ecmaVersion": 2018

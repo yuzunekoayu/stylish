@@ -1,5 +1,6 @@
 // eslint no-unused-vars: ["error",{"vars": "local"}]
 
+let max;
 // 總計、運費、應付
 let sumTotalNum = []; let shippingFeeNum = 30; let payableNum = 0;
 // 檢查信用卡資料有沒有填好用
@@ -54,7 +55,7 @@ function findMax(v, color, size, qty, parent) {
         if (m.color_code === color && m.size === size) {
             max = m.stock;
         }
-    })
+    });
     console.log("真正庫存", max);
     optionMaker(max, qty, parent);
 }
@@ -109,14 +110,14 @@ function updateSubTotal(li) {
         if (p.getAttribute("data-confirm") === li.confirm) {
             p.textContent = "NT." + `${li.price * parseInt(li.qty)}`;
         }
-    })
+    });
 }
 
 // 空空畫面
 function cartNothing() {
-    const cartEmpty = document.createElement('div')
+    const cartEmpty = document.createElement('div');
     cartEmpty.textContent = '您的購物車是空的喔～!';
-    cartEmpty.className = 'cartEmpty'
+    cartEmpty.className = 'cartEmpty';
     while (cartList.firstChild) {
         cartList.removeChild(cartList.firstChild);
     }
@@ -127,7 +128,7 @@ function cartNothing() {
 function calcTotal() {
     if (list.length === 0 ) {
         // 如果購物車空空，沒事。
-        return
+        return;
     } else {
         // 購物車有東西，總計 = 單價 * 數量，再加總。
         sumTotalNum = list.map( (li) => {

@@ -43,11 +43,11 @@ function finalCheck(e) {
         cartYesPay.innerHTML = '<div id="processingOrder"></div>處理中';
     } else {
         console.log("您是不認真填表的顧客:(");
-        return
+        return;
     }
 }
 
-// Tap Pay SDK 初始化　TPDirect.setupSDK(appID, appKey, serverType)
+// Tap Pay SDK 初始化 TPDirect.setupSDK(appID, appKey, serverType)
 TPDirect.setupSDK(12348, "app_pa1pQcKoY22IlnSXq5m5WP5jFKzoRG58VEXpT7wU62ud7mMbDOGzCYIlzzLF", "sandbox");
 
 // 外觀設定 TPDirect.card.setup(config)
@@ -164,14 +164,14 @@ function onSubmit() {
     // 這邊 Tap Pay 內建再幫忙檢查一次。
     if (tappayStatus.canGetPrime === false) {
         console.log('您是個不好好填信用卡資料的顧客，can not get prime');
-        return
+        return;
     }
 
     // Get prime
     TPDirect.card.getPrime((result) => {
         if (result.status !== 0) {
             console.log('get prime error ' + result.msg);
-            return
+            return;
         }
         console.log('您是個認真填信用卡資料的好顧客！，get prime 成功，prime: ' + result.card.prime);
         
@@ -182,12 +182,12 @@ function onSubmit() {
         const order = orderMaker(result.card.prime);
         // 把物件 POST 給 Check Out API，然後取回訂單編號。
         checkOut(order);
-    })
+    });
 }
 
 // POST 訂單給 Check Out API，用 Fetch，取得訂單號碼，跳轉到 Thank You Page
 function checkOut (order) {
-    const url = `https://${host}/api/1.0/order/checkout`
+    const url = `https://${host}/api/1.0/order/checkout`;
     fetch(url, {
         method: 'POST', 
         headers: {'Content-Type': 'application/json', 'Authorization': `Bearer x${access_token}`},
@@ -201,11 +201,11 @@ function checkOut (order) {
         // 清空購物車，因為結帳了。
         localStorage.removeItem("list");
         // 取得 API 回傳的訂單號碼 + 跳轉到 Thank You Page（將訂單號碼放在網址參數裡）
-        window.location.href = `thankYou.html?orderNum=${json.data.number}`
+        window.location.href = `thankYou.html?orderNum=${json.data.number}`;
     })
     .catch(err => {
         console.log(err);
-    })
+    });
 }
 
 // 訂單製造者
@@ -229,7 +229,7 @@ function orderMaker(primeKey) {
             },
             list: remadeList
         }
-    }
+    };
 }
 
 // 清除 local storage 裡 Check Out API 不要的 Key 跟值（用 map 重組陣列）
@@ -245,7 +245,7 @@ function remakeList() {
             },
             size: li.size,
             qty: li.qty
-        }
-    })
-    return remade
+        };
+    });
+    return remade;
 }
