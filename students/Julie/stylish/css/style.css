@@ -430,10 +430,10 @@ footer {
     flex: 1 0 auto;
     display: flex;
     justify-content: flex-end;
-    cursor: pointer;
 }
 
 .line, .twi, .fb {
+    cursor: pointer;
     width: 50px; height: 50px;
 }
 
