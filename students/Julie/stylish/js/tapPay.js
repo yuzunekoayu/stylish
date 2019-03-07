@@ -2,6 +2,7 @@
 // eslint no-unused-vars: ["error",{"vars": "local"}]
 
 // 檢查購物車是否空空
+checkCartList();
 function checkCartList() {
     if (list.length > 0) {
         return true;
@@ -47,7 +48,7 @@ function finalCheck(e) {
     } else {
         console.log("您是不認真填表的顧客:(");
         cartMoneyWarn.style.opacity = "1";
-        cartYesPay.classList = 'cartNoPay';
+        cartMoneyWarn.textContent = "資料有誤或購物車是空的，請修改後再按一次";
         cartYesPay.innerHTML = '確認付款';
     }
 }
