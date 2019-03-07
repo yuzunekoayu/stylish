@@ -33,7 +33,7 @@ function get(api, page) {
                 slides = document.querySelectorAll(".slide");
                 dots = document.querySelectorAll(".dot");
 
-                startCycle(plusSlides, 10000);
+                startCycle();
                 
                 // 只要 dot 被點擊，自動輪播就停止，一去ㄅ回，但是可以自點要哪張就出現哪張。
                 dots.forEach( (dot) => {
@@ -45,7 +45,7 @@ function get(api, page) {
                 currEP = api;
                 currPG = json.paging;
                 renderPD(json);
-                // 監測卷軸 & 下一頁加載（當目錄裡最後一個 Product 區塊完全進入了可視範圍，觸發加載下一頁）
+                // 監測卷軸 & 下一頁加載（當目錄裡最後一個 Product 區塊裡的 price 區塊完全進入了可視範圍，觸發加載下一頁）
                 window.addEventListener('scroll', scrollEventHandler);
             }
         })
@@ -63,7 +63,7 @@ const scrollEventHandler = function() {
         console.log('Request 網址: ' + currEP + 'paging=' + currPG);
         // 如果 paging 不是 undefined（代表有下一頁），
         // 而且下一頁非第 0 頁（初始畫面就是載入第 0 頁，要加載的是下一頁），
-        // 而且目錄裡最後一個 Product 區塊完全進入了可視範圍，
+        // 而且目錄裡最後一個 Product 區塊裡的 price 區塊完全進入了可視範圍，
         // 就加載下一頁
         get(currEP, currPG);
         // 然後，移除監聽（防止短短不到 0.X 秒就瘋狂觸發加載了兩～三次「同一個下一頁（例：第 2 頁加載三次、第 3 頁加載兩次）」之類的情形，下一頁只需要加載一次就好）

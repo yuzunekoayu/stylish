@@ -49,12 +49,15 @@ document.addEventListener("DOMContentLoaded", () => {
 // 輪播 CallBcak
 let pause = null;
 
-function startCycle(func, time) { 
-    pause = setInterval(func, time);
+function startCycle() {
+    if (pause === null) {
+        pause = setInterval(plusSlides, 10000);
+    }
 }
 
 function pauseCycle () { 
     clearInterval(pause);
+    pause = null;
 }
 
 function plusSlides() {
@@ -62,15 +65,17 @@ function plusSlides() {
 }
 
 function currentSlide(e) {
-    showSlides(slideIndex = e.target.getAttribute('data-navdot'));
+    let nav = parseInt(e.target.getAttribute('data-navdot'));
+    showSlides(slideIndex = nav);
+    startCycle();
 }
 
 function showSlides(n) {
     if (n > slides.length) {
-        slideIndex = 1;
+        slideIndex = n % slides.length;
     }
     if (n < 1) {
-        slideIndex = slides.length;
+        slideIndex = (n + 1) % slides.length;
     }
     for (let i = 0; i < slides.length; i++) {
         slides[i].classList = "slide out";
