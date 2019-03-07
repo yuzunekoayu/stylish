@@ -11,11 +11,16 @@ let prodURL = new URL(window.location);
 
 // Connect Product Details API（試著用 async 和 await + Fetch）
 async function kwsk() {
+    document.getElementById("loading").style.display = 'block';
     const res = await fetch(`https://${host}/api/1.0/products/details${prodURL.search}`);
     return res.json();
 }
 kwsk()
     .then(json => {
+        // Loading 圖
+        document.getElementById("loading").style.display = 'none';
+        document.getElementById("prodMain").style.display = 'block';
+
         renderDetails(json);
 
         // 點擊變顏色、變框框

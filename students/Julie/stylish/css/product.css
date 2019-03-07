@@ -9,7 +9,8 @@
 .prodMain {
     max-width: 1200px;
     width: 100%;
-    margin: 70px auto auto auto;    
+    margin: 70px auto auto auto; 
+    display: none;   
 }
 
 .info {
