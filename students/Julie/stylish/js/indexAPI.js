@@ -56,9 +56,10 @@ function get(api, page) {
 
 // 監測卷軸事件的 CallBack
 const scrollEventHandler = function() {
+    let lastP = document.querySelector('#row').lastChild;
     if (currEP === "/marketing/campaigns?") {
         // 如果是 Marketing Campaigns API，就什ㄇ都不做
-    } else if(currPG !== undefined && currPG > 0 && isScrolledIntoView(document.querySelector('#row').lastChild)) {
+    } else if(currPG !== undefined && currPG > 0 && isScrolledIntoView(lastP.querySelector('.price'))) {
         console.log('Request 網址: ' + currEP + 'paging=' + currPG);
         // 如果 paging 不是 undefined（代表有下一頁），
         // 而且下一頁非第 0 頁（初始畫面就是載入第 0 頁，要加載的是下一頁），

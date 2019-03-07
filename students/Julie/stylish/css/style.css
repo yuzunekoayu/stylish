@@ -265,6 +265,7 @@ nav > span {
     line-height: 57px;
     text-align: left;
     color: #070707;
+    text-shadow: 0 0 10px rgba(255, 255, 255, .7);
     position: absolute;
     left: 34%; top: 50%; 
     transform: translateX(-34%) translateY(-50%);
@@ -272,6 +273,7 @@ nav > span {
 
 .subText {
     font-size: 20px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, .7);
 }
 
 .dotWrap {
