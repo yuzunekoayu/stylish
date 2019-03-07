@@ -417,6 +417,7 @@ footer {
     white-space: nowrap;
     text-align: center;   
     transition: color .2s ease;
+    cursor: pointer;
 }
 
 .guide:hover, .guide:active {
