@@ -1,54 +1,22 @@
-# Web Front-End Class 2019 Spring
+### STYLiSH
 
-## Outline
+>AppWorks School 2019 Spring Web Class (Front-end) Assigned Project
 
-### Programming Language
-- HTML, CSS
-- JavaScript
+| Technologies                        |                                    |                        |
+|:-----------------------------------:|:----------------------------------:|:----------------------:|
+| Connect RESTful API                 | Implement designer's layout mockup | Facebook Login API     |
+| Organize complex JSON data          | Build business logic by Plain JS   | TapPay Payment Service |
+| Load content dynamically using AJAX | CSS & DOM Animation                | Responsive Web Design  |
+| ESLint                              |                                    |                        |
 
-### Layout
-- Responsive Web Design (RWD)
-- Flex and Grid Layout
-- Single Page Application (SPA)
+### Visit STYLiSH now !
 
-### Library and Framework
-- Bootstrap
-- JQuery
-- React (Router and Redux)
-- Facebook SDK
+> [STYLiSH｜剪裁純粹](https://julieliao.github.io/stylish)
 
-### Backend Framework and Cloud Service
-- Node.js and Express
-- Firebase
+- Page : Index, Product, Cart
 
-### Networking
-- HTTP / HTTPS
-- JSON
-- RESTful APIs
-- AJAX
+<!-- ![STYLiSH ScreenShot01](https://raw.github.com/julieliao/STYLiSH/master/sample/sample-01.png) -->
 
-### Persistent Store
-- Web Storage
-- Cookie
+- Page : FB Login, Member, Thanks (Layout of these 3 pages were designed by own self.)
 
-### Patterns
-- Module
-- Object-Oriented Programming
-- Functional Programming
-- MVC and MVVM
-
-### Others
-- Unit Test & Debugging
-- Performance Optimization
-- Cache
-
-### Tools for Development
-- ESLint
-- Webpack
-- Git, GitHub
-- Slack
-
-### Tools for Business
-- Google Analytics
-- Google Optimize
-- Facebook Pixel
+<!-- ![STYLiSH ScreenShot01](https://raw.github.com/julieliao/STYLiSH/master/sample/sample-02.png) -->
