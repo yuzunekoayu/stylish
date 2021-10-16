@@ -9,10 +9,6 @@
 | Load content dynamically using AJAX | CSS & DOM Animation                | Responsive Web Design  |
 | ESLint                              |                                    |                        |
 
-### Visit STYLiSH now !
-
-> [STYLiSH｜剪裁純粹](https://julieliao.github.io/stylish)
-
 - Page : Index, Product, Cart
 
 <!-- ![STYLiSH ScreenShot01](https://raw.github.com/julieliao/STYLiSH/master/sample/sample-01.png) -->
