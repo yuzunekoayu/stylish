@@ -11,8 +11,8 @@
 
 - Page : Index, Product, Cart
 
-<!-- ![STYLiSH ScreenShot01](https://raw.github.com/julieliao/STYLiSH/master/sample/sample-01.png) -->
+<!-- ![STYLiSH ScreenShot01](https://raw.github.com/kyo144/STYLiSH/master/sample/sample-01.png) -->
 
 - Page : FB Login, Member, Thanks (Layout of these 3 pages were designed by own self.)
 
-<!-- ![STYLiSH ScreenShot01](https://raw.github.com/julieliao/STYLiSH/master/sample/sample-02.png) -->
+<!-- ![STYLiSH ScreenShot01](https://raw.github.com/kyo144/STYLiSH/master/sample/sample-02.png) -->
