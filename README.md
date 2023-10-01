@@ -1,18 +1,28 @@
-### STYLiSH
+#### STYLiSH
 
->AppWorks School 2019 Spring Web Class (Front-end) Assigned Project
+- AppWorks School 2019 spring web class (front-end) assigned project
+- An e-commerce demo website selling outfits.
+- This repository is no longer maintained, no live demo is available
 
-| Technologies                        |                                    |                        |
-|:-----------------------------------:|:----------------------------------:|:----------------------:|
-| Connect RESTful API                 | Implement designer's layout mockup | Facebook Login API     |
-| Organize complex JSON data          | Build business logic by Plain JS   | TapPay Payment Service |
-| Load content dynamically using AJAX | CSS & DOM Animation                | Responsive Web Design  |
-| ESLint                              |                                    |                        |
+#### Features
 
-- Page : Index, Product, Cart
+![stylish-01](https://github.com/chiyu144/stylish/assets/45845170/184fe536-65ff-4bdc-a06d-530435d2c248)
+![stylish-02](https://github.com/chiyu144/stylish/assets/45845170/d8370620-df02-4e76-baee-610c42b174ac)
 
-<!-- ![STYLiSH ScreenShot01](https://raw.github.com/kyo144/STYLiSH/master/sample/sample-01.png) -->
+##### Homepage
+- Display products and category
 
-- Page : FB Login, Member, Thanks (Layout of these 3 pages were designed by own self.)
+##### Product Page / Cart Page / Thanks Page
+- Display product details
+- Interactive with users, give them a good online shopping experience.
+- TapPay Payment service
 
-<!-- ![STYLiSH ScreenShot01](https://raw.github.com/kyo144/STYLiSH/master/sample/sample-02.png) -->
+##### Member Page
+- Display member profile
+- Facebook Login API
+
+#### Front-end Tech Stack
+- Implemented designer's responsive web design layout mockup using HTML 5 + CSS 3
+- Integrated RESTful API endpoints in the front-end application, organized complex JSON data, and loaded content dynamically using AJAX
+- Built business logic using vanilla JavaScript
+- Used ESLint for code linting
