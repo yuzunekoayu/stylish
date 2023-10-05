@@ -1,8 +1,8 @@
 #### STYLiSH
 
-- AppWorks School 2019 spring web class (front-end) assigned project
+- AppWorks School 2019 spring web class (front-end) assigned project.
 - An e-commerce demo website selling outfits.
-- This repository is no longer maintained, no live demo is available
+- This repository is no longer maintained, no live demo is available.
 
 #### Features
 
@@ -14,7 +14,7 @@
 
 ##### Product Page / Cart Page / Thanks Page
 - Display product details
-- Interactive with users, give them a good online shopping experience.
+- Interactive with users, give them a good online shopping experience
 - TapPay Payment service
 
 ##### Member Page
@@ -22,7 +22,6 @@
 - Facebook Login API
 
 #### Front-end Tech Stack
-- Implemented designer's responsive web design layout mockup using HTML 5 + CSS 3
-- Integrated RESTful API endpoints in the front-end application, organized complex JSON data, and loaded content dynamically using AJAX
-- Built business logic using vanilla JavaScript
-- Used ESLint for code linting
+- HTML 5 + CSS 3
+- Vanilla JavaScript
+- ESLint
